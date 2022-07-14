@@ -1,0 +1,21 @@
+.outer-part {
+    overflow: hidden;
+}
+
+.monkey-svg {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.brick-items {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

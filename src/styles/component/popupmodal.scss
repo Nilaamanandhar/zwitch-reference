@@ -1,0 +1,18 @@
+.modal-section{
+    display:flex;
+    flex-direction:column;
+    background-color:aqua;
+    padding:20px;
+
+}
+.modal-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.modal-button-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
+}

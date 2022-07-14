@@ -1,0 +1,22 @@
+@import '../variables/color.scss';
+
+.navbar-section {
+    padding: 10px 10px;
+    background-color: $primary-color;
+    // display: flex;
+    // flex-direction: row;
+
+
+}
+.name-setting{
+    display: flex;
+    flex-direction: row;
+}
+
+.title-style{
+    display: flex;
+    flex-direction: row
+}
+.logo{
+   background-color: red;
+}
