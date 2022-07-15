@@ -3,13 +3,11 @@ import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
 import { WoodBlock } from "../assets/game_blocks/blocks";
 import { useNavigate } from "react-router-dom";
-import Stack from "@mui/material/Stack";
 
 function MainDash() {
   let navigate = useNavigate();
 
   const doSomething = () => {
-    // alert("oee kali kawwaa");
     navigate("/game1");
   };
 
@@ -26,19 +24,17 @@ function MainDash() {
   };
   return (
     <div className="outer-part">
-      <Stack spacing={2} direction="column">
-        <img src={OuterImg}></img>
-        <div className="monkey-svg">
-          <img src={MonkeyImg} />
-        </div>
-        <div className="brick-items">
-          <div className="row-item">{woodColection()}</div>
-          <div className="row-item">{woodColection()}</div>
-          <div className="row-item">{woodColection()}</div>
-          <div className="row-item">{woodColection()}</div>
-          <div className="row-item">{woodColection()}</div>
-        </div>
-      </Stack>
+      <img src={OuterImg} className="dash-image"></img>
+      <div className="monkey-svg">
+        <img src={MonkeyImg} />
+      </div>
+      <div className="brick-items">
+        <div className="row-item">{woodColection()}</div>
+        <div className="row-item">{woodColection()}</div>
+        <div className="row-item">{woodColection()}</div>
+        <div className="row-item">{woodColection()}</div>
+        <div className="row-item">{woodColection()}</div>
+      </div>
     </div>
   );
 }

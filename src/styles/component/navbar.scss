@@ -3,20 +3,20 @@
 .navbar-section {
     padding: 10px 10px;
     background-color: $primary-color;
-    // display: flex;
-    // flex-direction: row;
-
-
 }
-.name-setting{
+
+.navbar-wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.title-style{
+.game-name-wrapper {
     display: flex;
-    flex-direction: row
-}
-.logo{
-   background-color: red;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    align-items: center;
 }

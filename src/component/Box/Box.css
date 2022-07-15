@@ -1,0 +1,19 @@
+.numberbox-wrapper{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-end;
+
+}
+.boxcontainer{
+    /* background-color: lightblue; */
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.primary{
+    background-color:lightblue;
+}

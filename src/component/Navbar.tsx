@@ -1,26 +1,21 @@
 import React, { useState } from "react";
 import { FaArrowsAlt, FaAngleDoubleRight } from "react-icons/fa";
-import PopUpModal from "./PopUpModal";
-type IOpenState = boolean;
-export default function Navbar() {
-  const [openPopup, setOpenPopup] = useState<IOpenState>(false);
-
+type showModal = {
+  showPopupModal: Function;
+};
+export default function Navbar(props: showModal) {
   return (
     <nav className="navbar-section navbar">
-      {openPopup && (
-        <PopUpModal show={openPopup} close={() => setOpenPopup(false)} />
-      )}
-
-      <div className="container-fluid title-style">
+      <div className="navbar-wrapper">
         <div className="logo">Jaargroep 3</div>
 
         <div className="game-name">Semsom</div>
         <div className="name-setting">
-          <div className="user-name-class">Chris Grafi</div>
+          <div className="userName-class">Chris Grafi</div>
           <FaArrowsAlt />
           <FaAngleDoubleRight
             onClick={() => {
-              setOpenPopup(true);
+              props.showPopupModal();
             }}
           />
         </div>
