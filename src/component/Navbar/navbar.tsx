@@ -14,7 +14,7 @@ type IOpenState = boolean;
 export const Navbar = (props: NavProps) => {
   let navigate = useNavigate();
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
-  const [showPopupModal, setShowPopupModal] = useState(false);
+  const [settingPop, setSettingPop] = useState(false);
   return (
     <>
       <div id="header">
@@ -36,12 +36,16 @@ export const Navbar = (props: NavProps) => {
         </div>
         <div className="right-nav-conent">
           <span className="right-content">Chris Grafi</span>
-          <div className="setting-icon">
+          <div
+            onClick={() => {
+              setSettingPop(true);
+            }}
+            className="setting-icon"
+          >
             <Settings />
           </div>
           <a
             onClick={() => {
-              console.log("helo");
               setOpenPopup(true);
             }}
             href="#"

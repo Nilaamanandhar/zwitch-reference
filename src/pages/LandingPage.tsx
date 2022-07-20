@@ -12,31 +12,8 @@ export const MainPage = () => {
   return (
     <div>
       <img className="background-img" src={background} />
-      <Navbar
-        leftContent={"Jaargroep"}
-        // showPopupModal={() => setOpenPopup(true)}
-      />
-      {/*
-       <div id="header">
-        <div className="left-nav-content">Jaarrgroep 3</div>
-        <div className="semsom-logo">
-          <SemsomLogo />
-        </div>
-        <div className="right-nav-conent">
-          <span className="right-content">Chris Grafi</span>
-          <div className="setting-icon">
-            <Settings />
-          </div>
-          <a href="#" className="logout-icon">
-            <Logout />
-          </a>
+      <Navbar leftContent={"Jaargroep"} />
 
-          <div className="navbar-setting-content">
-            <div className="fullscreen-icon">full</div>
-            <div className="sound-icon">sound</div>
-          </div>
-        </div>
-      </div> */}
       <div className="container">
         <div className="start-content">
           <h1 className="center-content">Welkom, Chris!</h1>
