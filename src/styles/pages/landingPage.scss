@@ -1,0 +1,143 @@
+@import '../variables/color.scss';
+
+.background{
+    height: 100vh;
+    background: cover;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.background-img{
+
+        height: 100vh;
+        background: cover;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+
+}
+.left-nav-content{
+    color: white
+}
+.center-content{
+    color: white
+}
+.right-content{
+    color: white
+}
+
+#header {
+    display: flex;
+    padding: 10px  20px;
+    align-items: center;
+    background-color:#e85a0c;
+    font-size: 18px;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.semsom-logo{
+    height:40px ;
+}
+
+.nav-icons{
+    font-size: 28px;
+    text-decoration: none;
+    color: white;
+    transition: all .2s ease-in-out !important;
+}
+
+.nav-icons:hover{
+    color: white;
+    transform: scale(1.1) !important;
+}
+
+.right-nav-conent{
+    display: flex;
+    align-items: center;
+
+}
+
+.right-nav-conent > .setting-icon{
+    margin: 0 10px;
+}
+
+.right-nav-conent > .logout-icon{
+    margin-left:20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.welcome-icon{
+    width:120px ;
+    height: 120px;
+    border-radius: 50%;
+    background-color:white ;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+    position: relative;
+    margin: 0 auto;
+}
+
+.welcome-icon:hover{
+    transform: scale(1.1);
+}
+
+.arrow-icon{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+#footer{
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    align-items: center;
+}
+
+.footer-logo{
+    width:150px;
+    float: right;
+    padding-right:30px ;
+}
+
+.footer-text, .footer-text:hover{
+    color:#333;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.modal-90w {
+    width: 80%;
+    max-width: none!important;
+}
+
+
+.cross-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $blue;
+    color: $white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size:20px;
+}

@@ -1,8 +1,8 @@
-@import '../variables/color.scss';
+
 
 .navbar-section {
     padding: 10px 10px;
-    background-color: $primary-color;
+    background-color: #e95c0b;
 }
 
 .navbar-wrapper {
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
 
     .fullscreen-icon {
         width: 60px;
@@ -48,4 +49,3 @@
         justify-content: center;
         align-items: center;
     }
-}

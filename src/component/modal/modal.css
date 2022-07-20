@@ -1,0 +1,23 @@
+.modal-body {
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.modal-90w {
+    width: 80%;
+    max-width: none!important;
+}
+.modal-body-style{
+    overflow: "hidden"
+}
+
+.cross-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size:20px;
+}

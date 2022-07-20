@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { FaArrowsAltH } from "react-icons/fa";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import Navbar from "../component/Navbar";
+// import Navbar from "../component/Navbar";
+import { Navbar } from "../component/Navbar/navbar";
 import Footer from "../component/Footer";
 import TextInput from "../component/TextInput";
-import PopUpModal from "../component/PopUpModal";
+import PopUpModal from "../component/modal/modal";
 import Button from "../component/Button/Button";
+import fish from "../assets/fish.png";
+import MonkeyImg from "../assets/background_img/monkey.png";
 // import Input from "../component/Input/Input";
 type IOpenState = boolean;
 // import "./App.css";
@@ -23,9 +26,36 @@ export default function GameOne() {
   };
   return (
     <>
-      <PopUpModal show={openPopup} close={() => setOpenPopup(false)} />
+      <PopUpModal
+        size={"sm"}
+        dialogClassName=""
+        show={openPopup}
+        close={() => setOpenPopup(false)}
+        centered={true}
+        title={"popup"}
+      >
+        <div className="button-styles">
+          <button
+            onClick={() => {
+              console.log("cancel and close popout");
+              setOpenPopup(false);
+            }}
+          >
+            Back
+          </button>
+          <button
+            onClick={() => {
+              console.log("Logout");
+            }}
+          >
+            OK
+          </button>
+        </div>
+      </PopUpModal>
+
       <FullScreen handle={handle}>
-        <Navbar showPopupModal={() => setOpenPopup(true)} />
+        {/* <Navbar showPopupModal={() => setOpenPopup(true)} /> */}
+        <Navbar leftContent="back" />
 
         <div onClick={handle.active ? handle.exit : handle.enter}>
           <FaArrowsAltH />
@@ -57,14 +87,15 @@ export default function GameOne() {
             clearHandle();
           }}
         />
-        <Button
+        {/* <Button
           onClick={() => {
             console.log("click hellio");
           }}
           variant="primary"
         >
           hello
-        </Button>
+        </Button> */}
+        <img style={{ height: "15vh", width: "15vw" }} src={fish}></img>
       </FullScreen>
     </>
   );

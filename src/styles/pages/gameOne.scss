@@ -6,3 +6,11 @@
     top: 50%;
     left: 50%;
 }
+.button-styles{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal-header {
+    border-bottom:none !important;
+}
