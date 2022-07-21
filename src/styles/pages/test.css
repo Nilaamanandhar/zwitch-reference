@@ -1,0 +1,10 @@
+
+.dropdown::after{
+    display: none !important; 
+  }
+
+
+.test{
+        background-color:none;
+    border-color:none;
+}
