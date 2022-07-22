@@ -9,6 +9,7 @@ import PopUpModal from "../component/modal/modal";
 import Button from "../component/Button/Button";
 import fish from "../assets/fish.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
+import Navbars from "../component/Navbar/navbars";
 // import Input from "../component/Input/Input";
 type IOpenState = boolean;
 // import "./App.css";
@@ -55,7 +56,8 @@ export default function GameOne() {
 
       <FullScreen handle={handle}>
         {/* <Navbar showPopupModal={() => setOpenPopup(true)} /> */}
-        <Navbar leftContent="back" />
+        {/* <Navbar leftContent="back" /> */}
+        <Navbars leftContent="back" user="chris Grafi" />
 
         <div onClick={handle.active ? handle.exit : handle.enter}>
           <FaArrowsAltH />
