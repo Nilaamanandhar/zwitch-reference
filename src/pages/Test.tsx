@@ -8,10 +8,11 @@ import "../styles/pages/css/main.css";
 import "../styles/pages/test.css";
 
 function BasicExample() {
+  const navDropdownTitle = (<Settings/>);
   return (
     <>
       <Navbar className="px-5 py-0" bg="primary" expand="lg">
-        <Navbar.Brand className="text-secondary">Jaargroep</Navbar.Brand>
+        <Navbar.Brand className="text-secondary"><b>Jaargroep</b></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Navbar.Text className="mx-auto">
@@ -21,17 +22,19 @@ function BasicExample() {
             <Navbar.Text className="align-items-center text-secondary d-flex align-items-center">
               Chris Grafi
             </Navbar.Text>
-            <Dropdown>
-              <Dropdown.Toggle variant="primary" id="dropdown-basic" className="pe-4 test"> 
-              <Settings></Settings>
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu className="d-flex">
-                <Dropdown.Item href="#/action-1"><Growth/></Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="#/action-2" className="d-flex align-items-center"><Sound/></Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <Nav>
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title={navDropdownTitle}
+              menuVariant="primary" 
+            >
+              <div className="d-flex"><NavDropdown.Item href="#action/3.1" className="border-right menuIcon"><Growth/></NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4" className="d-flex align-items-center menuIcon">
+              <Sound/>
+              </NavDropdown.Item></div>
+            </NavDropdown>
+          </Nav>
             <Nav.Link href="#">
               <Logout></Logout>
             </Nav.Link>
