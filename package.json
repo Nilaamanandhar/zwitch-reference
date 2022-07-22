@@ -27,12 +27,9 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
-=======
     "redux": "^4.2.0",
->>>>>>> 769a5849c31e19a9e97887511c4b8e916a920dca
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },

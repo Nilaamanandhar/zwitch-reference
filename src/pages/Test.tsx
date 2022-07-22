@@ -26,16 +26,16 @@ function BasicExample() {
             <NavDropdown
               id="nav-dropdown-dark-example"
               title={navDropdownTitle}
-              menuVariant="primary" 
+              menuVariant="primary" className="menuIcon" 
             >
-              <div className="d-flex"><NavDropdown.Item href="#action/3.1" className="border-right menuIcon"><Growth/></NavDropdown.Item>
+              <div className="d-flex"><NavDropdown.Item href="#action/3.1" className="border-right"><Growth/></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4" className="d-flex align-items-center menuIcon">
+              <NavDropdown.Item href="#action/3.4" className="d-flex align-items-center ">
               <Sound/>
               </NavDropdown.Item></div>
             </NavDropdown>
           </Nav>
-            <Nav.Link href="#">
+            <Nav.Link href="#" className="menuIcon">
               <Logout></Logout>
             </Nav.Link>
           </Nav>
