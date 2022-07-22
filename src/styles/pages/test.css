@@ -1,0 +1,35 @@
+
+.dropdown::after{
+    display: none !important; 
+  }
+
+
+.test{
+        background-color:none;
+    border-color:none;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: -43px !important;
+}
+
+.dropdown-divider{
+  height: 50px !important;
+  width: 2px;
+}
+
+.menuIcon{
+  transition: all .2s ease-in-out !important;
+}
+
+.menuIcon:hover{
+  transform: scale(1.1) !important;
+}
+
+.dropdown-menu:not, show{
+  background-color: aqua;
+}
