@@ -15,7 +15,7 @@ type NavProps = {
 type IOpenState = boolean;
 export const Navbar = (props: NavProps) => {
   const dispatch = useAppDispatch();
-  // const popout = useAppSelector((state: boolean) => state.openPopOut);
+  const popout = useAppSelector((state: any) => state.navbar.openDropDown);
   // let navigate = useNavigate();
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [showPopupModal, setShowPopupModal] = useState(false);
@@ -84,7 +84,9 @@ export const Navbar = (props: NavProps) => {
           >
             <Logout />
           </a>
-          {openPopup && (
+          {!popout ? (
+            ""
+          ) : (
             <div className="navbar-setting-content">
               <div className="fullscreen-icon">full</div>
               <div className="sound-icon">sound</div>
