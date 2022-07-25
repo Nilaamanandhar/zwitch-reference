@@ -1,21 +1,12 @@
+// import { Button } from "@mui/material";
 import React from "react";
-import "./Box.css";
-type NumberBoxProps = {
+// import NumberBox from "../component/Box/Box";
+
+type boxType = {
   items: number;
+  sizestyle: string;
   onClick: Function;
-  variant: String;
 };
-export default function NumberBox(props: NumberBoxProps) {
-  const { variant = "primary", onClick, items, ...rest } = props;
-  return (
-    <div
-      className={`boxcontainer ${variant} `}
-      onClick={() => {
-        props.onClick(items);
-      }}
-    >
-      {/* prime */}
-      {props.items}
-    </div>
-  );
+export default function Box(props: boxType) {
+  return <div className="numberbox-wrapper">{props.items}</div>;
 }

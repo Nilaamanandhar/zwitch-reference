@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import { Arrow, Settings, Logout, SemsomLogo } from "../assets/svg/Logo/Icons";
 import background from "../assets/background_img/background.jpg";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { navbarSlice } from "../redux/navbar/navbar.slice";
+
 import { useNavigate } from "react-router-dom";
 import PopUpModal from "../component/modal/modal";
-import { Navbar } from "../component/Navbar/navbar";
+import TopNavbar from "../component/Navbar/navbar";
 
 export const MainPage = () => {
+  const dispatch = useAppDispatch();
+  const popout = useAppSelector((state: any) => state.navbar.openDropDown);
   let navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
   const [openPopup, setOpenPopup] = useState(false);
   return (
     <div>
       <img className="background-img" src={background} />
-      <Navbar leftContent={"Jaargroep"} />
+      <TopNavbar
+        user={"chris Grafi"}
+        showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
+        leftContent={"Jaargroep"}
+      />
 
       <div className="container">
         <div className="start-content">
