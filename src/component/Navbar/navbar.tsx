@@ -60,9 +60,9 @@ function TopNavbar(props: NavProps) {
         </div>
       </PopUpModal>
 
-      <Navbar className="px-5 py-0 custom-navbar" bg="primary" expand="lg">
+      <Navbar className="px-4 py-0 custom-navbar" bg="primary" expand="lg">
         <Navbar.Brand className="text-secondary">
-          {props.leftContent === "back" ? (
+          {props.leftContent === "{navDropdownTitle}" ? (
             <div
               onClick={() => {
                 // navigate(-1);
@@ -81,7 +81,7 @@ function TopNavbar(props: NavProps) {
             <SemsomLogo></SemsomLogo>
           </Navbar.Text>
           <Nav className="">
-            <Navbar.Text className="align-items-center text-secondary d-flex align-items-center">
+            <Navbar.Text className="align-items-center text-secondary d-flex align-items-center fs-5">
               {props.user}
             </Navbar.Text>
             <Nav>
@@ -89,7 +89,7 @@ function TopNavbar(props: NavProps) {
                 id="nav-dropdown-dark-example"
                 title={navDropdownTitle}
                 menuVariant="primary"
-                className="menuIcon"
+                className="menuIcon me-3 ms-1"
                 onClick={() => props.showPopOut()}
               >
                 <div className="d-flex">
@@ -99,7 +99,7 @@ function TopNavbar(props: NavProps) {
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     href="#action/3.4"
-                    className="d-flex align-items-center "
+                    className="d-flex align-items-center mx-2"
                   >
                     <Sound />
                   </NavDropdown.Item>
