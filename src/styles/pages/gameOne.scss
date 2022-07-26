@@ -75,3 +75,17 @@
     justify-content: center;
 }
 
+.underline-group{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.underline{
+    position: relative;
+    height: 5px;
+    width: 75px;
+    background-color: #fff;
+    border-radius: 2px;
+}
