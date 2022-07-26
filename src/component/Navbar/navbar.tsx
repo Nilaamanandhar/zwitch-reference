@@ -12,11 +12,13 @@ import {
   SemsomLogo,
   Sound,
   Growth,
+  Back,
 } from "../../assets/svg/Logo/Icons";
 // import "../styles/pages/css/main.css";
 // import "../styles/pages/test.css";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
+
 
 type NavProps = {
   leftContent: string;
@@ -31,22 +33,23 @@ function TopNavbar(props: NavProps) {
     <>
       <PopUpModal
         size="sm"
-        dialogClassName=""
+        dialogClassName="logout-modal"
         show={openPopOut}
         close={() => setOpenPopup(false)}
         centered={true}
-        title={"popup"}
+        title={""}
       >
+        <h4 className="text-dark">Stoppen?</h4>
         <div className="button-styles">
-          <button
+          <button className="btn-dark btn-logout"
             onClick={() => {
               console.log("cancel and close popout");
               setOpenPopup(false);
             }}
           >
-            Back
+           <Back/>
           </button>
-          <button
+          <button className="btn-dark btn-logout"
             onClick={() => {
               console.log("Logout");
             }}
