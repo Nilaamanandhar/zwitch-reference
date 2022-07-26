@@ -1,0 +1,29 @@
+.numberbox-wrapper{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-end;
+
+}
+.boxcontainer{
+    background-color: lightblue;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.default-boxStyle{
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #DEF1FA !important;
+  border-color: #DEF1FA !important;
+  &:focus{
+    box-shadow:   0 0 0 0.25rem #2aace2 !important;
+    background-color: #DEF1FA !important;
+    border-color: #DEF1FA !important;
+
+  }
+}

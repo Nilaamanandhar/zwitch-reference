@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { FaArrowsAltH } from "react-icons/fa";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-// import Footer from "../component/Footer";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+
 import TextInput from "../component/TextInput/TextInput";
 import PopUpModal from "../component/modal/modal";
-import Button from "../component/Button/Button";
 import leaf from "../assets/background_img/leaf.png";
 import TopNavbar from "../component/Navbar/navbar";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
-import NumberBox from "../component/Box/Box";
+import ButtonBox from "../component/Button/Button";
+import { CrossIcon } from "../assets/svg/Logo/Icons";
 type IOpenState = boolean;
-// import "./App.css";
 
 export default function GameOne() {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
@@ -85,25 +83,34 @@ export default function GameOne() {
             />
           </div>
         </div>
-        {array.map((item, index) => {
-          console.log("itemns", item);
-          return (
-            <NumberBox
-              sizestyle="smallSize"
-              onClick={(e: any) => {
-                setTextValue(e.target.value);
-              }}
-              items={item}
-            />
-          );
-        })}
-        {/* <NumberBox
-          sizestyle="mediumSize"
-          onClick={() => {
-            console.log("clear answer");
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
           }}
-
-        /> */}
+        >
+          {array.map((item, index) => {
+            return (
+              <ButtonBox
+                defaultStyle="default-boxStyle"
+                onClick={() => {
+                  setTextValue(item.toString());
+                }}
+              >
+                {item}
+              </ButtonBox>
+            );
+          })}
+          <ButtonBox
+            defaultStyle="default-boxStyle"
+            onClick={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+          >
+            <CrossIcon />
+          </ButtonBox>
+        </div>
 
         {/*
         <div onClick={handle.active ? handle.exit : handle.enter}>

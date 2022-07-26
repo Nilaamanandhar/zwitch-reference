@@ -1,22 +1,19 @@
-import React from "react";
-import "./Button.css";
-type buttonProps = {
-  variant: string;
+import Button from "react-bootstrap/Button";
+
+type boxType = {
   children: React.ReactNode;
+  // sizestyle: string;
   onClick: Function;
+  defaultStyle: string;
 };
-export default function Button(props: buttonProps) {
-  const { variant = "primary", children, onClick, ...rest } = props;
-  console.log("console", props);
+export default function ButtonBox(props: boxType) {
   return (
-    <button
-      onClick={() => {
-        props.onClick();
-      }}
-      className={`button ${variant} `}
-      {...rest}
+    <Button
+      className={props.defaultStyle}
+      type="button"
+      onClick={() => props.onClick()}
     >
-      {children}
-    </button>
+      {props.children}
+    </Button>
   );
 }
