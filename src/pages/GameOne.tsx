@@ -55,33 +55,29 @@ export default function GameOne() {
             />
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
-        >
-          {array.map((item, index) => {
-            return (
-              <ButtonBox
-                customClass="default-boxStyle"
-                onClick={() => {
-                  setTextValue(item.toString());
-                }}
-              >
-                {item}
-              </ButtonBox>
-            );
-          })}
-          <ButtonBox
-            customClass="default-boxStyle"
-            onClick={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-          >
-            <CrossIcon />
-          </ButtonBox>
+        <div className="bottom-container">
+          <div className="button-row">
+            {array.map((item, index) => {
+              return (
+                <ButtonBox
+                  customClass="default-boxStyle"
+                  onClick={() => {
+                    setTextValue(item.toString());
+                  }}
+                >
+                  {item}
+                </ButtonBox>
+              );
+            })}
+            <ButtonBox
+              customClass="default-boxStyle"
+              onClick={(e: any) => {
+                setTextValue(e.target.value);
+              }}
+            >
+              <CrossIcon />
+            </ButtonBox>
+          </div>
         </div>
 
         {/*
