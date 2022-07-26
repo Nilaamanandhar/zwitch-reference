@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import PopUpModal from "../modal/modal";
 import Dropdown from "react-bootstrap/Dropdown";
+import "../../styles/pages/test.css";
 import {
   Arrow,
   Settings,
