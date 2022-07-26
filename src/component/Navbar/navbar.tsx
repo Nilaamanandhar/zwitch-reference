@@ -19,7 +19,6 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 
-
 type NavProps = {
   leftContent: string;
   user: string;
@@ -41,15 +40,17 @@ function TopNavbar(props: NavProps) {
       >
         <h4 className="text-dark">Stoppen?</h4>
         <div className="button-styles">
-          <button className="btn-dark btn-logout"
+          <button
+            className="btn-dark btn-logout"
             onClick={() => {
               console.log("cancel and close popout");
               setOpenPopup(false);
             }}
           >
-           <Back/>
+            <Back />
           </button>
-          <button className="btn-dark btn-logout"
+          <button
+            className="btn-dark btn-logout"
             onClick={() => {
               console.log("Logout");
             }}
@@ -92,7 +93,13 @@ function TopNavbar(props: NavProps) {
                 onClick={() => props.showPopOut()}
               >
                 <div className="d-flex">
-                  <NavDropdown.Item href="#action/3.1" className="border-right">
+                  <NavDropdown.Item
+                    onClick={() => {
+                      console.log("helo");
+                    }}
+                    href="#action/3.1"
+                    className="border-right"
+                  >
                     <Growth />
                   </NavDropdown.Item>
                   <NavDropdown.Divider />

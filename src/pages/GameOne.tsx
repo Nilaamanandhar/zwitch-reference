@@ -23,7 +23,6 @@ export default function GameOne() {
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
   const clearHandle = () => {
-    console.log("clear text");
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   return (
@@ -62,7 +61,7 @@ export default function GameOne() {
                 <ButtonBox
                   customClass="default-boxStyle"
                   onClick={() => {
-                    setTextValue(item.toString());
+                    setTextValue(textValue.concat(item.toString()));
                   }}
                 >
                   {item}
@@ -71,18 +70,16 @@ export default function GameOne() {
             })}
             <ButtonBox
               customClass="default-boxStyle"
-              onClick={(e: any) => {
-                setTextValue(e.target.value);
+              onClick={() => {
+                clearHandle();
               }}
             >
               <CrossIcon />
             </ButtonBox>
           </div>
         </div>
-        
 
-        {/*
-        <div onClick={handle.active ? handle.exit : handle.enter}>
+        {/* <div onClick={handle.active ? handle.exit : handle.enter}>
           <FaArrowsAltH />
         </div> */}
 
