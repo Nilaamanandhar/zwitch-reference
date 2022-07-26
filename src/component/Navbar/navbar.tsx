@@ -1,99 +1,85 @@
-import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
 import {
   Arrow,
   Settings,
   Logout,
   SemsomLogo,
+  Sound,
+  Growth,
 } from "../../assets/svg/Logo/Icons";
-import PopUpModal from "../../component/modal/modal";
+// import "../styles/pages/css/main.css";
+// import "../styles/pages/test.css";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-// import { useNavigate } from "react-router-dom";
+
 type NavProps = {
   leftContent: string;
+  user: string;
+  showPopOut: Function;
 };
-type IOpenState = boolean;
-export const Navbar = (props: NavProps) => {
-  const dispatch = useAppDispatch();
-  const popout = useAppSelector((state: any) => state.navbar.openDropDown);
-  // let navigate = useNavigate();
-  const [openPopup, setOpenPopup] = useState<IOpenState>(false);
-  const [showPopupModal, setShowPopupModal] = useState(false);
+function TopNavbar(props: NavProps) {
+  const navDropdownTitle = <Settings />;
+  // const dispatch = useAppDispatch();
   return (
     <>
-      <PopUpModal
-        size={"sm"}
-        dialogClassName=""
-        show={showPopupModal}
-        close={() => setShowPopupModal(false)}
-        centered={true}
-        title={"popup"}
-      >
-        <div className="button-styles">
-          <button
-            onClick={() => {
-              console.log("cancel and close popout");
-              setShowPopupModal(false);
-            }}
-          >
-            Back
-          </button>
-          <button
-            onClick={() => {
-              console.log("Logout");
-            }}
-          >
-            OK
-          </button>
-        </div>
-      </PopUpModal>
-      <div id="header">
-        {props.leftContent === "back" ? (
-          <div
-            onClick={() => {
-              // navigate(-1);
-            }}
-            className="left-nav-content"
-          >
-            back
-          </div>
-        ) : (
-          <div className="left-nav-content">jasrop3</div>
-        )}
-
-        <div className="semsom-logo">
-          <SemsomLogo />
-        </div>
-        <div className="right-nav-conent">
-          <span className="right-content">Chris Grafi</span>
-          <div
-            onClick={() => {
-              dispatch(navbarSlice.actions.openPopOut());
-              // setOpenPopup(!openPopup);
-            }}
-            className="setting-icon"
-          >
-            <Settings />
-          </div>
-          <a
-            onClick={() => {
-              setShowPopupModal(true);
-            }}
-            href="#"
-            className="logout-icon"
-          >
-            <Logout />
-          </a>
-          {!popout ? (
-            ""
-          ) : (
-            <div className="navbar-setting-content">
-              <div className="fullscreen-icon">full</div>
-              <div className="sound-icon">sound</div>
+      <Navbar className="px-5 py-0 custom-navbar" bg="primary" expand="lg">
+        <Navbar.Brand className="text-secondary">
+          {props.leftContent === "back" ? (
+            <div
+              onClick={() => {
+                // navigate(-1);
+              }}
+              className="left-nav-content"
+            >
+              back
             </div>
+          ) : (
+            <b>{props.leftContent}</b>
           )}
-        </div>
-      </div>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Text className="mx-auto">
+            <SemsomLogo></SemsomLogo>
+          </Navbar.Text>
+          <Nav className="">
+            <Navbar.Text className="align-items-center text-secondary d-flex align-items-center">
+              {props.user}
+            </Navbar.Text>
+            <Nav>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title={navDropdownTitle}
+                menuVariant="primary"
+                className="menuIcon"
+                onClick={() => props.showPopOut()}
+              >
+                <div className="d-flex">
+                  <NavDropdown.Item href="#action/3.1" className="border-right">
+                    <Growth />
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item
+                    href="#action/3.4"
+                    className="d-flex align-items-center "
+                  >
+                    <Sound />
+                  </NavDropdown.Item>
+                </div>
+              </NavDropdown>
+            </Nav>
+            <Nav.Link href="#" className="menuIcon">
+              <Logout></Logout>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     </>
   );
-};
+}
+
+export default TopNavbar;

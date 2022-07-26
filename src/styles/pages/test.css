@@ -1,11 +1,11 @@
 
 .dropdown::after{
-    display: none !important; 
+    display: none !important;
   }
 
 
 .test{
-        background-color:none;
+    background-color:none;
     border-color:none;
 }
 

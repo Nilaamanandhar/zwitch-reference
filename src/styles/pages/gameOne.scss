@@ -14,3 +14,59 @@
 .modal-header {
     border-bottom:none !important;
 }
+
+
+.game-content {
+ width: 100%;
+ height: calc(100vh - 60px);
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.setting-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width:100%;
+    background-color: rgba(9,25,38,.75);
+    opacity: .9;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+
+}
+.background-leaf{
+    height: 100vh;
+    background: cover;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+
+}
+.box-container{
+    background-color:white;
+    padding: 120px 100px;
+    display: flex;
+
+
+}
+.default-textbox{
+    border:1px solid black !important;
+
+}
+
+
+.error-InputClass{
+    border:1px solid red !important;
+}
+.focus-InputClass{
+    border:1px solid blue !important;
+}
+.form-control:focus{
+    border-color: #1D9ED9 !important;
+    box-shadow: 0 0 0 0.1rem #1D9ED9 !important;
+  }
+
