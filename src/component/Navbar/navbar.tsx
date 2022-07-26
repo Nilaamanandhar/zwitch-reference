@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import PopUpModal from "../modal/modal";
 import Dropdown from "react-bootstrap/Dropdown";
 import {
   Arrow,
@@ -23,9 +25,37 @@ type NavProps = {
 };
 function TopNavbar(props: NavProps) {
   const navDropdownTitle = <Settings />;
+  const [openPopOut, setOpenPopup] = useState(false);
   // const dispatch = useAppDispatch();
   return (
     <>
+      <PopUpModal
+        size="sm"
+        dialogClassName=""
+        show={openPopOut}
+        close={() => setOpenPopup(false)}
+        centered={true}
+        title={"popup"}
+      >
+        <div className="button-styles">
+          <button
+            onClick={() => {
+              console.log("cancel and close popout");
+              setOpenPopup(false);
+            }}
+          >
+            Back
+          </button>
+          <button
+            onClick={() => {
+              console.log("Logout");
+            }}
+          >
+            OK
+          </button>
+        </div>
+      </PopUpModal>
+
       <Navbar className="px-5 py-0 custom-navbar" bg="primary" expand="lg">
         <Navbar.Brand className="text-secondary">
           {props.leftContent === "back" ? (
@@ -72,7 +102,13 @@ function TopNavbar(props: NavProps) {
                 </div>
               </NavDropdown>
             </Nav>
-            <Nav.Link href="#" className="menuIcon">
+            <Nav.Link
+              onClick={() => {
+                setOpenPopup(true);
+              }}
+              href="#"
+              className="menuIcon"
+            >
               <Logout></Logout>
             </Nav.Link>
           </Nav>
