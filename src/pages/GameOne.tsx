@@ -54,29 +54,30 @@ export default function GameOne() {
               customClass="default-textbox"
             />
           </div>
-          <div className="pagination-button"
-        >
-          {array.map((item, index) => {
-            return (
-              <ButtonBox
-                customClass="default-boxStyle"
-                onClick={() => {
-                  setTextValue(item.toString());
-                }}
-              >
-                {item}
-              </ButtonBox>
-            );
-          })}
-          <ButtonBox
-            customClass="default-boxStyle"
-            onClick={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-          >
-            <CrossIcon />
-          </ButtonBox>
         </div>
+        <div className="bottom-container">
+          <div className="pagination-button">
+            {array.map((item, index) => {
+              return (
+                <ButtonBox
+                  customClass="default-boxStyle"
+                  onClick={() => {
+                    setTextValue(item.toString());
+                  }}
+                >
+                  {item}
+                </ButtonBox>
+              );
+            })}
+            <ButtonBox
+              customClass="default-boxStyle"
+              onClick={(e: any) => {
+                setTextValue(e.target.value);
+              }}
+            >
+              <CrossIcon />
+            </ButtonBox>
+          </div>
         </div>
         
 

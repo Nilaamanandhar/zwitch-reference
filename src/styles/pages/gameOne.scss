@@ -58,6 +58,16 @@
     border-radius: 0rem !important;
     margin-left: 10px;
 }
+.button-row{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.bottom-container{
+    background-color: red;
+     width: 100vw;
+     height: 40vh
+}
 
 .pagination-button{
     position: absolute;
