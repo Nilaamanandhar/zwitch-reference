@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import TextInput from "./TextInput";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../style.modules.scss";
+
+import TextInput from "./TextInput";
+
 export default {
   title: "Form/Control/TextInput",
   component: TextInput,

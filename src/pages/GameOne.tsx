@@ -93,7 +93,7 @@ export default function GameOne() {
           {array.map((item, index) => {
             return (
               <ButtonBox
-                defaultStyle="default-boxStyle"
+                customClass="default-boxStyle"
                 onClick={() => {
                   setTextValue(item.toString());
                 }}
@@ -103,7 +103,7 @@ export default function GameOne() {
             );
           })}
           <ButtonBox
-            defaultStyle="default-boxStyle"
+            customClass="default-boxStyle"
             onClick={(e: any) => {
               setTextValue(e.target.value);
             }}

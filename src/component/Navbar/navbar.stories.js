@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import TopNavbar from "./navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../style.modules.scss";
+
+import TopNavbar from "./navbar";
+
 export default {
   title: "Form/Control/Navbar",
   component: TopNavbar,

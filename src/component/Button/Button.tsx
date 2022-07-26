@@ -4,12 +4,12 @@ type boxType = {
   children: React.ReactNode;
   // sizestyle: string;
   onClick: Function;
-  defaultStyle: string;
+  customClass: string;
 };
 export default function ButtonBox(props: boxType) {
   return (
     <Button
-      className={props.defaultStyle}
+      className={props.customClass}
       type="button"
       onClick={() => props.onClick()}
     >
