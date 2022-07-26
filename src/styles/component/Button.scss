@@ -17,7 +17,7 @@
 
 .default-boxStyle{
   margin: 5px;
-  padding: 10px 15px;
+  padding: 10px 15px !important;
   background-color: #DEF1FA !important;
   border-color: #DEF1FA !important;
   &:focus{

@@ -43,6 +43,15 @@ export default function GameOne() {
             ></div>
           )}
           <img className="background-leaf" src={leaf} />
+          <div className="underline-group d-flex">
+            <div className="underline mx-2"></div> 
+            <div className="underline mx-2"></div>
+            <div className="underline mx-2"></div>
+            <div className="underline mx-2"></div>
+            <div className="underline mx-2"></div>
+            <div className="underline mx-2"></div>
+            <div className="underline mx-2"></div>
+          </div>
           <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
             <TextInput

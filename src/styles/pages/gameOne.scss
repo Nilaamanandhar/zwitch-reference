@@ -21,6 +21,7 @@
  width: 100%;
  height: calc(100vh - 50px);
  position: relative;
+ background-color: #FEC87E;
 }
 
 .setting-overlay {
@@ -37,11 +38,11 @@
 
 }
 .background-leaf{
-    height: 100vh;
+    height: calc(100vh - 175px);
     background: cover;
     width: 100%;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
 
 }
 .box-container{
@@ -51,28 +52,40 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
     align-items: center;
 }
 .form-control{
     border-radius: 0rem !important;
     margin-left: 10px;
 }
-.button-row{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
+
 .bottom-container{
-    background-color: red;
-     width: 100vw;
-     height: 40vh
+    position: absolute;
+    bottom:0%;
+    background-color: #fff;
+    width: 100%;
+    padding: 30px ;
 }
 
 .pagination-button{
-    position: absolute;
-    bottom:0%;
-    left: 50%;
-    transform: translate(-50%);
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
+.underline-group{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
+
+.underline{
+    position: relative;
+    height: 5px;
+    width: 75px;
+    background-color: #fff;
+    border-radius: 2px;
+}
