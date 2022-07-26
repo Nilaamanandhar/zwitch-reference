@@ -45,7 +45,7 @@ export default function GameOne() {
           )}
           <img className="background-leaf" src={leaf} />
           <div className="box-container">
-            <div>{`${firstNumber} + ${secondNumber} = `}</div>
+            <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
             <TextInput
               value={textValue}
               onChange={(e: any) => {
@@ -56,7 +56,7 @@ export default function GameOne() {
           </div>
         </div>
         <div className="bottom-container">
-          <div className="button-row">
+          <div className="pagination-button">
             {array.map((item, index) => {
               return (
                 <ButtonBox
@@ -79,6 +79,7 @@ export default function GameOne() {
             </ButtonBox>
           </div>
         </div>
+        
 
         {/*
         <div onClick={handle.active ? handle.exit : handle.enter}>

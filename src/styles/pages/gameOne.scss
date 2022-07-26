@@ -8,7 +8,8 @@
 }
 .button-styles{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 1.2rem 0;
 }
 
 .modal-header {
@@ -18,11 +19,8 @@
 
 .game-content {
  width: 100%;
- height: calc(100vh - 60px);
+ height: calc(100vh - 50px);
  position: relative;
- display: flex;
- justify-content: center;
- align-items: center;
 }
 
 .setting-overlay {
@@ -50,8 +48,15 @@
     background-color:white;
     padding: 120px 100px;
     display: flex;
-
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+.form-control{
+    border-radius: 0rem !important;
+    margin-left: 10px;
 }
 .button-row{
     display: flex;
@@ -64,4 +69,10 @@
      height: 40vh
 }
 
+.pagination-button{
+    position: absolute;
+    bottom:0%;
+    left: 50%;
+    transform: translate(-50%);
+}
 
