@@ -12,3 +12,20 @@ input[type=number]::-webkit-outer-spin-button
   -webkit-appearance: none;
   margin: 0;
 }
+
+.default-textbox{
+  border:1px solid black !important;
+
+}
+
+
+.error-InputClass{
+  border:1px solid red !important;
+}
+.focus-InputClass{
+  border:1px solid blue !important;
+}
+.form-control:focus{
+  border-color: #1D9ED9 !important;
+  box-shadow: 0 0 0 0.1rem #1D9ED9 !important;
+}
