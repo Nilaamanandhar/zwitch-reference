@@ -63,7 +63,7 @@ function TopNavbar(props: NavProps) {
 
       <Navbar className="px-4 py-0 custom-navbar" bg="primary" expand="lg">
         <Navbar.Brand className="text-secondary">
-          {props.leftContent === "{navDropdownTitle}" ? (
+          {props.leftContent === "back" ? (
             <div
               onClick={() => {
                 // navigate(-1);
