@@ -1,18 +1,9 @@
 import React from "react";
-import Button from "./Button";
+import ButtonBox from "./Button";
 export default {
-  title: "Form/Control/Button",
-  component: Button,
+  title: "Form/Control/ButtonBox",
+  component: ButtonBox,
 };
-export const Primary = () => {
-  return <Button variant="primary">Primary</Button>;
-};
-export const Secondary = () => {
-  return <Button variant="secondary">Secondary</Button>;
-};
-export const Success = () => {
-  return <Button variant="success">Success</Button>;
-};
-export const Danger = () => {
-  return <Button variant="danger">Danger</Button>;
+export const PrimaryButton = () => {
+  return <ButtonBox className="default-boxStyle">text</ButtonBox>;
 };
