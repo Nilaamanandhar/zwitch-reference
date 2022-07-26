@@ -21,40 +21,13 @@ export default function GameOne() {
   const dispatch = useAppDispatch();
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
-  console.log("text", textValue);
+
   const clearHandle = () => {
     console.log("clear text");
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   return (
     <>
-      <PopUpModal
-        size={"sm"}
-        dialogClassName=""
-        show={openPopup}
-        close={() => setOpenPopup(false)}
-        centered={true}
-        title={"popup"}
-      >
-        <div className="button-styles">
-          <button
-            onClick={() => {
-              console.log("cancel and close popout");
-              setOpenPopup(false);
-            }}
-          >
-            Back
-          </button>
-          <button
-            onClick={() => {
-              console.log("Logout");
-            }}
-          >
-            OK
-          </button>
-        </div>
-      </PopUpModal>
-
       <FullScreen handle={handle}>
         <TopNavbar
           leftContent="back"
@@ -67,7 +40,6 @@ export default function GameOne() {
               className="setting-overlay"
               onClick={() => {
                 dispatch(navbarSlice.actions.openPopOut());
-                // setOpenPopup(!openPopup);
               }}
             ></div>
           )}
