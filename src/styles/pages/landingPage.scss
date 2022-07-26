@@ -1,4 +1,8 @@
 @import '../variables/color.scss';
+body{
+    overflow: hidden;
+    overflow-y: hidden;
+}
 
 .background{
     height: 100vh;
@@ -145,5 +149,19 @@
 
 .test1{
     overflow-y: scroll;
-    max-height: 200px;
+    overflow-x: none;
+    max-height: calc(100vh - 175px);
+    max-width: calc(100vw - 100px);
+}
+
+.test1 > h4{
+    color: #1d9ed9;
+}
+
+.modal-body{
+    padding: 0.8rem 3rem !important;
+}
+
+.modal-dialog{
+    max-width: calc(100vw - 302px) !important;
 }
