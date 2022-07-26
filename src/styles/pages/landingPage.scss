@@ -137,7 +137,13 @@
     right: 0;
     background-color: $blue;
     color: $white;
-    padding: 5px 10px;
+    padding: 5px 15px;
     cursor: pointer;
-    font-size:20px;
+    font-size:25px;
+    border-radius: 0 4px !important;
+}
+
+.test1{
+    overflow-y: scroll;
+    max-height: 200px;
 }

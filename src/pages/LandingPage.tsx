@@ -41,13 +41,15 @@ export const MainPage = () => {
       <div id="footer">
         <PopUpModal
           size="lg"
-          dialogClassName="modal-90w"
+          dialogClassName="modal-80w"
           show={openDialog}
           close={() => setOpenDialog(false)}
           centered={true}
-          title={"popup"}
+          title={""}
         >
-          hdjfhuiewhf r fiorefjoire fre foihrehtoirehgiohergio er greoig
+          <div className="test1">
+            <h3>Popup</h3>
+            hdjfhuiewhf r fiorefjoire fre foihrehtoirehgiohergio er greoig
           rehgiuerhgurehgiuhergiuhergiuergreg reh gruegh reuhguierh guierh giuer
           hguierhgiurehui
           ednfklfjkojnkdojdfjrifjdklgjlkjgkljdfglkjdfgkljdfklkgjkldfgjkljdfgkldf
@@ -73,7 +75,13 @@ export const MainPage = () => {
           fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
           fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
           fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdffdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
           fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+          fdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf</div>
         </PopUpModal>
 
         <a
