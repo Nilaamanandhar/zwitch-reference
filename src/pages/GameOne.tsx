@@ -73,7 +73,7 @@ export default function GameOne() {
           )}
           <img className="background-leaf" src={leaf} />
           <div className="box-container">
-            <div>{`${firstNumber} + ${secondNumber} = `}</div>
+            <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
             <TextInput
               value={textValue}
               onChange={(e: any) => {
@@ -82,13 +82,7 @@ export default function GameOne() {
               customClass="default-textbox"
             />
           </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "row",
-          }}
+          <div className="pagination-button"
         >
           {array.map((item, index) => {
             return (
@@ -111,6 +105,8 @@ export default function GameOne() {
             <CrossIcon />
           </ButtonBox>
         </div>
+        </div>
+        
 
         {/*
         <div onClick={handle.active ? handle.exit : handle.enter}>
