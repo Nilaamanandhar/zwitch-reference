@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Modal from "./modal";
 import "bootstrap/dist/css/bootstrap.css";
-import "./modal.css";
+
+import Modal from "./modal";
+
 export default {
   title: "Form/Control/Modal",
   component: Modal,
