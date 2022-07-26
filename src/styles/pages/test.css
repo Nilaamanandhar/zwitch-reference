@@ -30,6 +30,3 @@
   transform: scale(1.1) !important;
 }
 
-.dropdown-menu:not, show{
-  background-color: aqua;
-}
