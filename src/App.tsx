@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import GameOne from "./pages/GameOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import FailGame from "./pages/FailGame";
 
 function App() {
   let handle = useFullScreenHandle();
@@ -39,6 +40,7 @@ function App() {
               />
             }
           />
+          <Route path="/failgame" element={<FailGame />} />
         </Routes>
       </FullScreen>
     </div>
