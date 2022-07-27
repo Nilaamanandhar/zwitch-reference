@@ -9,7 +9,7 @@ import leaf from "../assets/background_img/leaf.png";
 import TopNavbar from "../component/Navbar/navbar";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import ButtonBox from "../component/Button/Button";
-import { CrossIcon } from "../assets/svg/Logo/Icons";
+import { CrossIcon, OkIcon } from "../assets/svg/Logo/Icons";
 type IOpenState = boolean;
 
 type GameOneType = {
@@ -30,6 +30,11 @@ export default function GameOne(props: GameOneType) {
 
   const clearHandle = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
+  };
+  const handleChange = () => {
+    firstNumber + secondNumber !== parseInt(textValue)
+      ? navigate("/failgame")
+      : navigate("/game1");
   };
   return (
     <>
@@ -91,37 +96,17 @@ export default function GameOne(props: GameOneType) {
               <CrossIcon />
             </ButtonBox>
           </div>
+          <div>
+            <ButtonBox
+              customClass="ok-ButtonStyle"
+              onClick={() => {
+                handleChange();
+              }}
+            >
+              <OkIcon />
+            </ButtonBox>
+          </div>
         </div>
-
-        {/* <div onClick={handle.active ? handle.exit : handle.enter}>
-          <FaArrowsAltH />
-        </div> */}
-
-        {/* <div className="textinput-wrapper">
-          <div>{`${firstNumber} + ${secondNumber} = `}</div>
-
-          <TextInput
-            value={numberValue}
-            onChange={(e: any) => {
-              setNumberValue(e.target.value);
-            }}
-          />
-
-          {numberValue
-            ? firstNumber + secondNumber !== parseInt(numberValue)
-              ? "please try next time ! you failed"
-              : "great try"
-            : ""}
-        </div>
-
-        <Footer
-          numberSelection={(item: number) =>
-            setNumberValue(`${numberValue}${item}`)
-          }
-          clearAnswer={() => {
-            clearHandle();
-          }}
-        /> */}
       </FullScreen>
     </>
   );

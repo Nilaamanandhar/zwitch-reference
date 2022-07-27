@@ -27,3 +27,12 @@
 
   }
 }
+.ok-ButtonStyle{
+  background-color: #53A4DB !important;
+  border-color: #53A4DB !important;
+  &:focus{
+    box-shadow:none !important;
+    background-color: none !important;
+    border-color: none !important;
+  }
+}
