@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useNavigate } from "react-router-dom";
 
 import TextInput from "../component/TextInput/TextInput";
 import PopUpModal from "../component/modal/modal";
@@ -11,7 +12,11 @@ import ButtonBox from "../component/Button/Button";
 import { CrossIcon } from "../assets/svg/Logo/Icons";
 type IOpenState = boolean;
 
-export default function GameOne() {
+type GameOneType = {
+  handleFullScreen: any;
+};
+
+export default function GameOne(props: GameOneType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -19,6 +24,7 @@ export default function GameOne() {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
@@ -30,8 +36,10 @@ export default function GameOne() {
       <FullScreen handle={handle}>
         <TopNavbar
           leftContent="back"
+          navigation={() => navigate(-1)}
           user="chris Grafi"
           showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
+          handleFullScreen={() => props.handleFullScreen()}
         />
         <div className="game-content">
           {popout && (

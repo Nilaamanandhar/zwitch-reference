@@ -24,6 +24,8 @@ type NavProps = {
   leftContent: string;
   user: string;
   showPopOut: Function;
+  navigation?: any;
+  handleFullScreen: any;
 };
 function TopNavbar(props: NavProps) {
   const navDropdownTitle = <Settings />;
@@ -66,7 +68,7 @@ function TopNavbar(props: NavProps) {
           {props.leftContent === "back" ? (
             <div
               onClick={() => {
-                // navigate(-1);
+                props.navigation();
               }}
               className="left-nav-content"
             >
@@ -96,7 +98,7 @@ function TopNavbar(props: NavProps) {
                 <div className="d-flex">
                   <NavDropdown.Item
                     onClick={() => {
-                      console.log("helo");
+                      props.handleFullScreen();
                     }}
                     href="#action/3.1"
                     className="border-right"
