@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
@@ -28,6 +28,17 @@ export default function SubLevelOne(props: SubLevelOneType) {
   const navigate = useNavigate();
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
+
+  useEffect(() => {
+    function handleSpeedUp() {
+      if (textValue) {
+        console.log("great job");
+      } else {
+        alert("hurry up! children try to solve out");
+      }
+    }
+    setInterval(handleSpeedUp, 10000);
+  }, []);
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));

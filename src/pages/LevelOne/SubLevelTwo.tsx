@@ -36,7 +36,6 @@ export default function SubLevelOne(props: SubLevelOneType) {
       : navigate("/game1");
   };
   const handleItem = (item: any) => {
-    console.log("items", item);
     setTextValue(textValue.concat(item.toString()));
   };
   return (
