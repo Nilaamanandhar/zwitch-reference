@@ -29,16 +29,16 @@ export default function SubLevelOne(props: SubLevelOneType) {
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
-  useEffect(() => {
-    function handleSpeedUp() {
-      if (textValue) {
-        console.log("great job");
-      } else {
-        alert("hurry up! children try to solve out");
-      }
-    }
-    setInterval(handleSpeedUp, 10000);
-  }, []);
+  // useEffect(() => {
+  //   function handleSpeedUp() {
+  //     if (textValue) {
+  //       console.log("great job");
+  //     } else {
+  //       alert("hurry up! children try to solve out");
+  //     }
+  //   }
+  //   setInterval(handleSpeedUp, 10000);
+  // }, []);
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));

@@ -13,11 +13,11 @@ import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 type IOpenState = boolean;
 
-type SubLevelOneType = {
+type SubLevelTwoType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelOne(props: SubLevelOneType) {
+export default function SubLevelTwo(props: SubLevelTwoType) {
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
