@@ -2,7 +2,7 @@ import React from "react";
 import "./style.modules.scss";
 import MainDash from "./pages/MainDash";
 import { Routes, Route, Link } from "react-router-dom";
-import GameOne from "./pages/GameOne";
+import SubLevelOne from "./pages/LevelOne/SubLevelOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
@@ -33,7 +33,7 @@ function App() {
           <Route
             path="/game1"
             element={
-              <GameOne
+              <SubLevelOne
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
