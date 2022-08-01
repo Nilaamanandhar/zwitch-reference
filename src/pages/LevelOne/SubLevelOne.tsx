@@ -107,40 +107,6 @@ export default function SubLevelOne(props: SubLevelOneType) {
           handleChangeItem();
         }}
       />
-      {/* <div className="bottom-container">
-          <div className="pagination-button">
-            {array.map((item, index) => {
-              return (
-                <ButtonBox
-                  customClass="default-boxStyle"
-                  onClick={() => {
-                    setTextValue(textValue.concat(item.toString()));
-                  }}
-                >
-                  {item}
-                </ButtonBox>
-              );
-            })}
-            <ButtonBox
-              customClass="default-boxStyle"
-              onClick={() => {
-                clearHandle();
-              }}
-            >
-              <CrossIcon />
-            </ButtonBox>
-          </div>
-          <div>
-            <ButtonBox
-              customClass="ok-ButtonStyle"
-              onClick={() => {
-                handleChange();
-              }}
-            >
-              <OkIcon />
-            </ButtonBox>
-          </div>
-        </div> */}
     </>
   );
 }
