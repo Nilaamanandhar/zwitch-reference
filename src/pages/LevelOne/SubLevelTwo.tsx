@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ import ButtonBox from "../../component/Button/Button";
 import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
+import AntImg from "../../assets/ants_img/redAnt.png";
 type IOpenState = boolean;
 
 type SubLevelTwoType = {
@@ -24,6 +25,9 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [activeState, setActiveState] = useState(1);
+  const [antPosition, setAntPosition] = useState(1);
+  const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
@@ -38,6 +42,32 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div className="underline mx-1" key={i}>
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (activeState <= 20) {
+        setActiveState(activeState + 1);
+      } else {
+        navigate("/failgame");
+      }
+    }, 7000);
+  }, [activeState]);
   return (
     <>
       <TopNavbar
@@ -58,11 +88,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         )}
         <img className="background-leaf" src={leaf} />
 
-        <div className="underline-group d-flex">
-          {array.map((value) => {
-            return <div className="underline mx-2"></div>;
-          })}
-        </div>
+        <div className="underline-group d-flex">{underLineLizard()}</div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}

@@ -79,14 +79,43 @@
 .underline-group{
     position: absolute;
     top: 15%;
-    left: 50%;
-    transform: translate(-50%,0%);
+    left: 2vw;
+    // transform: translate(-50%,0%);
+    .ant-wrapper {
+        height: 7vw;
+        min-height: 52px;
+        width: 3.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: -4vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 
 .underline{
     position: relative;
-    height: 5px;
-    width: 75px;
+    height: 0.5vw;
+    min-height:3.6px;
+    width: 3.5vw;
+    min-width: 26px;
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 5px;
+
+    .ant-wrapper {
+        height: 7vw;
+        min-height: 52px;
+        width: 3.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: -4vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
 }

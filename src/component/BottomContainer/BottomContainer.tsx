@@ -20,6 +20,7 @@ export default function BottomContainer(props: SubLevelOneType) {
                   props.addItem(item);
                 }}
                 customClass="default-boxStyle"
+                key={index}
               >
                 {item}
               </ButtonBox>
@@ -30,6 +31,7 @@ export default function BottomContainer(props: SubLevelOneType) {
             onClick={() => {
               props.clearHandle();
             }}
+            key={0}
           >
             <CrossIcon />
           </ButtonBox>
@@ -40,6 +42,7 @@ export default function BottomContainer(props: SubLevelOneType) {
             onClick={() => {
               props.handleChange();
             }}
+            key={0}
           >
             <OkIcon />
           </ButtonBox>

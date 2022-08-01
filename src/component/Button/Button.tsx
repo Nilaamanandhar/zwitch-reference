@@ -5,6 +5,7 @@ type boxType = {
   // sizestyle: string;
   onClick: Function;
   customClass: string;
+  key: number;
 };
 export default function ButtonBox(props: boxType) {
   return (
@@ -12,6 +13,7 @@ export default function ButtonBox(props: boxType) {
       className={props.customClass}
       type="button"
       onClick={() => props.onClick()}
+      key={props.key}
     >
       {props.children}
     </Button>

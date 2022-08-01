@@ -74,7 +74,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
 
         <div className="underline-group d-flex">
           {array.map((value) => {
-            return <div className="underline mx-2"></div>;
+            return <div className="underline mx-1"></div>;
           })}
         </div>
         <BoxContainer
