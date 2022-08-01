@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 import TextInput from "../../component/TextInput/TextInput";
-import leaf from "../../assets/background_img/leaf.png";
+import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import ButtonBox from "../../component/Button/Button";
@@ -86,7 +86,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
             }}
           ></div>
         )}
-        <img className="background-leaf" src={leaf} />
+        <img className="background-sublevel2" src={sublevel2} />
 
         <div className="underline-group d-flex">{underLineLizard()}</div>
         <BoxContainer
