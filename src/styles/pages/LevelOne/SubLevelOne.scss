@@ -78,8 +78,9 @@
 
 .underline-group{
     position: absolute;
-    top: 15%;
+    top: 12%;
     left: 2vw;
+    z-index:100;
     // transform: translate(-50%,0%);
     .ant-wrapper {
         height: 7vw;

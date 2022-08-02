@@ -12,6 +12,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
 type IOpenState = boolean;
 
 type SubLevelTwoType = {
@@ -64,7 +65,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       if (activeState <= 20) {
         setActiveState(activeState + 1);
       } else {
-        navigate("/failgame");
+        // navigate("/failgame");
       }
     }, 7000);
   }, [activeState]);
@@ -87,8 +88,12 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           ></div>
         )}
         <img className="background-sublevel2" src={sublevel2} />
+        
 
-        <div className="underline-group d-flex">{underLineLizard()}</div>
+       
+        <div><img className="leaf-sublevel21" src={OuterLeaf}  
+        />
+         <div className="underline-group d-flex">{underLineLizard()}</div></div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -109,6 +114,9 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           handleChangeItem();
         }}
       />
+       <div><img className="leaf-sublevel22" src={OuterLeaf}  
+        />
+         <div className="underline-group d-flex">{underLineLizard()}</div></div>
     </>
   );
 }
