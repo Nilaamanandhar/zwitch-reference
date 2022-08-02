@@ -12,6 +12,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import OuterLeaf from "../../assets/background_img/outerLeaf.png";
 type IOpenState = boolean;
 
 type SubLevelFourType = {
@@ -43,6 +44,21 @@ export default function SubLevelFour(props: SubLevelFourType) {
     setTextValue(textValue.concat(item.toString()));
   };
 
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div className="underline mx-1 whiteLine" key={i}>
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
   return (
     <>
       <TopNavbar
@@ -62,7 +78,9 @@ export default function SubLevelFour(props: SubLevelFourType) {
           ></div>
         )}
         <img className="background-img" src={background} />
-
+        <div className="underline-group d-flex">{underLineLizard()}
+          <span className="ant-wrapper ant-position"><img src={AntImg} /></span>
+          <span className="ant-wrapper ant-position2"><img src={AntImg} /></span></div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -83,6 +101,10 @@ export default function SubLevelFour(props: SubLevelFourType) {
           handleChangeItem();
         }}
       />
+       <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
+        />
+        <div className="d-flex test"><span className="ant-wrapper ant-position2"><img src={AntImg} /></span></div></div>
     </>
   );
 }
