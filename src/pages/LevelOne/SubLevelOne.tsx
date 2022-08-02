@@ -80,8 +80,8 @@ export default function SubLevelOne(props: SubLevelOneType) {
         handleFullScreen={() => props.handleFullScreen()}
       />
 
-      {/* {!isGameBegin && (
-        <div className="welcome-icon">
+      {!isGameBegin && (
+        <div className="start-game-icon">
           <div
             onClick={() => {
               setIsGameBegin(true);
@@ -91,7 +91,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             <Arrow />
           </div>
         </div>
-      )} */}
+      )}
       <div className="game-content">
         {popout && (
           <div
