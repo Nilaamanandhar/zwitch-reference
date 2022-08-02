@@ -35,7 +35,12 @@ export default function SubLevelOne(props: SubLevelOneType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1" key={i}>
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >

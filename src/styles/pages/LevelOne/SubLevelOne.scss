@@ -103,7 +103,6 @@
     min-height:3.6px;
     width: 3.5vw;
     min-width: 26px;
-    background-color: #fff;
     border-radius: 5px;
 
     .ant-wrapper {
@@ -119,4 +118,12 @@
             width: 100%;
         }
     }
+
+    &.activeLine{
+        background-color:red;
+    }
+
+    &.whiteLine {
+        background-color: #fff;
+     }
 }
