@@ -63,9 +63,36 @@ function App() {
               />
             }
           />
-          <Route path="/game1/level3" element={<SubLevelThree />} />
-          <Route path="/game1/level4" element={<SubLevelFour />} />
-          <Route path="/game1/level5" element={<SubLevelFive />} />
+          <Route
+            path="/game1/level3"
+            element={
+              <SubLevelThree
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/game1/level4"
+            element={
+              <SubLevelFour
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/game1/level5"
+            element={
+              <SubLevelFive
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route path="/game1/level6" element={<SubLevelSix />} />
           <Route path="/game1/level7" element={<SubLevelSeven />} />
           <Route path="/game1/level8" element={<SubLevelEight />} />
