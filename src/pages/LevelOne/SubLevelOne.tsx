@@ -11,6 +11,7 @@ import ButtonBox from "../../component/Button/Button";
 import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
+import AntImg from "../../assets/ants_img/redAnt.png";
 type IOpenState = boolean;
 
 type SubLevelOneType = {
@@ -19,6 +20,7 @@ type SubLevelOneType = {
 
 export default function SubLevelOne(props: SubLevelOneType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
+  const [activeState, setActiveState] = useState(1);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
@@ -39,6 +41,21 @@ export default function SubLevelOne(props: SubLevelOneType) {
   //   }
   //   setInterval(handleSpeedUp, 10000);
   // }, []);
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div className="underline mx-1" key={i}>
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
@@ -71,12 +88,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
           ></div>
         )}
         <img className="background-leaf" src={leaf} />
-
-        <div className="underline-group d-flex">
-          {array.map((value) => {
-            return <div className="underline mx-1"></div>;
-          })}
-        </div>
+        <div className="underline-group d-flex">{underLineLizard()}</div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
