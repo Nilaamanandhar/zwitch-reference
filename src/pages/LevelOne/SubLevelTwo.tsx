@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 import TextInput from "../../component/TextInput/TextInput";
-import leaf from "../../assets/background_img/leaf.png";
+import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import ButtonBox from "../../component/Button/Button";
@@ -12,6 +12,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
 type IOpenState = boolean;
 
 type SubLevelTwoType = {
@@ -47,7 +48,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1" key={i}>
+        <div className="underline mx-1 whiteLine" key={i}>
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >
@@ -64,7 +65,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       if (activeState <= 20) {
         setActiveState(activeState + 1);
       } else {
-        navigate("/failgame");
+        // navigate("/failgame");
       }
     }, 7000);
   }, [activeState]);
@@ -86,9 +87,13 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
             }}
           ></div>
         )}
-        <img className="background-leaf" src={leaf} />
+        <img className="background-sublevel2" src={sublevel2} />
+        
 
-        <div className="underline-group d-flex">{underLineLizard()}</div>
+       
+        <div className="top-leaf-two"><img className="leaf-sublevel21 img-fluid" src={OuterLeaf}  
+        />
+         <div className="underline-group d-flex">{underLineLizard()}</div></div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -109,6 +114,11 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           handleChangeItem();
         }}
       />
+       <div className="bottom-leaf-div">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
+        />
+         <div className="underline-group d-flex">{underLineLizard()}</div>
+         </div>
     </>
   );
 }
