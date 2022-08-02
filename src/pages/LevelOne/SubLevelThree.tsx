@@ -42,7 +42,21 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
-
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div className="underline mx-1 whiteLine" key={i}>
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
   return (
     <>
       <TopNavbar
@@ -62,7 +76,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           ></div>
         )}
         <img className="background-img" src={background} />
-
+        <div className="underline-group d-flex">{underLineLizard()}<span className="ant-wrapper ant-position"><img src={AntImg} /></span></div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
