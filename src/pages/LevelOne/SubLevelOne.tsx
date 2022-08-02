@@ -31,16 +31,6 @@ export default function SubLevelOne(props: SubLevelOneType) {
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
-  // useEffect(() => {
-  //   function handleSpeedUp() {
-  //     if (textValue) {
-  //       console.log("great job");
-  //     } else {
-  //       alert("hurry up! children try to solve out");
-  //     }
-  //   }
-  //   setInterval(handleSpeedUp, 10000);
-  // }, []);
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -60,14 +50,18 @@ export default function SubLevelOne(props: SubLevelOneType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
-  const handleChangeItem = () => {
-    firstNumber + secondNumber !== parseInt(textValue)
-      ? navigate("/failgame")
-      : navigate("/game1");
-  };
+
   const handleItem = (item: any) => {
     console.log("items", item);
     setTextValue(textValue.concat(item.toString()));
+  };
+  const handleChangeItem = () => {
+    if (firstNumber + secondNumber !== parseInt(textValue)) {
+      navigate("/failgame");
+    } else {
+      setActiveState(activeState + 1);
+      setTextValue("");
+    }
   };
   return (
     <>
