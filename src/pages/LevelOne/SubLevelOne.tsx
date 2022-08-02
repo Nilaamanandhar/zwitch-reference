@@ -36,10 +36,9 @@ export default function SubLevelOne(props: SubLevelOneType) {
     for (let i = 1; i < 21; i++) {
       lineList.push(
         <div
-          className="underline mx-1"
-          // className={`${
-          //   i < activeState ? "underlineColor mx-1" : "underline mx-1"
-          // }`}
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
           key={i}
         >
           <div
