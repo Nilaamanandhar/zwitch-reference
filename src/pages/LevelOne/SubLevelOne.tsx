@@ -3,6 +3,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
+import { Arrow } from "../../assets/svg/Logo/Icons";
 import TextInput from "../../component/TextInput/TextInput";
 import leaf from "../../assets/background_img/leaf.png";
 import TopNavbar from "../../component/Navbar/navbar";
@@ -21,6 +22,7 @@ type SubLevelOneType = {
 export default function SubLevelOne(props: SubLevelOneType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [activeState, setActiveState] = useState(1);
+  const [isGameBegin, setIsGameBegin] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
@@ -77,6 +79,19 @@ export default function SubLevelOne(props: SubLevelOneType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
+
+      {/* {!isGameBegin && (
+        <div className="welcome-icon">
+          <div
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+            className="arrow-icon"
+          >
+            <Arrow />
+          </div>
+        </div>
+      )} */}
       <div className="game-content">
         {popout && (
           <div
