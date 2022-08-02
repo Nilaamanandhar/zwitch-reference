@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 import TextInput from "../../component/TextInput/TextInput";
-import background from "../../assets/background_img/bluebackground.jpg";
+import background from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import ButtonBox from "../../component/Button/Button";
