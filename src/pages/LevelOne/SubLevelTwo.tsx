@@ -48,7 +48,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1" key={i}>
+        <div className="underline mx-1 whiteLine" key={i}>
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >
@@ -91,7 +91,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         
 
        
-        <div><img className="leaf-sublevel21" src={OuterLeaf}  
+        <div className="top-leaf-two"><img className="leaf-sublevel21 img-fluid" src={OuterLeaf}  
         />
          <div className="underline-group d-flex">{underLineLizard()}</div></div>
         <BoxContainer
@@ -114,9 +114,11 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           handleChangeItem();
         }}
       />
-       <div><img className="leaf-sublevel22" src={OuterLeaf}  
+       <div className="bottom-leaf-div">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
         />
-         <div className="underline-group d-flex">{underLineLizard()}</div></div>
+         <div className="underline-group d-flex">{underLineLizard()}</div>
+         </div>
     </>
   );
 }
