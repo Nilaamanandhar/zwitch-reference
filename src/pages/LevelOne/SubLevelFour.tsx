@@ -45,14 +45,17 @@ export default function SubLevelFour(props: SubLevelFourType) {
   }, [gameChance]);
 
   const handleChangeItem = () => {
+    setTextValue("");
     if (gameChance <= 4) {
       firstNumber + secondNumber !== parseInt(textValue) &&
         setGameChance(gameChance + 1);
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -73,6 +76,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
     }
     return lineList;
   };
+
   return (
     <>
       <TopNavbar
