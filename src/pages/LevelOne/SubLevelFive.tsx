@@ -12,6 +12,10 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import sublevel2 from "../../assets/background_img/sublevel2.jpg";
+import blackAnt from "../../assets/ants_img/backgroundAnt.png";
+import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
+
 type IOpenState = boolean;
 
 type SubLevelFiveType = {
@@ -20,6 +24,7 @@ type SubLevelFiveType = {
 
 export default function SubLevelFive(props: SubLevelFiveType) {
   const [textValue, setTextValue] = useState<string>("");
+  const [activeTimeState, setActiveTimeState] = useState(1);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -35,14 +40,72 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
-      navigate("/failgame");
+    if (activeState <= 20) {
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        navigate("/failgame");
+      } else {
+        setActiveState(activeState + 1);
+        setTextValue("");
+      }
+    } else {
+      navigate("/wingame");
     }
   };
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+  useEffect(() => {
+    setTimeout(() => {
+      if (activeTimeState <= 20) {
+        setActiveTimeState(activeTimeState + 1);
+      } else {
+        navigate("/failgame");
+      }
+    }, 6000);
+  }, [activeTimeState]);
 
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeTimeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${
+              activeTimeState == i ? "d-block" : "d-none"
+            }`}
+          >
+            <img src={blackAnt} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
+  const underLineAnt = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
   return (
     <>
       <TopNavbar
@@ -62,6 +125,12 @@ export default function SubLevelFive(props: SubLevelFiveType) {
           ></div>
         )}
         <img className="background-img" src={background} />
+        <img className="background-sublevel2" src={sublevel2} />
+
+        <div className="top-leaf-two">
+          <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
+          <div className="underline-group d-flex">{underLineLizard()}</div>
+        </div>
 
         <BoxContainer
           NumberOne={firstNumber}
@@ -83,6 +152,10 @@ export default function SubLevelFive(props: SubLevelFiveType) {
           handleChangeItem();
         }}
       />
+      <div className="bottom-leaf-div">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <div className="underline-group d-flex">{underLineAnt()}</div>
+      </div>
     </>
   );
 }
