@@ -44,11 +44,14 @@
 
 }
 .background-leaf{
-    height: calc(100vh - 175px);
+    height: calc(100vh - 390px);
     background: cover;
-    width: 100%;
+    width: 70%;
     position: absolute;
     z-index: 0;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
 
 }
 .box-container{
@@ -161,4 +164,22 @@
 
     .start-game-icon:hover{
         transform: scale(1.1);
+    }
+
+    .test{
+        position:relative;
+    }
+    .ant-wrapper-big {
+        height: 24vw;
+        min-height: 52px;
+        width: 14.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: 1vw;
+        left: 58%;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }

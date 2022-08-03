@@ -13,6 +13,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import OuterLeaf from "../../assets/background_img/outerLeaf.png";
 type IOpenState = boolean;
 
 type SubLevelOneType = {
@@ -134,6 +135,10 @@ export default function SubLevelOne(props: SubLevelOneType) {
           }}
         />
       </div>
+      <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
+        />
+        <span className="ant-wrapper-big test"><img src={AntImg} /></span></div>
     </>
   );
 }
