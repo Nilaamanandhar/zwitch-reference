@@ -44,11 +44,14 @@
 
 }
 .background-leaf{
-    height: calc(100vh - 175px);
+    height: calc(100vh - 390px);
     background: cover;
-    width: 100%;
+    width: 70%;
     position: absolute;
     z-index: 0;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
 
 }
 .box-container{
@@ -140,18 +143,43 @@
         height: 120px;
         border-radius: 50%;
         background-color:white ;
-        transition: all .2s ease-in-out;
+        
         cursor: pointer;
         box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         position: absolute;
-        top:50%;
-        left: 50%;
         z-index: 1000;
-        transform: translate(-50%,-50%);
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        top:0;
+        margin-top: auto;
+        bottom:0;
+        margin-bottom: auto;
+        transition: all .2s ease-in-out;
+
     }
 
     .start-game-icon:hover{
         transform: scale(1.1);
+    }
+
+    .test{
+        position:relative;
+    }
+    .ant-wrapper-big {
+        height: 24vw;
+        min-height: 52px;
+        width: 14.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: 1vw;
+        left: 58%;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
     }
