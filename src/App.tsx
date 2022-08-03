@@ -19,6 +19,7 @@ import {
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
+import WinGamePage from "./pages/WinGamePage";
 
 function App() {
   let handle = useFullScreenHandle();
@@ -128,6 +129,7 @@ function App() {
           <Route path="/game1/level11" element={<SubLevelEleven />} />
           <Route path="/game1/level2" element={<SubLevelTwelve />} />
           <Route path="/failgame" element={<FailGame />} />
+          <Route path="/wingame" element={<WinGamePage />} />
         </Routes>
       </FullScreen>
     </div>

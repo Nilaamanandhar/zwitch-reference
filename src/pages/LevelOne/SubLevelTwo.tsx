@@ -12,6 +12,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import blackAnt from "../../assets/ants_img/backgroundAnt.png";
 import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
 type IOpenState = boolean;
 
@@ -27,6 +28,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [activeState, setActiveState] = useState(1);
+  const [activeTimeState, setActiveTimeState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
 
@@ -36,15 +38,39 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
-    firstNumber + secondNumber !== parseInt(textValue)
-      ? navigate("/failgame")
-      : navigate("/game1");
+    if (activeState < 20) {
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        navigate("/failgame");
+      } else {
+        setActiveState(activeState + 1);
+        setTextValue("");
+      }
+    } else {
+      navigate("/wingame");
+    }
   };
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
 
   const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div className="underline mx-1 whiteLine" key={i}>
+          <div
+            className={`ant-wrapper ${
+              activeTimeState == i ? "d-block" : "d-none"
+            }`}
+          >
+            <img src={blackAnt} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
+  const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
@@ -62,13 +88,13 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
 
   useEffect(() => {
     setTimeout(() => {
-      if (activeState <= 20) {
-        setActiveState(activeState + 1);
+      if (activeTimeState <= 20) {
+        setActiveTimeState(activeTimeState + 1);
       } else {
         // navigate("/failgame");
       }
     }, 7000);
-  }, [activeState]);
+  }, [activeTimeState]);
   return (
     <>
       <TopNavbar
@@ -88,12 +114,11 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           ></div>
         )}
         <img className="background-sublevel2" src={sublevel2} />
-        
 
-       
-        <div className="top-leaf-two"><img className="leaf-sublevel21 img-fluid" src={OuterLeaf}  
-        />
-         <div className="underline-group d-flex">{underLineLizard()}</div></div>
+        <div className="top-leaf-two">
+          <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
+          <div className="underline-group d-flex">{underLineLizard()}</div>
+        </div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -114,11 +139,10 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
           handleChangeItem();
         }}
       />
-       <div className="bottom-leaf-div">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
-        />
-         <div className="underline-group d-flex">{underLineLizard()}</div>
-         </div>
+      <div className="bottom-leaf-div">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <div className="underline-group d-flex">{underLineAnt()}</div>
+      </div>
     </>
   );
 }
