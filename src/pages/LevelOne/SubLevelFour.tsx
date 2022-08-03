@@ -67,7 +67,6 @@ export default function SubLevelFour(props: SubLevelFourType) {
           } underline mx-1`}
           key={i}
         >
-
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >
@@ -98,9 +97,16 @@ export default function SubLevelFour(props: SubLevelFourType) {
           ></div>
         )}
         <img className="background-img" src={background} />
-        <div className="underline-group d-flex">{underLineLizard()}
-          <span className="ant-wrapper ant-position"><img src={AntImg} /></span>
-          <span className="ant-wrapper ant-position2"><img src={AntImg} /></span></div>
+        <div className="underline-group d-flex">
+          {underLineLizard()}
+          <span className="ant-wrapper ant-position">
+            <img src={AntImg} />
+          </span>
+
+          <span className="ant-wrapper ant-position2">
+            <img src={AntImg} />
+          </span>
+        </div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -110,7 +116,6 @@ export default function SubLevelFour(props: SubLevelFourType) {
           }}
         />
       </div>
-      <div className="underline-group d-flex">{underLineLizard()}</div>
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);
@@ -122,10 +127,14 @@ export default function SubLevelFour(props: SubLevelFourType) {
           handleChangeItem();
         }}
       />
-       <div className="leaf-sublevel4">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
-        />
-        <div className="d-flex test"><span className="ant-wrapper ant-position2"><img src={AntImg} /></span></div></div>
+      <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <div className="d-flex test">
+          <span className="ant-wrapper ant-position2">
+            <img src={AntImg} />
+          </span>
+        </div>
+      </div>
     </>
   );
 }
