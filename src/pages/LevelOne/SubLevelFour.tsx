@@ -22,6 +22,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
+  const [gameChance, setGameChance] = useState<number>(0);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -34,15 +35,44 @@ export default function SubLevelFour(props: SubLevelFourType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
-  const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
+  useEffect(() => {
+    if (gameChance == 2 || gameChance == 4) {
+      setActiveState(activeState + 1);
+    }
+    if (gameChance > 4) {
       navigate("/failgame");
+    }
+  }, [gameChance]);
+
+  const handleChangeItem = () => {
+    if (gameChance <= 4) {
+      firstNumber + secondNumber !== parseInt(textValue) &&
+        setGameChance(gameChance + 1);
     }
   };
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
-
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
   return (
     <>
       <TopNavbar
@@ -72,6 +102,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
           }}
         />
       </div>
+      <div className="underline-group d-flex">{underLineLizard()}</div>
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);
