@@ -93,7 +93,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       } else {
         // navigate("/failgame");
       }
-    }, 7000);
+    }, 10000);
   }, [activeTimeState]);
   return (
     <>
