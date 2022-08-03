@@ -19,6 +19,7 @@ import {
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
+import WinGamePage from "./pages/WinGamePage";
 
 function App() {
   let handle = useFullScreenHandle();
@@ -103,13 +104,32 @@ function App() {
               />
             }
           />
-          <Route path="/game1/level7" element={<SubLevelSeven />} />
-          <Route path="/game1/level8" element={<SubLevelEight />} />
+          <Route
+            path="/game1/level7"
+            element={
+              <SubLevelSeven
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/game1/level8"
+            element={
+              <SubLevelEight
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route path="/game1/level9" element={<SubLevelNine />} />
           <Route path="/game1/level10" element={<SubLevelTen />} />
           <Route path="/game1/level11" element={<SubLevelEleven />} />
           <Route path="/game1/level2" element={<SubLevelTwelve />} />
           <Route path="/failgame" element={<FailGame />} />
+          <Route path="/wingame" element={<WinGamePage />} />
         </Routes>
       </FullScreen>
     </div>
