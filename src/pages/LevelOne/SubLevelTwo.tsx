@@ -38,7 +38,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
-    if (activeState < 20) {
+    if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
         navigate("/failgame");
       } else {
@@ -57,7 +57,12 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1 whiteLine" key={i}>
+        <div
+          className={`${
+            i < activeTimeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
           <div
             className={`ant-wrapper ${
               activeTimeState == i ? "d-block" : "d-none"
@@ -74,7 +79,12 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1 whiteLine" key={i}>
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >
