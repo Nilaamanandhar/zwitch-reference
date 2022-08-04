@@ -3,12 +3,9 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../../component/TextInput/TextInput";
 import background from "../../assets/background_img/yellowbackground.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import OuterLeaf from "../../assets/background_img/outerLeaf.png";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
@@ -23,6 +20,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
+  const [gameChance, setGameChance] = useState<number>(0);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -31,13 +29,23 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
+  useEffect(() => {
+    if (gameChance == 2 || gameChance == 4) {
+      setActiveState(activeState + 1);
+    }
+    if (gameChance > 4) {
+      navigate("/failgame");
+    }
+  }, [gameChance]);
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
-      navigate("/failgame");
+    setTextValue("");
+    if (gameChance <= 4) {
+      firstNumber + secondNumber !== parseInt(textValue) &&
+        setGameChance(gameChance + 1);
     }
   };
   const handleItem = (item: any) => {
