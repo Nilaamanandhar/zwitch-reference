@@ -77,7 +77,6 @@ export default function SubLevelFour(props: SubLevelFourType) {
     }
     return lineList;
   };
-
   return (
     <>
       <TopNavbar
