@@ -12,6 +12,7 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import { Net } from "../../assets/svg/Logo/Icons";
 type IOpenState = boolean;
 
 type SubLevelThreeType = {
@@ -76,7 +77,12 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           ></div>
         )}
         <img className="background-img" src={background} />
-        <div className="underline-group d-flex">{underLineLizard()}<span className="ant-wrapper ant-position"><img src={AntImg} /></span></div>
+        <div className="underline-group d-flex">
+          {underLineLizard()}
+          <span className="ant-wrapper ant-position">
+            <img src={AntImg} />
+          </span>
+        </div>
         <BoxContainer
           NumberOne={firstNumber}
           NumberTwo={secondNumber}
@@ -86,6 +92,12 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           }}
         />
       </div>
+      <div className="fish-net-wrapper">
+        <Net />
+        {/* <img src={net} className="fish-net" /> */}
+        {/* <img src={AntImg} className="fish-img" /> */}
+      </div>
+
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);

@@ -8,3 +8,18 @@
    .ant-position{
     right: -8%;
    }
+
+.fish-net-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.fish-net {
+    height: 10vw;
+    width: 7vw;
+    min-width: 5px;
+    min-height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
