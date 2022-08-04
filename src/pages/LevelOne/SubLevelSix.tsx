@@ -42,7 +42,26 @@ export default function SubLevelSix(props: SubLevelSixType) {
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
-
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
   return (
     <>
       <TopNavbar
@@ -62,6 +81,16 @@ export default function SubLevelSix(props: SubLevelSixType) {
           ></div>
         )}
         <img className="background-img" src={background} />
+        <div className="underline-group d-flex">
+          {underLineLizard()}
+          <span className="ant-wrapper ant-position">
+            <img src={AntImg} />
+          </span>
+
+          {/* <span className="ant-wrapper ant-position2">
+            <img src={AntImg} />
+          </span> */}
+        </div>
 
         <BoxContainer
           NumberOne={firstNumber}
@@ -72,6 +101,7 @@ export default function SubLevelSix(props: SubLevelSixType) {
           }}
         />
       </div>
+
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);

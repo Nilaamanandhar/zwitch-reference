@@ -125,7 +125,16 @@ function App() {
             }
           />
           <Route path="/game1/level9" element={<SubLevelNine />} />
-          <Route path="/game1/level10" element={<SubLevelTen />} />
+          <Route
+            path="/game1/level10"
+            element={
+              <SubLevelTen
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route path="/game1/level11" element={<SubLevelEleven />} />
           <Route path="/game1/level2" element={<SubLevelTwelve />} />
           <Route path="/failgame" element={<FailGame />} />

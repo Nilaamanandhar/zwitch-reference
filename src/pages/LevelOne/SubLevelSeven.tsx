@@ -10,6 +10,7 @@ import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import ButtonBox from "../../component/Button/Button";
 import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
+import OuterLeaf from "../../assets/background_img/outerLeaf.png";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 type IOpenState = boolean;
@@ -42,6 +43,26 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+  const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
 
   return (
     <>
@@ -62,6 +83,16 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
           ></div>
         )}
         <img className="background-img" src={background} />
+        <div className="underline-group d-flex">
+          {underLineLizard()}
+          <span className="ant-wrapper ant-position">
+            <img src={AntImg} />
+          </span>
+
+          <span className="ant-wrapper ant-position2">
+            <img src={AntImg} />
+          </span>
+        </div>
 
         <BoxContainer
           NumberOne={firstNumber}
@@ -83,6 +114,12 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
           handleChangeItem();
         }}
       />
+      <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <span className="ant-wrapper-big test">
+          <img src={AntImg} />
+        </span>
+      </div>
     </>
   );
 }
