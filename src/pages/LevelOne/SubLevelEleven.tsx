@@ -39,7 +39,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
       if (activeTimeState <= 20) {
         setActiveTimeState(activeTimeState + 1);
       } else {
-        // navigate("/failgame");
+        navigate("/failgame");
       }
     }, 10000);
   }, [activeTimeState]);
@@ -48,12 +48,12 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
+    setTextValue("");
     if (activeState <= 20) {
-      if (firstNumber + secondNumber == parseInt(textValue)) {
+      firstNumber + secondNumber == parseInt(textValue) &&
         setActiveState(activeState + 1);
-      } else {
-        navigate("/wingame");
-      }
+    } else {
+      navigate("/wingame");
     }
   };
   const handleItem = (item: any) => {
