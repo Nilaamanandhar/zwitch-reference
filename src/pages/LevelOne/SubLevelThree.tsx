@@ -93,7 +93,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         />
       </div>
       <div className="fish-net-wrapper">
-        <Net />
+        {/* <Net /> */}
         {/* <img src={net} className="fish-net" /> */}
         {/* <img src={AntImg} className="fish-img" /> */}
       </div>
