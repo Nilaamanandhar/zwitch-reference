@@ -3,9 +3,8 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import { Arrow } from "../../assets/svg/Logo/Icons";
 import TextInput from "../../component/TextInput/TextInput";
-import leaf from "../../assets/background_img/leaf.png";
+import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import ButtonBox from "../../component/Button/Button";
@@ -13,7 +12,8 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
-import OuterLeaf from "../../assets/background_img/outerLeaf.png";
+import blackAnt from "../../assets/ants_img/backgroundAnt.png";
+import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
 type IOpenState = boolean;
 
 type SubLevelElevenType = {
@@ -21,20 +21,68 @@ type SubLevelElevenType = {
 };
 
 export default function SubLevelEleven(props: SubLevelElevenType) {
-  const [openPopup, setOpenPopup] = useState<IOpenState>(false);
-  const [activeState, setActiveState] = useState(1);
-  const [isGameBegin, setIsGameBegin] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [activeState, setActiveState] = useState(1);
+  const [activeTimeState, setActiveTimeState] = useState(1);
+  const [antPosition, setAntPosition] = useState(1);
+  const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (activeTimeState <= 20) {
+        setActiveTimeState(activeTimeState + 1);
+      } else {
+        // navigate("/failgame");
+      }
+    }, 10000);
+  }, [activeTimeState]);
+
+  const clearItemNumber = () => {
+    setTextValue(textValue.substring(0, textValue.length - 1));
+  };
+  const handleChangeItem = () => {
+    if (activeState <= 20) {
+      if (firstNumber + secondNumber == parseInt(textValue)) {
+        setActiveState(activeState + 1);
+      } else {
+        navigate("/wingame");
+      }
+    }
+  };
+  const handleItem = (item: any) => {
+    setTextValue(textValue.concat(item.toString()));
+  };
+
   const underLineLizard = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeTimeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${
+              activeTimeState == i ? "d-block" : "d-none"
+            }`}
+          >
+            <img src={blackAnt} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
+  const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
@@ -55,20 +103,6 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
     return lineList;
   };
 
-  const clearItemNumber = () => {
-    setTextValue(textValue.substring(0, textValue.length - 1));
-  };
-
-  const handleItem = (item: any) => {
-    console.log("items", item);
-    setTextValue(textValue.concat(item.toString()));
-  };
-  const handleChangeItem = () => {
-    setTextValue("");
-    if (firstNumber + secondNumber == parseInt(textValue)) {
-      setActiveState(activeState + 1);
-    }
-  };
   return (
     <>
       <TopNavbar
@@ -78,66 +112,44 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      <div className={`${!isGameBegin && "screen-inactive"}`}>
-        {!isGameBegin && (
-          <div className="start-game-icon">
-            <div
-              onClick={() => {
-                setIsGameBegin(true);
-              }}
-              className="arrow-icon"
-            >
-              <Arrow />
-            </div>
-          </div>
-        )}
-        <div className="game-content">
-          {popout && (
-            <div
-              className="setting-overlay"
-              onClick={() => {
-                dispatch(navbarSlice.actions.openPopOut());
-              }}
-            ></div>
-          )}
-          <img className="background-leaf" src={leaf} />
-          <div className="underline-group d-flex">{underLineLizard()}</div>
-          <BoxContainer
-            NumberOne={firstNumber}
-            NumberTwo={secondNumber}
-            value={textValue}
-            onChange={(e: any) => {
-              setTextValue(e.target.value);
+      <div className="game-content">
+        {popout && (
+          <div
+            className="setting-overlay"
+            onClick={() => {
+              dispatch(navbarSlice.actions.openPopOut());
             }}
-          />
-          {/* <div className="box-container">
-            <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
-            <TextInput
-              value={textValue}
-              onChange={(e: any) => {
-                setTextValue(e.target.value);
-              }}
-              customClass="default-textbox"
-            />
-          </div> */}
+          ></div>
+        )}
+        <img className="background-sublevel2" src={sublevel2} />
+
+        <div className="top-leaf-two">
+          <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
+          <div className="underline-group d-flex">{underLineLizard()}</div>
         </div>
-        <BottomContainer
-          addItem={(item: any) => {
-            handleItem(item);
-          }}
-          clearHandle={() => {
-            clearItemNumber();
-          }}
-          handleChange={() => {
-            handleChangeItem();
+        <BoxContainer
+          NumberOne={firstNumber}
+          NumberTwo={secondNumber}
+          value={textValue}
+          onChange={(e: any) => {
+            setTextValue(e.target.value);
           }}
         />
       </div>
-      <div className="leaf-sublevel4">
+      <BottomContainer
+        addItem={(item: any) => {
+          handleItem(item);
+        }}
+        clearHandle={() => {
+          clearItemNumber();
+        }}
+        handleChange={() => {
+          handleChangeItem();
+        }}
+      />
+      <div className="bottom-leaf-div">
         <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <span className="ant-wrapper-big test">
-          <img src={AntImg} />
-        </span>
+        <div className="underline-group d-flex">{underLineAnt()}</div>
       </div>
     </>
   );
