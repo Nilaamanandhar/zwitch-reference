@@ -129,11 +129,9 @@ export default function SubLevelFour(props: SubLevelFourType) {
       />
       <div className="leaf-sublevel4">
         <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <div className="d-flex test">
-          <span className="ant-wrapper ant-position2">
-            <img src={AntImg} />
-          </span>
-        </div>
+        <span className="ant-wrapper-big test">
+          <img src={AntImg} />
+        </span>
       </div>
     </>
   );
