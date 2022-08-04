@@ -65,9 +65,9 @@ export default function SubLevelEight(props: SubLevelEightType) {
       if (activeState <= 20) {
         setActiveState(activeState + 1);
       } else {
-        // navigate("/failgame");
+        navigate("/failgame");
       }
-    }, 7000);
+    }, 5000);
   }, [activeState]);
   return (
     <>

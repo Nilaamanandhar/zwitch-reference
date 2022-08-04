@@ -27,13 +27,21 @@ export default function SubLevelTen(props: SubLevelTenType) {
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
+  const [gameChance, setGameChance] = useState<number>(0);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
-
+  useEffect(() => {
+    if (gameChance == 2) {
+      setActiveState(activeState + 1);
+    }
+    if (gameChance > 4) {
+      navigate("/failgame");
+    }
+  }, [gameChance]);
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -64,13 +72,13 @@ export default function SubLevelTen(props: SubLevelTenType) {
     setTextValue(textValue.concat(item.toString()));
   };
   const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
-      navigate("/failgame");
-    } else {
-      setActiveState(activeState + 1);
-      setTextValue("");
+    setTextValue("");
+    if (gameChance <= 4) {
+      firstNumber + secondNumber !== parseInt(textValue) &&
+        setGameChance(gameChance + 1);
     }
   };
+
   return (
     <>
       <TopNavbar
