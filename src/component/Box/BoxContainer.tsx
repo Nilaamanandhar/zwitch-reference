@@ -5,10 +5,11 @@ type SubLevelOneType = {
   NumberTwo: Number;
   value: any;
   onChange: Function;
+  className?: string;
 };
 export default function BoxContainer(props: SubLevelOneType) {
   return (
-    <div className="box-container">
+    <div className={`box-container ${props.className && `${props.className}`}`}>
       <div className="fs-3">{`${props.NumberOne} + ${props.NumberTwo} = `}</div>
       <TextInput
         {...props}

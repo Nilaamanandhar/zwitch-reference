@@ -12,6 +12,9 @@ import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
+import NetImg from "../../assets/game_img/net.png";
+import fishImg from "../../assets/game_img/fish.png";
+
 import { Net } from "../../assets/svg/Logo/Icons";
 type IOpenState = boolean;
 
@@ -29,6 +32,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const [activeState, setActiveState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
+  const [netAction, setNetAction] = useState("");
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
@@ -58,6 +62,19 @@ export default function SubLevelThree(props: SubLevelThreeType) {
     }
     return lineList;
   };
+
+  useEffect(() => {
+    setNetAction("start-eating");
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setNetAction("finish-eating");
+    }, 7000);
+    setTimeout(() => {
+      setNetAction("go-back");
+    }, 7400);
+  }, []);
   return (
     <>
       <TopNavbar
@@ -90,12 +107,19 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           onChange={(e: any) => {
             setTextValue(e.target.value);
           }}
+          className="top-container"
         />
-      </div>
-      <div className="fish-net-wrapper">
-        {/* <Net /> */}
-        {/* <img src={net} className="fish-net" /> */}
-        {/* <img src={AntImg} className="fish-img" /> */}
+
+        <div className="fish-net-wrapper">
+          <div className="fish-net-inner-wrapper">
+            <div className={`fish-img-wrapper ${netAction}`}>
+              <img src={fishImg} className={`fish-img ${netAction}`} />
+            </div>
+            <div className={`net-img-wrapper ${netAction}`}>
+              <img src={NetImg} className={`net-img ${netAction}`} />
+            </div>
+          </div>
+        </div>
       </div>
 
       <BottomContainer

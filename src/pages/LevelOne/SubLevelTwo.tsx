@@ -101,7 +101,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       if (activeTimeState <= 20) {
         setActiveTimeState(activeTimeState + 1);
       } else {
-        // navigate("/failgame");
+        navigate("/failgame");
       }
     }, 10000);
   }, [activeTimeState]);
