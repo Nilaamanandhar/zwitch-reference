@@ -55,9 +55,9 @@ export default function SubLevelOne(props: SubLevelOneType) {
   };
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
-      console.log("enter");
+      setTextValue(e.target.value);
+      handleChangeItem();
       e.preventDefault();
-      // this.setState({ inputValue: event.target.value });
     }
   };
   const clearItemNumber = () => {
