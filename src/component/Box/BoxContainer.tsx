@@ -4,6 +4,7 @@ type SubLevelOneType = {
   NumberOne: Number;
   NumberTwo: Number;
   value: any;
+  onKeyPress?: any;
   onChange: Function;
   className?: string;
 };

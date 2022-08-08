@@ -53,7 +53,13 @@ export default function SubLevelOne(props: SubLevelOneType) {
     }
     return lineList;
   };
-
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      console.log("enter");
+      e.preventDefault();
+      // this.setState({ inputValue: event.target.value });
+    }
+  };
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
@@ -105,6 +111,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
           {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
