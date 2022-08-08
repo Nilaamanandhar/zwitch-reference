@@ -75,13 +75,13 @@ export default function SubLevel1test(props: SubLevelOneType) {
   };
   return (
     <>
-      {/* <TopNavbar
+      <TopNavbar
         leftContent="back"
         navigation={() => navigate(-1)}
         user="Chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
-      /> */}
+      />
       <div className={`${!isGameBegin && "screen-inactivetest"}`}>
         {/* {!isGameBegin && (
           <div className="start-game-icontest">
