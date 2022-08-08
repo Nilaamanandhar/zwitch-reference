@@ -15,6 +15,7 @@ import {
   SubLevelTen,
   SubLevelEleven,
   SubLevelTwelve,
+  SubLevel1test,
 } from "./pages/LevelOne/index";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -48,6 +49,16 @@ function App() {
             path="/game1/level1"
             element={
               <SubLevelOne
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+           <Route
+            path="/test"
+            element={
+              <SubLevel1test
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}

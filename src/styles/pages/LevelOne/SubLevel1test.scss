@@ -1,0 +1,243 @@
+html{
+    height: 100vh;
+    }
+// .screen-inactivetest{
+//     background-color: rgba(9, 25, 38, 0.75);
+//      opacity: 0.5
+
+// }
+
+.container-wrapper{
+    height: 100%;
+}
+.textinput-wrappertest{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.button-stylestest{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+}
+
+.modal-header {
+    border-bottom:none !important;
+}
+
+
+.game-contenttest {
+ width: 100%;
+ height: calc(100vh - 129px);
+ position: absolute;
+ background-color: #FEC87E;
+}
+
+.setting-overlaytest {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width:100%;
+    background-color: rgba(9,25,38,.75);
+    opacity: .9;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+
+}
+.center-content{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.background-leaftest{
+    height: calc(100vh - 300px);
+    background: cover;
+    width: 100%;
+    z-index: 0;
+}
+.box-container{
+    background-color:white;
+    padding: 6rem 3.9rem;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    color: black;
+}
+.form-controltest{
+    border-radius: 0rem !important;
+    margin-left: 10px;
+}
+
+.bottom-container{
+    position: absolute;
+    bottom:0%;
+    background-color: #fff;
+    width: 100%;
+    padding: 30px ;
+    display:flex;
+    z-index: 1000;
+}
+
+
+
+.pagination-button{
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.underline-grouptest{
+    position: absolute;
+    top: 12%;
+    left: 2vw;
+    z-index:100;
+    // transform: translate(-50%,0%);
+    .ant-wrappertest {
+        height: 7vw;
+        min-height: 52px;
+        width: 3.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: -4vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.underline{
+    position: relative;
+    height: 0.4vw;
+    min-height:3.6px;
+    width: 3.5vw;
+    min-width: 9px;
+    border-radius: 5px;
+
+    .ant-wrappertest {
+        height: 7vw;
+        min-height: 52px;
+        width: 3.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: -4vw;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &.activeLine{
+        background-color:red;
+    }
+
+    &.whiteLine {
+        background-color: #fff;
+     }
+}
+
+.start-game-icontest{
+        width:120px ;
+        height: 120px;
+        border-radius: 50%;
+        background-color:white ;
+        
+        cursor: pointer;
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+        position: absolute;
+        z-index: 1000;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        top:0;
+        margin-top: auto;
+        bottom:0;
+        margin-bottom: auto;
+        transition: all .2s ease-in-out;
+
+    }
+
+    .start-game-icontest:hover{
+        transform: scale(1.1);
+    }
+
+    .testtest{
+        position:relative;
+    }
+    .ant-wrapper-bigtest {
+        height: 24vw;
+        min-height: 52px;
+        width: 14.5vw;
+        min-width: 26px;
+        position: absolute;
+        top: 1vw;
+        left: 58%;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+ 
+    .leaf-sublevel4test{
+        position: absolute;
+        bottom:-10%;
+    }
+    .leaf-sublevel22test{
+        position:relative;
+     }
+    
+     @media (max-width: 1152px){
+        .leaf-sublevel4test{
+            bottom:-5% ;
+        }
+        .box-container{
+            padding: 5rem 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+     }
+
+     @media (max-width: 900px) {
+        .bottom-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .pagination-button{
+    flex-wrap: wrap;
+        }
+        
+    }
+    
+    @media (max-width: 724px){
+        .leaf-sublevel4test{
+            bottom:5% ;
+        }
+        .underline{
+            width: 3vw;
+        }
+    }
+
+    @media (max-width: 644px){
+        .leaf-sublevel4test{
+            bottom:15% ;
+        }
+    }
