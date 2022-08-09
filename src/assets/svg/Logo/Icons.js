@@ -43,7 +43,7 @@ export const Sound = () => {
       <g
         id="Symbols"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
         fillRule="evenodd"
       >
@@ -190,7 +190,7 @@ export const CrossIcon = () => {
       <g
         id="Icoon_backspace_donker"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
         fillRule="evenodd"
       >
@@ -219,7 +219,7 @@ export const OkIcon = () => {
       <g
         id="Symbols"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
         fillRule="evenodd"
       >
@@ -5863,7 +5863,7 @@ export const Net = () => {
       x="0px"
       y="0px"
       viewBox="0 0 403.6 1047.6"
-      style="enable-background:new 0 0 403.6 1047.6;"
+      // style="enable-background:new 0 0 403.6 1047.6;"
       space="preserve"
     >
       <g id="foreground_net">
@@ -5960,7 +5960,7 @@ export const Net = () => {
             <stop offset="1" style="stop-color:#8FA3BC" />
           </linearGradient>
           <path
-            class="st4"
+            className="st4"
             d="M47.2,754.8c0,0,103.4-7.1,177.8,87.5c67,85.2,115.1,39.6,160.6,56s9.1,188.7-361.3,131.8 M63.7,1039.5
 			c64.8-132.4,22.9-283.2,22.9-283.2 M126,1043.5c64.3-126,23.6-266.1,23.6-266.1 M182.4,1045.1c55.9-88,36.8-212.2,36.8-212.2
 			 M236.6,1039.9c54.2-68.6,31.2-162,31.2-162 M293.4,1027.9c53.2-56.6,29-134.9,29-134.9 M352.5,1000.4c39.9-43.8,9-108,9-108

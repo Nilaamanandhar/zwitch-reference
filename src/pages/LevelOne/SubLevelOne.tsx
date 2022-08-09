@@ -8,12 +8,11 @@ import TextInput from "../../component/TextInput/TextInput";
 import leaf from "../../assets/background_img/leaf.png";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 import OuterLeaf from "../../assets/background_img/outerLeaf.png";
+import ArrowButton from "../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
 type SubLevelOneType = {
@@ -54,7 +53,13 @@ export default function SubLevelOne(props: SubLevelOneType) {
     }
     return lineList;
   };
-
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
@@ -82,16 +87,11 @@ export default function SubLevelOne(props: SubLevelOneType) {
       />
       <div className={`${!isGameBegin && "screen-inactive"}`}>
         {!isGameBegin && (
-          <div className="start-game-icon">
-            <div
-              onClick={() => {
-                setIsGameBegin(true);
-              }}
-              className="arrow-icon"
-            >
-              <Arrow />
-            </div>
-          </div>
+          <ArrowButton
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+          />
         )}
         <div className="game-content">
           {popout && (
@@ -111,6 +111,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
           {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
@@ -136,9 +137,11 @@ export default function SubLevelOne(props: SubLevelOneType) {
         />
       </div>
       <div className="leaf-sublevel4">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf}  
-        />
-        <span className="ant-wrapper-big test"><img src={AntImg} /></span></div>
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <span className="ant-wrapper-big test">
+          <img src={AntImg} />
+        </span>
+      </div>
     </>
   );
 }

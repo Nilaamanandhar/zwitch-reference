@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 import TextInput from "../../component/TextInput/TextInput";
+import ArrowButton from "../../component/ArrowButton/ArrowButton";
 import background from "../../assets/background_img/yellowbackground.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
@@ -21,6 +22,7 @@ type SubLevelFourType = {
 
 export default function SubLevelFour(props: SubLevelFourType) {
   const [textValue, setTextValue] = useState<string>("");
+  const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const [gameChance, setGameChance] = useState<number>(0);
@@ -86,51 +88,60 @@ export default function SubLevelFour(props: SubLevelFourType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      <div className="game-contentWrapper">
-        {popout && (
-          <div
-            className="setting-overlay"
+      <div className={`${!isGameBegin && "screen-inactive"}`}>
+        {!isGameBegin && (
+          <ArrowButton
             onClick={() => {
-              dispatch(navbarSlice.actions.openPopOut());
+              setIsGameBegin(true);
             }}
-          ></div>
+          />
         )}
-        <img className="background-img" src={background} />
-        <div className="underline-group d-flex">
-          {underLineLizard()}
-          <span className="ant-wrapper ant-position">
-            <img src={AntImg} />
-          </span>
+        <div className="game-contentWrapper">
+          {popout && (
+            <div
+              className="setting-overlay"
+              onClick={() => {
+                dispatch(navbarSlice.actions.openPopOut());
+              }}
+            ></div>
+          )}
+          <img className="background-img" src={background} />
+          <div className="underline-group d-flex">
+            {underLineLizard()}
+            <span className="ant-wrapper ant-position">
+              <img src={AntImg} />
+            </span>
 
-          <span className="ant-wrapper ant-position2">
+            <span className="ant-wrapper ant-position2">
+              <img src={AntImg} />
+            </span>
+          </div>
+          <BoxContainer
+            NumberOne={firstNumber}
+            NumberTwo={secondNumber}
+            value={textValue}
+            onChange={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+          />
+        </div>
+        <BottomContainer
+          addItem={(item: any) => {
+            handleItem(item);
+          }}
+          clearHandle={() => {
+            clearItemNumber();
+          }}
+          handleChange={() => {
+            handleChangeItem();
+          }}
+        />
+        <div className="leaf-sublevel4">
+          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+          <span className="ant-wrapper-big test">
             <img src={AntImg} />
           </span>
         </div>
-        <BoxContainer
-          NumberOne={firstNumber}
-          NumberTwo={secondNumber}
-          value={textValue}
-          onChange={(e: any) => {
-            setTextValue(e.target.value);
-          }}
-        />
-      </div>
-      <BottomContainer
-        addItem={(item: any) => {
-          handleItem(item);
-        }}
-        clearHandle={() => {
-          clearItemNumber();
-        }}
-        handleChange={() => {
-          handleChangeItem();
-        }}
-      />
-      <div className="leaf-sublevel4">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <span className="ant-wrapper-big test">
-          <img src={AntImg} />
-        </span>
       </div>
     </>
   );

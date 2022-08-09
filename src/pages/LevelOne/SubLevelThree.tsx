@@ -3,19 +3,17 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../../component/TextInput/TextInput";
 import background from "../../assets/background_img/bluebackground.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
-import NetImg from "../../assets/game_img/net.png";
-import fishImg from "../../assets/game_img/fish.png";
-
+import NetImg from "../../assets/net/net.png";
+import BackNet from "../../assets/net/backnet.png";
+import fishImg from "../../assets/fish.png";
 import { Net } from "../../assets/svg/Logo/Icons";
+
 type IOpenState = boolean;
 
 type SubLevelThreeType = {
@@ -111,17 +109,12 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         />
 
         <div className="fish-net-wrapper">
-          <div className="fish-net-inner-wrapper">
-            <div className={`fish-img-wrapper ${netAction}`}>
-              <img src={fishImg} className={`fish-img ${netAction}`} />
-            </div>
-            <div className={`net-img-wrapper ${netAction}`}>
-              <img src={NetImg} className={`net-img ${netAction}`} />
-            </div>
-          </div>
+          <img src={fishImg} className={`fish-img ${netAction}`} />
+
+          <img src={BackNet} className={`net-img net-img-back ${netAction} `} />
+          <img src={NetImg} className={`net-img net-img-front ${netAction}`} />
         </div>
       </div>
-
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);

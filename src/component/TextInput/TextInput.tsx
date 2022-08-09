@@ -6,6 +6,7 @@ type textProps = {
   customClass: string;
   value: string;
   onChange: Function;
+  onKeyPress?: any;
 };
 export default function TextInput(props: textProps) {
   return (
@@ -15,6 +16,7 @@ export default function TextInput(props: textProps) {
         value={props.value}
         onChange={(e) => props.onChange(e)}
         type="text"
+        onKeyPress={(e) => props.onKeyPress(e)}
       />
     </Form>
   );

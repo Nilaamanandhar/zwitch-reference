@@ -7,6 +7,7 @@ import TextInput from "../../component/TextInput/TextInput";
 import background from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
+import { Arrow } from "../../assets/svg/Logo/Icons";
 import ButtonBox from "../../component/Button/Button";
 import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
@@ -15,6 +16,7 @@ import AntImg from "../../assets/ants_img/redAnt.png";
 import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import blackAnt from "../../assets/ants_img/backgroundAnt.png";
 import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
+import ArrowButton from "../../component/ArrowButton/ArrowButton";
 
 type IOpenState = boolean;
 
@@ -25,6 +27,7 @@ type SubLevelFiveType = {
 export default function SubLevelFive(props: SubLevelFiveType) {
   const [textValue, setTextValue] = useState<string>("");
   const [activeTimeState, setActiveTimeState] = useState(1);
+  const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -115,46 +118,55 @@ export default function SubLevelFive(props: SubLevelFiveType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      <div className="game-contentWrapper">
-        {popout && (
-          <div
-            className="setting-overlay"
+      <div className={`${!isGameBegin && "screen-inactive"}`}>
+        {!isGameBegin && (
+          <ArrowButton
             onClick={() => {
-              dispatch(navbarSlice.actions.openPopOut());
+              setIsGameBegin(true);
             }}
-          ></div>
+          />
         )}
-        <img className="background-img" src={background} />
-        <img className="background-sublevel2" src={sublevel2} />
+        <div className="game-contentWrapper">
+          {popout && (
+            <div
+              className="setting-overlay"
+              onClick={() => {
+                dispatch(navbarSlice.actions.openPopOut());
+              }}
+            ></div>
+          )}
+          <img className="background-img" src={background} />
+          <img className="background-sublevel2" src={sublevel2} />
 
-        <div className="top-leaf-two">
-          <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
-          <div className="underline-group d-flex">{underLineLizard()}</div>
+          <div className="top-leaf-two">
+            <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
+            <div className="underline-group d-flex">{underLineLizard()}</div>
+          </div>
+
+          <BoxContainer
+            NumberOne={firstNumber}
+            NumberTwo={secondNumber}
+            value={textValue}
+            onChange={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+          />
         </div>
-
-        <BoxContainer
-          NumberOne={firstNumber}
-          NumberTwo={secondNumber}
-          value={textValue}
-          onChange={(e: any) => {
-            setTextValue(e.target.value);
+        <BottomContainer
+          addItem={(item: any) => {
+            handleItem(item);
+          }}
+          clearHandle={() => {
+            clearItemNumber();
+          }}
+          handleChange={() => {
+            handleChangeItem();
           }}
         />
-      </div>
-      <BottomContainer
-        addItem={(item: any) => {
-          handleItem(item);
-        }}
-        clearHandle={() => {
-          clearItemNumber();
-        }}
-        handleChange={() => {
-          handleChangeItem();
-        }}
-      />
-      <div className="bottom-leaf-div">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <div className="underline-group d-flex">{underLineAnt()}</div>
+        <div className="bottom-leaf-div">
+          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+          <div className="underline-group d-flex">{underLineAnt()}</div>
+        </div>
       </div>
     </>
   );

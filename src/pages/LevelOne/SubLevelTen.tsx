@@ -3,17 +3,14 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import { Arrow } from "../../assets/svg/Logo/Icons";
-import TextInput from "../../component/TextInput/TextInput";
 import leaf from "../../assets/background_img/leaf.png";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 import OuterLeaf from "../../assets/background_img/outerLeaf.png";
+import ArrowButton from "../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
 type SubLevelTenType = {
@@ -90,16 +87,11 @@ export default function SubLevelTen(props: SubLevelTenType) {
       />
       <div className={`${!isGameBegin && "screen-inactive"}`}>
         {!isGameBegin && (
-          <div className="start-game-icon">
-            <div
-              onClick={() => {
-                setIsGameBegin(true);
-              }}
-              className="arrow-icon"
-            >
-              <Arrow />
-            </div>
-          </div>
+          <ArrowButton
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+          />
         )}
         <div className="game-content">
           {popout && (
