@@ -9,7 +9,8 @@ import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
-import NetImg from "../../assets/game_img/net.png";
+import NetImg from "../../assets/net/net.png";
+import BackNet from "../../assets/net/backnet.png";
 import fishImg from "../../assets/fish.png";
 import { Net } from "../../assets/svg/Logo/Icons";
 
@@ -108,14 +109,10 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         />
 
         <div className="fish-net-wrapper">
-          <div className="fish-net-inner-wrapper">
-            <div className={`fish-img-wrapper ${netAction}`}>
-              <img src={fishImg} className={`fish-img ${netAction}`} />
-            </div>
-            <div className={`net-img-wrapper ${netAction}`}>
-              <img src={NetImg} className={`net-img ${netAction}`} />
-            </div>
-          </div>
+          <img src={fishImg} className={`fish-img ${netAction}`} />
+
+          <img src={BackNet} className={`net-img net-img-back ${netAction} `} />
+          <img src={NetImg} className={`net-img net-img-front ${netAction}`} />
         </div>
       </div>
       <BottomContainer
