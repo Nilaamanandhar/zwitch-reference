@@ -60,7 +60,6 @@ html{
     justify-content: center;
 }
 .background-leaftest{
-    height: calc(100vh - 300px);
     background: cover;
     width: 100%;
     z-index: 0;
@@ -96,12 +95,14 @@ html{
     display: flex;
     justify-content: center;
 }
-
+.underline-wrapper{
+    width: 95%;
+}
 .underline-grouptest{
     position: absolute;
     top: 12%;
-    left: 2vw;
     z-index:100;
+    width: 95%;
     // transform: translate(-50%,0%);
     .ant-wrappertest {
         height: 7vw;
@@ -122,7 +123,6 @@ html{
     position: relative;
     height: 0.4vw;
     min-height:3.6px;
-    width: 3.5vw;
     min-width: 9px;
     border-radius: 5px;
 
@@ -213,9 +213,9 @@ html{
             flex-wrap: wrap;
             justify-content: center;
         }
-        .background-leaftest{
-            height: calc(100vh - 333px);
-        }
+        // .background-leaftest{
+        //     height: calc(100vh - 333px);
+        // }
      }
 
      @media (max-width: 900px) {
@@ -230,10 +230,10 @@ html{
         .leaf-sublevel4test{
             bottom:2% ;
         } 
-        .background-leaftest{
-            height: calc(100vh - 450px);
+        // .background-leaftest{
+        //     height: calc(100vh - 450px);
 
-        }
+        // }
         .center-content{
             transform: translate(-50%,-55%);
         }
@@ -243,19 +243,17 @@ html{
         .leaf-sublevel4test{
             bottom:7% ;
         }
-        .underline{
-            width: 3vw;
-        }
+        
     }
 
     @media (max-width: 644px){
         .leaf-sublevel4test{
             bottom:18% ;
         }
-        .background-leaftest{
-            height: calc(100vh - 550px);
+        // .background-leaftest{
+        //     height: calc(100vh - 550px);
 
-        }
+        // }
         .center-content{
             transform: translate(-50%,-65%);
         }
