@@ -105,7 +105,7 @@ export default function SubLevel1test(props: SubLevelOneType) {
             ></div>
           )}
           <div className="underline-grouptest d-flex"><div className="underline-wrapper d-flex">{underLineLizard()}</div><div
-            className="ant-wrappertest d-flex position-absolute end-0"><img src={AntImg} /><img src={AntImg} /></div></div>
+            className="ant-wrappertest d-flex position-absolute end-0"><img src={AntImg} className="me-3"/><img src={AntImg} /></div></div>
           <div className="center-content">
             <img className="background-leaftest" src={leaf} />
             <BoxContainer
