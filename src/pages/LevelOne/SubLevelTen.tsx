@@ -39,6 +39,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
       navigate("/failgame");
     }
   }, [gameChance]);
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -46,6 +47,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
       e.preventDefault();
     }
   };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -75,6 +77,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
     console.log("items", item);
     setTextValue(textValue.concat(item.toString()));
   };
+
   const handleChangeItem = () => {
     setTextValue("");
     if (gameChance <= 4) {

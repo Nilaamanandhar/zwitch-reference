@@ -40,6 +40,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -47,6 +48,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
@@ -59,6 +61,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       navigate("/wingame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };

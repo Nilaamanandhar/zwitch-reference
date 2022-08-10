@@ -37,6 +37,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -44,11 +45,13 @@ export default function SubLevelEight(props: SubLevelEightType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     firstNumber + secondNumber !== parseInt(textValue)
       ? navigate("/failgame")
       : navigate("/game1");
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
@@ -78,6 +81,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
       }
     }, 5000);
   }, [activeState]);
+
   return (
     <>
       <TopNavbar

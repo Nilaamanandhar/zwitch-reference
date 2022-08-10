@@ -44,14 +44,17 @@ export default function SubLevelThree(props: SubLevelThreeType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (firstNumber + secondNumber !== parseInt(textValue)) {
       navigate("/failgame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -80,6 +83,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
       setNetAction("go-back");
     }, 7400);
   }, []);
+
   return (
     <>
       <TopNavbar

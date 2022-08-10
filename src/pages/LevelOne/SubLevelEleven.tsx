@@ -42,6 +42,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
       }
     }, 10000);
   }, [activeTimeState]);
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -53,6 +54,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleChangeItem = () => {
     setTextValue("");
     if (activeState <= 20) {
@@ -62,6 +64,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
       navigate("/wingame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
@@ -88,6 +91,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
     }
     return lineList;
   };
+
   const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {

@@ -37,6 +37,7 @@ export default function SubLevelSix(props: SubLevelSixType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -44,14 +45,17 @@ export default function SubLevelSix(props: SubLevelSixType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (firstNumber + secondNumber !== parseInt(textValue)) {
       navigate("/failgame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {

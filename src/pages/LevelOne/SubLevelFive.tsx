@@ -42,6 +42,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -49,6 +50,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
@@ -61,9 +63,11 @@ export default function SubLevelFive(props: SubLevelFiveType) {
       navigate("/wingame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   useEffect(() => {
     setTimeout(() => {
       if (activeTimeState <= 20) {
@@ -96,6 +100,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
     return lineList;
   };
+
   const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -116,6 +121,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
     return lineList;
   };
+
   return (
     <>
       <TopNavbar
