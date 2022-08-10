@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +11,6 @@ import AntImg from "../../assets/ants_img/redAnt.png";
 import NetImg from "../../assets/net/net.png";
 import BackNet from "../../assets/net/backnet.png";
 import fishImg from "../../assets/fish.png";
-import { Net } from "../../assets/svg/Logo/Icons";
 
 type IOpenState = boolean;
 

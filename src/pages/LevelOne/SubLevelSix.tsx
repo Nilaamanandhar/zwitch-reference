@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../../component/TextInput/TextInput";
 import background from "../../assets/background_img/bluebackground.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 import ArrowButton from "../../component/ArrowButton/ArrowButton";
-import { Arrow } from "../../assets/svg/Logo/Icons";
+
 type IOpenState = boolean;
 
 type SubLevelSixType = {

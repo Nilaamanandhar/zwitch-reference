@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
-import { Arrow, Settings, Logout, SemsomLogo } from "../assets/svg/Logo/Icons";
+import { Arrow } from "../assets/svg/Logo/Icons";
 import background from "../assets/background_img/background.jpg";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import PopUpModal from "../component/modal/modal";
@@ -15,7 +15,7 @@ export const MainPage = (props: MainPageType) => {
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
   let navigate = useNavigate();
   const [openDialog, setOpenDialog] = useState(false);
-  const [openPopup, setOpenPopup] = useState(false);
+
   return (
     <div>
       <img className="background-img" src={background} />
