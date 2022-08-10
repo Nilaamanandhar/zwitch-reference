@@ -39,6 +39,13 @@ export default function SubLevelTen(props: SubLevelTenType) {
       navigate("/failgame");
     }
   }, [gameChance]);
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -120,6 +127,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
           {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>

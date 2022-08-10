@@ -42,6 +42,13 @@ export default function SubLevelFive(props: SubLevelFiveType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   const handleChangeItem = () => {
     if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
@@ -150,6 +157,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
         </div>
         <BottomContainer
