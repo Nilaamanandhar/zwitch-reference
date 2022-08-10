@@ -42,6 +42,13 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
       }
     }, 10000);
   }, [activeTimeState]);
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
@@ -141,6 +148,7 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
         </div>
         <BottomContainer

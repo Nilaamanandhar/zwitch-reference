@@ -38,6 +38,13 @@ export default function SubLevelFour(props: SubLevelFourType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   useEffect(() => {
     if (gameChance == 2 || gameChance == 4) {
       setActiveState(activeState + 1);
@@ -123,6 +130,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
         </div>
         <BottomContainer

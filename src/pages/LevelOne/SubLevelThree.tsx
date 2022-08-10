@@ -37,6 +37,13 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   const handleChangeItem = () => {
     if (firstNumber + secondNumber !== parseInt(textValue)) {
       navigate("/failgame");
@@ -105,6 +112,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           onChange={(e: any) => {
             setTextValue(e.target.value);
           }}
+          onKeyPress={(event: any) => handleEnter(event)}
           className="top-container"
         />
 

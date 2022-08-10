@@ -37,6 +37,13 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+  const handleEnter = (e: any) => {
+    if (e.charCode === 13) {
+      setTextValue(e.target.value);
+      handleChangeItem();
+      e.preventDefault();
+    }
+  };
   const handleChangeItem = () => {
     firstNumber + secondNumber !== parseInt(textValue)
       ? navigate("/failgame")
@@ -110,6 +117,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
+            onKeyPress={(event: any) => handleEnter(event)}
           />
         </div>
         <BottomContainer
