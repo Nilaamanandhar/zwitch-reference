@@ -75,13 +75,13 @@ export default function SubLevel1test(props: SubLevelOneType) {
   };
   return (
     <>
-      {/* <TopNavbar
+      <TopNavbar
         leftContent="back"
         navigation={() => navigate(-1)}
         user="Chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
-      /> */}
+      />
       <div className={`${!isGameBegin && "screen-inactivetest"}`}>
         {/* {!isGameBegin && (
           <div className="start-game-icontest">
@@ -104,7 +104,8 @@ export default function SubLevel1test(props: SubLevelOneType) {
               }}
             ></div>
           )}
-          <div className="underline-grouptest d-flex">{underLineLizard()}</div>
+          <div className="underline-grouptest d-flex"><div className="underline-wrapper d-flex">{underLineLizard()}</div><div
+            className="ant-wrappertest d-flex position-absolute end-0"><img src={AntImg} className="me-3"/><img src={AntImg} /></div></div>
           <div className="center-content">
             <img className="background-leaftest" src={leaf} />
             <BoxContainer
