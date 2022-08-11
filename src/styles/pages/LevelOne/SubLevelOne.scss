@@ -90,7 +90,7 @@
     position: absolute;
     top: 12%;
     left: 2vw;
-    z-index:100;
+    z-index:0;
     // transform: translate(-50%,0%);
     .ant-wrapper {
         height: 7vw;
@@ -143,17 +143,17 @@
         height: 120px;
         border-radius: 50%;
         background-color:white ;
-        
+
         cursor: pointer;
         box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
         position: absolute;
         z-index: 1000;
-        left: 0; 
-        right: 0; 
-        margin-left: auto; 
-        margin-right: auto; 
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
         top:0;
         margin-top: auto;
         bottom:0;
