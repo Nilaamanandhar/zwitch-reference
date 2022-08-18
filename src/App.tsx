@@ -55,7 +55,7 @@ function App() {
               />
             }
           />
-           <Route
+          <Route
             path="/test"
             element={
               <SubLevel1test
@@ -157,7 +157,16 @@ function App() {
             }
           />
           <Route path="/game1/level2" element={<SubLevelTwelve />} />
-          <Route path="/failgame" element={<FailGame />} />
+          <Route
+            path="/failgame"
+            element={
+              <FailGame
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route
             path="/wingame"
             element={
