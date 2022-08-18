@@ -45,7 +45,8 @@ export default function SubLevelThree(props: SubLevelThreeType) {
 
   const handleChangeItem = () => {
     if (firstNumber + secondNumber !== parseInt(textValue)) {
-      navigate("/failgame");
+      // navigate("/failgame");
+      setNetAction("return-fish");
     }
   };
 
@@ -75,10 +76,18 @@ export default function SubLevelThree(props: SubLevelThreeType) {
 
   useEffect(() => {
     setTimeout(() => {
-      setNetAction("finish-eating");
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        setNetAction("return-fish");
+      } else {
+        setNetAction("finish-eating");
+      }
     }, 7000);
     setTimeout(() => {
-      setNetAction("go-back");
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        setNetAction("return-fish");
+      } else {
+        setNetAction("go-back");
+      }
     }, 7400);
   }, []);
 
