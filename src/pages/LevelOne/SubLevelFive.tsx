@@ -68,7 +68,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
       if (activeTimeState <= 20) {
         setActiveTimeState(activeTimeState + 1);
       } else {
-        navigate("/failgame");
+        // navigate("/failgame");
       }
     }, 6000);
   }, [activeTimeState]);

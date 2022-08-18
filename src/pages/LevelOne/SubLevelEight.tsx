@@ -36,16 +36,16 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
-      handleChangeItem();
+      // handleChangeItem();
       e.preventDefault();
     }
   };
 
-  const handleChangeItem = () => {
-    firstNumber + secondNumber !== parseInt(textValue)
-      ? navigate("/failgame")
-      : navigate("/game1");
-  };
+  // const handleChangeItem = () => {
+  //   firstNumber + secondNumber !== parseInt(textValue)
+  //     ? navigate("/failgame")
+  //     : navigate("/game1");
+  // };
 
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
@@ -127,7 +127,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
             clearItemNumber();
           }}
           handleChange={() => {
-            handleChangeItem();
+            // handleChangeItem();
           }}
         />
         <div className="bottom-leaf-div">
