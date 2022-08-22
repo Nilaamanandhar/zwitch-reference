@@ -17,6 +17,7 @@ import {
   SubLevelTwelve,
   SubLevel1test,
 } from "./pages/LevelOne/index";
+import LevelTwoSubOne from "./pages/LevelTwo/SubLevelOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
@@ -177,6 +178,7 @@ function App() {
               />
             }
           />
+          <Route path="/level2/sublevel1" element={<LevelTwoSubOne />} />
         </Routes>
       </FullScreen>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -28,6 +28,14 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const [activeState, setActiveState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
+  let finishEating = useRef<any>(null);
+  let goBack = useRef<any>(null);
+  let startEating = useRef<any>(null);
+  let finishEating2 = useRef<any>(null);
+  let goBack2 = useRef<any>(null);
+  let restartAction = useRef<any>(null);
+  let restartAction2 = useRef<any>(null);
+
   const [netAction, setNetAction] = useState("");
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
@@ -37,16 +45,59 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   };
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
+      e.preventDefault();
       setTextValue(e.target.value);
       handleChangeItem();
-      e.preventDefault();
     }
   };
 
+  const clearAllPreviousTimeOut = () => {
+    clearTimeout(finishEating.current);
+    finishEating.current = "fin";
+    clearTimeout(goBack.current);
+    goBack.current = "fin";
+    clearTimeout(finishEating2.current);
+    finishEating2.current = "fin";
+    clearTimeout(goBack2.current);
+    goBack2.current = "fin";
+    clearTimeout(restartAction.current);
+    restartAction.current = "fin";
+    clearTimeout(restartAction2.current);
+    restartAction2.current = "fin";
+  };
+
   const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
-      // navigate("/failgame");
-      setNetAction("return-fish");
+    if (firstNumber + secondNumber === parseInt(textValue)) {
+      clearAllPreviousTimeOut();
+      setNetAction("turn-fish");
+      setTimeout(() => {
+        setNetAction("return-fish-net");
+      }, 100);
+
+      setTimeout(() => {
+        setNetAction("");
+        reDoAction();
+      }, 1000);
+    } else {
+      clearAllPreviousTimeOut();
+
+      setNetAction("eat-fast");
+
+      setTimeout(() => {
+        console.log("finsihg eating handle change");
+        setNetAction("finish-eating");
+      }, 500);
+      setTimeout(() => {
+        console.log("back eating handle change");
+
+        setNetAction("go-back");
+      }, 1400);
+
+      setTimeout(() => {
+        setNetAction("");
+        // changeAction(true)
+        reDoAction();
+      }, 2000);
     }
   };
 
@@ -75,21 +126,49 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (firstNumber + secondNumber !== parseInt(textValue)) {
-        setNetAction("return-fish");
-      } else {
+    finishEating.current = setTimeout(() => {
+      if (finishEating.current != "fin") {
         setNetAction("finish-eating");
       }
     }, 7000);
-    setTimeout(() => {
-      if (firstNumber + secondNumber !== parseInt(textValue)) {
-        setNetAction("return-fish");
-      } else {
+
+    goBack.current = setTimeout(() => {
+      console.log("go-back", goBack.current);
+      if (goBack.current != "fin") {
         setNetAction("go-back");
       }
     }, 7400);
+
+    restartAction.current = setTimeout(() => {
+      if (restartAction.current !== "fin") {
+        setNetAction("");
+        reDoAction();
+      }
+    }, 8400);
   }, []);
+
+  const reDoAction = () => {
+    startEating.current = setTimeout(() => {
+      setNetAction("start-eating");
+    }, 1000);
+
+    finishEating2.current = setTimeout(() => {
+      if (finishEating2.current != "fin") {
+        setNetAction("finish-eating");
+      }
+    }, 8000);
+    goBack2.current = setTimeout(() => {
+      if (goBack2.current != "fin") {
+        setNetAction("go-back");
+      }
+    }, 8400);
+    restartAction2.current = setTimeout(() => {
+      if (restartAction2.current !== "fin") {
+        setNetAction("");
+        reDoAction();
+      }
+    }, 9400);
+  };
 
   return (
     <>
