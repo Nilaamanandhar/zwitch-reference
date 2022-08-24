@@ -11,6 +11,7 @@ type ModalProps = {
   children: React.ReactNode;
   dialogClassName: string;
   size: sizeType;
+  muteAudio?: Function;
 };
 
 const PopUpModal = (props: ModalProps) => {
@@ -23,7 +24,13 @@ const PopUpModal = (props: ModalProps) => {
       dialogClassName={props.dialogClassName ? props.dialogClassName : ""}
     >
       <Modal.Header>
-        <div className="cross-button" onClick={() => props.close()}>
+        <div
+          className="cross-button"
+          onClick={() => {
+            props.close();
+            props.muteAudio && props.muteAudio();
+          }}
+        >
           X
         </div>
         <Modal.Title>{props.title}</Modal.Title>

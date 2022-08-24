@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { navbarTypes } from "../navbar/navbar.types";
 import { navbarSlice } from "../navbar/navbar.slice";
+import { audioVoiceSlice } from "../audiovoice/audiovoice.slice";
 // export interface NavbarReducer {
 //   navbar: navbarTypes;
 // }
@@ -10,6 +11,7 @@ import { navbarSlice } from "../navbar/navbar.slice";
 export const store = configureStore({
   reducer: {
     navbar: navbarSlice.reducer,
+    audioVoice: audioVoiceSlice.reducer,
   },
 });
 

@@ -17,6 +17,7 @@ import {
   SubLevelTwelve,
   SubLevel1test,
 } from "./pages/LevelOne/index";
+import LevelTwoSubOne from "./pages/LevelTwo/SubLevelOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
@@ -55,7 +56,7 @@ function App() {
               />
             }
           />
-           <Route
+          <Route
             path="/test"
             element={
               <SubLevel1test
@@ -157,11 +158,30 @@ function App() {
             }
           />
           <Route path="/game1/level2" element={<SubLevelTwelve />} />
-          <Route path="/failgame" element={<FailGame />} />
+          <Route
+            path="/failgame"
+            element={
+              <FailGame
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route
             path="/wingame"
             element={
               <WinGamePage
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/level2/sublevel1"
+            element={
+              <LevelTwoSubOne
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}

@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import TextInput from "../../component/TextInput/TextInput";
 import background from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import { Arrow } from "../../assets/svg/Logo/Icons";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
@@ -42,6 +37,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -49,6 +45,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
@@ -61,15 +58,17 @@ export default function SubLevelFive(props: SubLevelFiveType) {
       navigate("/wingame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   useEffect(() => {
     setTimeout(() => {
       if (activeTimeState <= 20) {
         setActiveTimeState(activeTimeState + 1);
       } else {
-        navigate("/failgame");
+        // navigate("/failgame");
       }
     }, 6000);
   }, [activeTimeState]);
@@ -96,6 +95,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
     return lineList;
   };
+
   const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -116,6 +116,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
     return lineList;
   };
+
   return (
     <>
       <TopNavbar

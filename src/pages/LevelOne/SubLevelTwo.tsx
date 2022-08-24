@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import { Arrow } from "../../assets/svg/Logo/Icons";
-import TextInput from "../../component/TextInput/TextInput";
 import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
@@ -40,6 +35,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -47,6 +43,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       e.preventDefault();
     }
   };
+
   const handleChangeItem = () => {
     if (activeState <= 20) {
       if (firstNumber + secondNumber !== parseInt(textValue)) {
@@ -59,6 +56,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       navigate("/wingame");
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };

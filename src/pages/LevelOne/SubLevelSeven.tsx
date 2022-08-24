@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
@@ -31,6 +30,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
+
   useEffect(() => {
     if (gameChance == 2 || gameChance == 4) {
       setActiveState(activeState + 1);
@@ -39,6 +39,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
       navigate("/failgame");
     }
   }, [gameChance]);
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
@@ -50,6 +51,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleChangeItem = () => {
     setTextValue("");
     if (gameChance <= 4) {
@@ -57,9 +59,11 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
         setGameChance(gameChance + 1);
     }
   };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {

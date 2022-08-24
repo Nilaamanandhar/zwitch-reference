@@ -3,8 +3,6 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import { Arrow } from "../../assets/svg/Logo/Icons";
-import TextInput from "../../component/TextInput/TextInput";
 import leaf from "../../assets/background_img/leaf.png";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";

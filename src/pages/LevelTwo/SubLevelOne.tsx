@@ -1,7 +1,10 @@
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 import React, { useState, useEffect, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
+import { AudioVoiceIcon } from "../../assets/svg/Logo/Icons";
 import background from "../../assets/background_img/bluebackground.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
@@ -14,12 +17,13 @@ import fishImg from "../../assets/fish.png";
 
 type IOpenState = boolean;
 
-type SubLevelThreeType = {
+type LevelTwoSubOneType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelThree(props: SubLevelThreeType) {
+export default function LevelTwoSubOne(props: LevelTwoSubOneType) {
   const [textValue, setTextValue] = useState<string>("");
+  const [playAudio, setPlayAudio] = useState<boolean>(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -179,6 +183,24 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
+      <div
+        style={{
+          backgroundColor: "blue",
+          height: "60px",
+          width: "60px",
+          display: "flex",
+        }}
+      >
+        <AudioVoiceIcon
+          onClick={() => {
+            setPlayAudio(true);
+          }}
+        />
+      </div>
+      <AudioPlayer
+        autoPlay={playAudio}
+        src="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3"
+      />
       <div className="game-contentWrapper">
         {popout && (
           <div
@@ -205,14 +227,8 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           onKeyPress={(event: any) => handleEnter(event)}
           className="top-container"
         />
-
-        <div className="fish-net-wrapper">
-          <img src={fishImg} className={`fish-img ${netAction}`} />
-
-          <img src={BackNet} className={`net-img net-img-back ${netAction} `} />
-          <img src={NetImg} className={`net-img net-img-front ${netAction}`} />
-        </div>
       </div>
+
       <BottomContainer
         addItem={(item: any) => {
           handleItem(item);

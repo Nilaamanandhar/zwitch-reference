@@ -10,20 +10,25 @@ right: -8%;
 
 .top-container {
     z-index: 5;
+    top: 40% !important;
 }
 
 .fish-net-wrapper {
     position: relative;
-    height: 81vh;
+    // height: 81vh;
+    height: calc(100vh - 150px);
     width: 80vw;
     margin: auto;
 }
 
 .fish-img {
-    width: 200px;
-    height: 100px;
+    // width: 200px;
+    // height: 100px;
+    width: 11vw;
+    height: 5vw;
     position: absolute;
-    bottom: 5vh;
+    // bottom: 5vh;
+    bottom: 10vh;
     left: 0;
     z-index: 2;
     animation : pulse 5s linear;
@@ -38,6 +43,18 @@ right: -8%;
         transition: transform 1s ease-out;
         animation: unset;
     }
+    &.turn-fish{
+        transform:rotateY(180deg);
+        transition:transform 0.1s ease-out;
+        animation: unset;
+    }
+
+    &.return-fish-net {
+        transform: translateX(-100vw);
+        transition: transform 3s ease-out;
+        animation: unset;
+    }
+
 }
 
 @keyframes pulse {
@@ -62,27 +79,46 @@ right: -8%;
     }
 }
 .net-img {
-    width: 220px;
-    height: 98%;
+    // width: 220px;
+    // height: 98%;
+    width: 16vw;
+    height: calc(100vh - 200px);
     position: absolute;
     top: 0;
     right: 0;
 
     &.start-eating {
-        transform: translateX(calc(-80vw + 220px));
+        // transform: translateX(calc(-80vw + 220px));
+        transform: translateX(calc(-80vw + 16vw));
         transition: transform 7s ease-out;
     }
 
 
     &.finish-eating {
-        transform: translateX(calc(-80vw + 220px)) scaleX(-1);
-        transition: transform 0.3s ease-out;
+        // transform: translateX(calc(-80vw + 220px)) scaleX(-1);
+        // transition: transform 0.3s ease-out;
+        transform: translateX(calc(-80vw + 16vw)) scaleX(-1);
+        transition:  0.3s ease-out;
     }
 
     &.go-back {
         transform:translateX(200vw) scaleX(-1);
         transition: transform 1s ease-out;
     }
+
+    &.eat-fast {
+        transform: translateX(calc(-80vw + 16vw + 1px));
+        transition: transform 0.4s ease;
+    }
+
+    &.return-fish-net {
+        transform: translateX(100vw);
+        transition: transform 3s ease-out;
+    }
+    // &.return-fish{
+    //     transform: translateX(calc(80vw - 16vw)) scaleX(1);
+    //     transition: transform 0.3s ease-out;
+    // }
 }
 
 .net-img-front{
@@ -92,6 +128,3 @@ right: -8%;
 .net-img-back{
     z-index:1;
 }
-
-
-

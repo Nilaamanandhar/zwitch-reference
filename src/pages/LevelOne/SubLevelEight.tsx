@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
-
-import TextInput from "../../component/TextInput/TextInput";
 import sublevel2 from "../../assets/background_img/sublevel2.jpg";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import ButtonBox from "../../component/Button/Button";
-import { CrossIcon, OkIcon } from "../../assets/svg/Logo/Icons";
 import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
@@ -37,18 +32,21 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
-      handleChangeItem();
+      // handleChangeItem();
       e.preventDefault();
     }
   };
-  const handleChangeItem = () => {
-    firstNumber + secondNumber !== parseInt(textValue)
-      ? navigate("/failgame")
-      : navigate("/game1");
-  };
+
+  // const handleChangeItem = () => {
+  //   firstNumber + secondNumber !== parseInt(textValue)
+  //     ? navigate("/failgame")
+  //     : navigate("/game1");
+  // };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
@@ -78,6 +76,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
       }
     }, 5000);
   }, [activeState]);
+
   return (
     <>
       <TopNavbar
@@ -128,7 +127,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
             clearItemNumber();
           }}
           handleChange={() => {
-            handleChangeItem();
+            // handleChangeItem();
           }}
         />
         <div className="bottom-leaf-div">
