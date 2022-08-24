@@ -81,49 +81,58 @@ function TopNavbar(props: NavProps) {
       >
         <h4 className="text-dark mb-4">My Settings</h4>
         <h5 className="mb-4">Test your Sound here:</h5>
-        <div className="sound-setting-wrapper"><div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-          }} className="setting-button"
-        >
-          <button
-            className="btn-dark btn-logout"
-            onClick={() => {
-              setClickedVoice(true);
+        <div className="sound-setting-wrapper">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
             }}
+            className="setting-button"
           >
-            <Sound />
-          </button>
-        </div></div>
-        <div className="ok-setting-wrapper"> <div
-          style={{
-            display: "flex",
+            <button
+              className="btn-dark btn-logout"
+              onClick={() => {
+                setClickedVoice(true);
+              }}
+            >
+              <Sound />
+            </button>
+          </div>
+        </div>
+        <div className="ok-setting-wrapper">
+          {" "}
+          <div
+            style={{
+              display: "flex",
 
-            alignItems: "center",
-            justifyContent: "center",
-          }} className="setting-button"
-        >
-          <button
-            className={`${
-              !clickedVoice
-                ? "disable-button btn-logout"
-                : "btn-dark btn-logout"
-            } `}
-            disabled={clickedVoice ? false : true}
-            onClick={() => {
-              console.log("clicked");
-              setVoiceAudio(true);
+              alignItems: "center",
+              justifyContent: "center",
             }}
+            className="setting-button"
           >
-            OK
-          </button>
-        </div></div>
+            <button
+              className={`${
+                !clickedVoice
+                  ? "disable-button btn-logout"
+                  : "btn-dark btn-logout"
+              } `}
+              disabled={clickedVoice ? false : true}
+              onClick={() => {
+                console.log("clicked");
+                setVoiceAudio(true);
+              }}
+            >
+              OK
+            </button>
+          </div>
+        </div>
       </PopUpModal>
 
-      {voiceAudio && <AudioVoice />}
+      {voiceAudio && (
+        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
+      )}
       {/* {voiceAudio && <AudioVoice url="/media/cc0-audio/t-rex-roar.mp3" />} */}
 
       <Navbar className="px-4 py-0 custom-navbar" bg="primary" expand="lg">
