@@ -72,20 +72,22 @@ function TopNavbar(props: NavProps) {
 
       <PopUpModal
         size="lg"
-        dialogClassName="logout-modal"
+        dialogClassName=" voice-setting"
         show={soundSetting}
         close={() => setSoundSetting(false)}
         muteAudio={() => setVoiceAudio(false)}
         centered={true}
-        title={"My settings"}
+        title={""}
       >
-        <div
+        <h4 className="text-dark mb-4">My Settings</h4>
+        <h5 className="mb-4">Test your Sound here:</h5>
+        <div className="sound-setting-wrapper"><div
           style={{
             display: "flex",
-
             alignItems: "center",
             justifyContent: "center",
-          }}
+            color: "white",
+          }} className="setting-button"
         >
           <button
             className="btn-dark btn-logout"
@@ -95,14 +97,14 @@ function TopNavbar(props: NavProps) {
           >
             <Sound />
           </button>
-        </div>
-        <div
+        </div></div>
+        <div className="ok-setting-wrapper"> <div
           style={{
             display: "flex",
 
             alignItems: "center",
             justifyContent: "center",
-          }}
+          }} className="setting-button"
         >
           <button
             className={`${
@@ -118,7 +120,7 @@ function TopNavbar(props: NavProps) {
           >
             OK
           </button>
-        </div>
+        </div></div>
       </PopUpModal>
 
       {voiceAudio && <AudioVoice />}
