@@ -11,6 +11,7 @@ import AntImg from "../../assets/ants_img/redAnt.png";
 import NetImg from "../../assets/net/net.png";
 import BackNet from "../../assets/net/backnet.png";
 import fishImg from "../../assets/fish.png";
+import AudioVoice from "../../component/AudioVoice/AudioVoice";
 
 type IOpenState = boolean;
 
@@ -20,6 +21,7 @@ type SubLevelThreeType = {
 
 export default function SubLevelThree(props: SubLevelThreeType) {
   const [textValue, setTextValue] = useState<string>("");
+  const [voiceAudio, setVoiceAudio] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -39,6 +41,10 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const [netAction, setNetAction] = useState("");
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
+
+  useEffect(() => {
+    setVoiceAudio(true);
+  }, []);
 
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
@@ -179,6 +185,9 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
+      {voiceAudio && (
+        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
+      )}
       <div className="game-contentWrapper">
         {popout && (
           <div
