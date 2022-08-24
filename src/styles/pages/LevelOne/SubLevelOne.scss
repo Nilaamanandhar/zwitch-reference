@@ -1,7 +1,6 @@
 
 .screen-inactive{
-    background-color: rgba(9, 25, 38, 0.75);
-     opacity: 0.5
+    filter: blur(3px);
 
 }
 .textinput-wrapper{
@@ -30,6 +29,9 @@
  background-color: #FEC87E;
 }
 
+.backdropFilter{
+    // backdrop-filter: blur;
+}
 .setting-overlay {
     position: absolute;
     top: 0;

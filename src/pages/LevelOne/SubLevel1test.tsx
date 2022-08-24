@@ -116,6 +116,12 @@ export default function SubLevel1test(props: SubLevelOneType) {
                 setTextValue(e.target.value);
               }}
             />
+            <div className="leaf-sublevel4test">
+            <img className="leaf-sublevel22test img-fluid" src={OuterLeaf} />
+            <span className="ant-wrapper-bigtest testtest">
+              <img src={AntImg} />
+            </span>
+          </div>
           </div>
           {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
@@ -127,12 +133,7 @@ export default function SubLevel1test(props: SubLevelOneType) {
               customClass="default-textbox"
             />
           </div> */}
-          <div className="leaf-sublevel4test">
-            <img className="leaf-sublevel22test img-fluid" src={OuterLeaf} />
-            <span className="ant-wrapper-bigtest testtest">
-              <img src={AntImg} />
-            </span>
-          </div>
+          
         </div>
         <BottomContainer
           addItem={(item: any) => {
