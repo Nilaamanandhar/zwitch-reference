@@ -29,7 +29,7 @@ export const MainPage = (props: MainPageType) => {
       <div className="container">
         <div className="start-content">
           <h1 className="center-content">Welkom, Chris!</h1>
-          <div className="welcome-icon">
+          <div className="welcomehome-icon">
             <div
               onClick={() => {
                 navigate("./dashboard");
