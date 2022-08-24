@@ -94,14 +94,14 @@ export default function SubLevelFour(props: SubLevelFourType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
+      {!isGameBegin && (
+        <ArrowButton
+          onClick={() => {
+            setIsGameBegin(true);
+          }}
+        />
+      )}
       <div className={`${!isGameBegin && "screen-inactive"}`}>
-        {!isGameBegin && (
-          <ArrowButton
-            onClick={() => {
-              setIsGameBegin(true);
-            }}
-          />
-        )}
         <div className="game-contentWrapper">
           {popout && (
             <div
