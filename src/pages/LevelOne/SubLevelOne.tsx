@@ -91,7 +91,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             }}
           />
         )}
-        <div className="game-content">
+        <div className="backdropFilter"><div className="game-content ">
           {popout && (
             <div
               className="setting-overlay"
@@ -121,6 +121,12 @@ export default function SubLevelOne(props: SubLevelOneType) {
               customClass="default-textbox"
             />
           </div> */}
+          <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <span className="ant-wrapper-big test">
+          <img src={AntImg} />
+        </span>
+      </div>
         </div>
         <BottomContainer
           addItem={(item: any) => {
@@ -132,14 +138,9 @@ export default function SubLevelOne(props: SubLevelOneType) {
           handleChange={() => {
             handleChangeItem();
           }}
-        />
+        /></div>
       </div>
-      <div className="leaf-sublevel4">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <span className="ant-wrapper-big test">
-          <img src={AntImg} />
-        </span>
-      </div>
+      
     </>
   );
 }
