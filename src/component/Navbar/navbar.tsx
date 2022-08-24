@@ -105,12 +105,14 @@ function TopNavbar(props: NavProps) {
           }}
         >
           <button
-            style={{ pointerEvents: "none", backgroundColor: " #d8d8d8" }}
             className={`${
-              clickedVoice ? "disable-button btn-logout" : "btn-dark btn-logout"
+              !clickedVoice
+                ? "disable-button btn-logout"
+                : "btn-dark btn-logout"
             } `}
-            // disabled={clickedVoice ? false : true}
+            disabled={clickedVoice ? false : true}
             onClick={() => {
+              console.log("clicked");
               setVoiceAudio(true);
             }}
           >
