@@ -178,7 +178,16 @@ function App() {
               />
             }
           />
-          <Route path="/level2/sublevel1" element={<LevelTwoSubOne />} />
+          <Route
+            path="/level2/sublevel1"
+            element={
+              <LevelTwoSubOne
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
         </Routes>
       </FullScreen>
     </div>

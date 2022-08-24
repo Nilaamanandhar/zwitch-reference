@@ -19,6 +19,7 @@ import {
 // import "../styles/pages/test.css";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
+import AudioVoice from "../AudioVoice/AudioVoice";
 
 type NavProps = {
   leftContent: string;
@@ -30,6 +31,11 @@ type NavProps = {
 function TopNavbar(props: NavProps) {
   const navDropdownTitle = <Settings />;
   const [openPopOut, setOpenPopup] = useState(false);
+  const [soundSetting, setSoundSetting] = useState(false);
+  const [voiceAudio, setVoiceAudio] = useState(false);
+  const [clickedVoice, setClickedVoice] = useState(false);
+  console.log("coice", voiceAudio);
+
   // const dispatch = useAppDispatch();
   return (
     <>
@@ -38,6 +44,7 @@ function TopNavbar(props: NavProps) {
         dialogClassName="logout-modal"
         show={openPopOut}
         close={() => setOpenPopup(false)}
+        muteAudio={() => setVoiceAudio(false)}
         centered={true}
         title={""}
       >
@@ -62,6 +69,58 @@ function TopNavbar(props: NavProps) {
           </button>
         </div>
       </PopUpModal>
+
+      <PopUpModal
+        size="lg"
+        dialogClassName="logout-modal"
+        show={soundSetting}
+        close={() => setSoundSetting(false)}
+        muteAudio={() => setVoiceAudio(false)}
+        centered={true}
+        title={"My settings"}
+      >
+        <div
+          style={{
+            display: "flex",
+
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            className="btn-dark btn-logout"
+            onClick={() => {
+              setClickedVoice(true);
+            }}
+          >
+            <Sound />
+          </button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            style={{ pointerEvents: "none", backgroundColor: " #d8d8d8" }}
+            className={`${
+              clickedVoice ? "disable-button btn-logout" : "btn-dark btn-logout"
+            } `}
+            // disabled={clickedVoice ? false : true}
+            onClick={() => {
+              setVoiceAudio(true);
+            }}
+          >
+            OK
+          </button>
+        </div>
+      </PopUpModal>
+
+      {voiceAudio && <AudioVoice />}
+      {/* {voiceAudio && <AudioVoice url="/media/cc0-audio/t-rex-roar.mp3" />} */}
 
       <Navbar className="px-4 py-0 custom-navbar" bg="primary" expand="lg">
         <Navbar.Brand className="text-secondary">
@@ -109,6 +168,7 @@ function TopNavbar(props: NavProps) {
                   <NavDropdown.Item
                     href="#action/3.4"
                     className="d-flex align-items-center mx-2"
+                    onClick={() => setSoundSetting(true)}
                   >
                     <Sound />
                   </NavDropdown.Item>
@@ -118,6 +178,7 @@ function TopNavbar(props: NavProps) {
             <Nav.Link
               onClick={() => {
                 setOpenPopup(true);
+                setVoiceAudio(true);
               }}
               href="#"
               className="menuIcon"
