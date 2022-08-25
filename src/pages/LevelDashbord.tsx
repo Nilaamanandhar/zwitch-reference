@@ -3,10 +3,16 @@ import { useNavigate } from "react-router-dom";
 import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
 import { WoodBlock } from "../assets/game_blocks/blocks";
+import TopNavbar from "../component/Navbar/navbar";
+import { navbarSlice } from "../redux/navbar/navbar.slice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+type LevelDashboardType = {
+  handleFullScreen: any;
+};
 
-function LevelDash() {
+function LevelDash(props: LevelDashboardType) {
   let navigate = useNavigate();
-
+  const dispatch = useAppDispatch();
   const doSomething = (j: number, i: number) => {
     if (i == 1 && j <= 3) {
       navigate("/level1");
@@ -84,20 +90,28 @@ function LevelDash() {
   //     return multiRowWood;
   //   };
   return (
-    <div className="outer-part">
-      <img src={OuterImg} className="dash-image"></img>
-      <div className="monkey-svg">
-        <img src={MonkeyImg} />
+    <>
+      <TopNavbar
+        user={"chris Grafi"}
+        showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
+        leftContent={"Jaargroep"}
+        handleFullScreen={() => props.handleFullScreen()}
+      />
+      <div className="outer-part">
+        <img src={OuterImg} className="dash-image"></img>
+        <div className="monkey-svg">
+          <img src={MonkeyImg} />
+        </div>
+        {/* <div className="brick-items">{multiRowWoodCollection()}</div> */}
+        <div className="brick-items">
+          <div className="row-item">{woodColection(1, 4)}</div>
+          <div className="row-item">{woodColection(2, 5)}</div>
+          <div className="row-item">{woodColection(3, 3)}</div>
+          <div className="row-item">{woodColection(4, 5)}</div>
+          <div className="row-item">{woodColection(5, 5)}</div>
+        </div>
       </div>
-      {/* <div className="brick-items">{multiRowWoodCollection()}</div> */}
-      <div className="brick-items">
-        <div className="row-item">{woodColection(1, 4)}</div>
-        <div className="row-item">{woodColection(2, 5)}</div>
-        <div className="row-item">{woodColection(3, 3)}</div>
-        <div className="row-item">{woodColection(4, 5)}</div>
-        <div className="row-item">{woodColection(5, 5)}</div>
-      </div>
-    </div>
+    </>
   );
 }
 

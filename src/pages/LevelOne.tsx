@@ -3,9 +3,15 @@ import { useNavigate } from "react-router-dom";
 import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
 import { WoodBlock } from "../assets/game_blocks/blocks";
-
-function LevelOne() {
+import TopNavbar from "../component/Navbar/navbar";
+import { navbarSlice } from "../redux/navbar/navbar.slice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+type LevelOneType = {
+  handleFullScreen: any;
+};
+function LevelOne(props: LevelOneType) {
   let navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const doSomething = (j: number, i: number) => {
     switch ((j + 1) * 3 + (i + 1) - 3) {
@@ -74,13 +80,22 @@ function LevelOne() {
     return multiRowWood;
   };
   return (
-    <div className="outer-part">
-      <img src={OuterImg} className="dash-image"></img>
-      <div className="monkey-svg">
-        <img src={MonkeyImg} />
+    <>
+      <TopNavbar
+        leftContent="back"
+        navigation={() => navigate(-1)}
+        user="chris Grafi"
+        showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
+        handleFullScreen={() => props.handleFullScreen()}
+      />{" "}
+      <div className="outer-part">
+        <img src={OuterImg} className="dash-image"></img>
+        <div className="monkey-svg">
+          <img src={MonkeyImg} />
+        </div>
+        <div className="brick-items">{multiRowWoodCollection()}</div>
       </div>
-      <div className="brick-items">{multiRowWoodCollection()}</div>
-    </div>
+    </>
   );
 }
 

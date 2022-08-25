@@ -47,7 +47,16 @@ function App() {
               />
             }
           />
-          <Route path="/level1" element={<LevelOne />} />
+          <Route
+            path="/level1"
+            element={
+              <LevelOne
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route
             path="/game1/level1"
             element={
@@ -62,9 +71,9 @@ function App() {
             path="/level"
             element={
               <LevelDash
-              // handleFullScreen={() => {
-              //   handleFullScreen();
-              // }}
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
               />
             }
           />
@@ -190,7 +199,16 @@ function App() {
               />
             }
           />
-          <Route path="/level2" element={<LevelTwo />} />
+          <Route
+            path="/level2"
+            element={
+              <LevelTwo
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
           <Route
             path="/level2/sublevel1"
             element={
