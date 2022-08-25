@@ -123,7 +123,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         handleFullScreen={() => props.handleFullScreen()}
       />{" "}
       {!isGameBegin && (
-        <ArrowButton
+       <ArrowButton
           onClick={() => {
             setIsGameBegin(true);
           }}

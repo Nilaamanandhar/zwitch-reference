@@ -5,7 +5,7 @@ type ArrowButtonType = {
 };
 export default function ArrowButton(props: ArrowButtonType) {
   return (
-    <div className="start-game-icon">
+    <div className="back-overlay"><div className="start-game-icon">
       <div
         onClick={() => {
           props.onClick();
@@ -14,6 +14,6 @@ export default function ArrowButton(props: ArrowButtonType) {
       >
         <Arrow />
       </div>
-    </div>
+    </div></div>
   );
 }
