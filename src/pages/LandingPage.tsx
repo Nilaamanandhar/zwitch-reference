@@ -25,9 +25,18 @@ export const MainPage = (props: MainPageType) => {
         leftContent={"Jaargroep"}
         handleFullScreen={() => props.handleFullScreen()}
       />
-
+{popout && (
+            <div
+              className="setting-overlay"
+              onClick={() => {
+                dispatch(navbarSlice.actions.openPopOut());
+              }}
+            ></div>
+          )}
       <div className="container">
+        
         <div className="start-content">
+          
           <h1 className="center-content">Welkom, Chris!</h1>
           <div className="welcomehome-icon">
             <div

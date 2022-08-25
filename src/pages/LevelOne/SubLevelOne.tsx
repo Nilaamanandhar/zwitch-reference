@@ -100,36 +100,35 @@ export default function SubLevelOne(props: SubLevelOneType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      {!isGameBegin && (
-        <ArrowButton
-          onClick={() => {
-            setIsGameBegin(true);
-          }}
-        />
-      )}
       <div className={`${!isGameBegin && "screen-inactive"}`}>
-        <div className="backdropFilter">
-          <div className="game-content ">
-            {popout && (
-              <div
-                className="setting-overlay"
-                onClick={() => {
-                  dispatch(navbarSlice.actions.openPopOut());
-                }}
-              ></div>
-            )}
-            <img className="background-leaf" src={leaf} />
-            <div className="underline-group d-flex">{underLineLizard()}</div>
-            <BoxContainer
-              NumberOne={firstNumber}
-              NumberTwo={secondNumber}
-              value={textValue}
-              onChange={(e: any) => {
-                setTextValue(e.target.value);
+        {!isGameBegin && (
+          <ArrowButton
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+          />
+        )}
+        <div className="backdropFilter"><div className="game-content ">
+          {popout && (
+            <div
+              className="setting-overlay"
+              onClick={() => {
+                dispatch(navbarSlice.actions.openPopOut());
               }}
-              onKeyPress={(event: any) => handleEnter(event)}
-            />
-            {/* <div className="box-container">
+            ></div>
+          )}
+          <img className="background-leaf" src={leaf} />
+          <div className="underline-group d-flex">{underLineLizard()}</div>
+          <BoxContainer
+            NumberOne={firstNumber}
+            NumberTwo={secondNumber}
+            value={textValue}
+            onChange={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+            onKeyPress={(event: any) => handleEnter(event)}
+          />
+          {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
             <TextInput
               value={textValue}
@@ -139,26 +138,26 @@ export default function SubLevelOne(props: SubLevelOneType) {
               customClass="default-textbox"
             />
           </div> */}
-            <div className="leaf-sublevel4">
-              <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-              <span className="ant-wrapper-big test">
-                <img src={AntImg} />
-              </span>
-            </div>
-          </div>
-          <BottomContainer
-            addItem={(item: any) => {
-              handleItem(item);
-            }}
-            clearHandle={() => {
-              clearItemNumber();
-            }}
-            handleChange={() => {
-              handleChangeItem();
-            }}
-          />
-        </div>
+          <div className="leaf-sublevel4">
+        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+        <span className="ant-wrapper-big test">
+          <img src={AntImg} />
+        </span>
       </div>
+        </div>
+        <BottomContainer
+          addItem={(item: any) => {
+            handleItem(item);
+          }}
+          clearHandle={() => {
+            clearItemNumber();
+          }}
+          handleChange={() => {
+            handleChangeItem();
+          }}
+        /></div>
+      </div>
+      
     </>
   );
 }
