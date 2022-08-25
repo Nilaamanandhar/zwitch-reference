@@ -15,16 +15,24 @@
 
 .brick-items {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+.brick-items-level{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    height: 15%;
+    width: 75%;
+}
 .wood {
     svg {
         width: 10vw;

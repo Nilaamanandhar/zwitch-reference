@@ -6,6 +6,12 @@ import { WoodBlock } from "../assets/game_blocks/blocks";
 import TopNavbar from "../component/Navbar/navbar";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import level1img from "../assets/level1.png";
+import level2img from "../assets/level2.png";
+import level3img from "../assets/level3.png";
+import level4img from "../assets/level4.png";
+import level5img from "../assets/level5.png";
+import level6img from "../assets/level6.png";
 type LevelOneType = {
   handleFullScreen: any;
 };
@@ -93,7 +99,71 @@ function LevelOne(props: LevelOneType) {
         <div className="monkey-svg">
           <img src={MonkeyImg} />
         </div>
-        <div className="brick-items">{multiRowWoodCollection()}</div>
+        <div className="brick-items-level">
+          {/* {multiRowWoodCollection()} */}
+          <img
+            onClick={() => navigate("/game1/level1")}
+            src={level1img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => {
+              navigate("/game1/level2");
+            }}
+            src={level2img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level3")}
+            src={level3img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level4")}
+            src={level4img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level5")}
+            src={level5img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level6")}
+            src={level6img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level7")}
+            src={level1img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level8")}
+            src={level2img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level9")}
+            src={level3img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level10")}
+            src={level4img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level11")}
+            src={level5img}
+            style={{ height: "100%", width: "10%" }}
+          />
+          <img
+            onClick={() => navigate("/game1/level12")}
+            src={level6img}
+            style={{ height: "100%", width: "10%" }}
+          />
+        </div>
       </div>
     </>
   );

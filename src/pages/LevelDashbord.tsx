@@ -6,6 +6,14 @@ import { WoodBlock } from "../assets/game_blocks/blocks";
 import TopNavbar from "../component/Navbar/navbar";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import speed1img from "../assets/speed1.png";
+import speed2img from "../assets/speed2.png";
+import speed3img from "../assets/speed3.png";
+import speed4img from "../assets/speed4.png";
+import speed5img from "../assets/speed5.png";
+import speed6img from "../assets/speed6.png";
+import speed7img from "../assets/speed7.png";
+import speed8img from "../assets/speed8.png";
 type LevelDashboardType = {
   handleFullScreen: any;
 };
@@ -103,12 +111,41 @@ function LevelDash(props: LevelDashboardType) {
           <img src={MonkeyImg} />
         </div>
         {/* <div className="brick-items">{multiRowWoodCollection()}</div> */}
-        <div className="brick-items">
-          <div className="row-item">{woodColection(1, 4)}</div>
+        <div className="brick-items" style={{ height: "85%", width: "85%" }}>
+          <img
+            onClick={() => {
+              navigate("/level1");
+            }}
+            src={speed1img}
+            style={{ height: "15%", width: "75%" }}
+          />
+          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+            {" "}
+            <img
+              onClick={() => {
+                navigate("/level2");
+              }}
+              src={speed2img}
+              style={{ height: "100%", width: "12%" }}
+            />
+            <img src={speed3img} style={{ height: "100%", width: "87%" }} />
+          </div>
+          <img src={speed4img} style={{ height: "15%", width: "75%" }} />
+          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+            {" "}
+            <img src={speed5img} style={{ height: "100%", width: "20%" }} />
+            <img src={speed6img} style={{ height: "100%", width: "80%" }} />
+          </div>
+          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+            {" "}
+            <img src={speed7img} style={{ height: "100%", width: "20%" }} />
+            <img src={speed8img} style={{ height: "100%", width: "80%" }} />
+          </div>
+          {/* <div className="row-item">{woodColection(1, 4)}</div>
           <div className="row-item">{woodColection(2, 5)}</div>
           <div className="row-item">{woodColection(3, 3)}</div>
           <div className="row-item">{woodColection(4, 5)}</div>
-          <div className="row-item">{woodColection(5, 5)}</div>
+          <div className="row-item">{woodColection(5, 5)}</div> */}
         </div>
       </div>
     </>
