@@ -16,7 +16,7 @@ export default function FailGame(props: failGamePage) {
     <div>
       <TopNavbar
         leftContent="back"
-        navigation={() => navigate("/dashboard")}
+        navigation={() => navigate("/level")}
         user="chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}

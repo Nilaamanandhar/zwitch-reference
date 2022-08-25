@@ -1,8 +1,9 @@
 import React from "react";
 import TextInput from "../../component/TextInput/TextInput";
+import { AudioVoiceIcon } from "../../assets/svg/Logo/Icons";
 type SubLevelOneType = {
-  NumberOne: Number;
-  NumberTwo: Number;
+  NumberOne?: Number;
+  NumberTwo?: Number;
   value: any;
   onKeyPress?: any;
   onChange: Function;
@@ -11,7 +12,16 @@ type SubLevelOneType = {
 export default function BoxContainer(props: SubLevelOneType) {
   return (
     <div className={`box-container ${props.className && `${props.className}`}`}>
-      <div className="fs-3">{`${props.NumberOne} + ${props.NumberTwo} = `}</div>
+      {props.NumberOne && props.NumberTwo ? (
+        <div className="fs-3">
+          {`${props.NumberOne} + ${props.NumberTwo} = `}{" "}
+        </div>
+      ) : (
+        <div className="audio-box">
+          <AudioVoiceIcon />
+        </div>
+      )}
+
       <TextInput
         {...props}
         // value={props.value}

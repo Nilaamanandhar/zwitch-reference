@@ -12,6 +12,7 @@ import NetImg from "../../assets/net/net.png";
 import BackNet from "../../assets/net/backnet.png";
 import fishImg from "../../assets/fish.png";
 import AudioVoice from "../../component/AudioVoice/AudioVoice";
+import ArrowButton from "../../component/ArrowButton/ArrowButton";
 
 type IOpenState = boolean;
 
@@ -27,6 +28,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [isGameBegin, setIsGameBegin] = useState(false);
   const [activeState, setActiveState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
@@ -43,7 +45,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
   useEffect(() => {
-    setVoiceAudio(true);
+    // setVoiceAudio(true);
   }, []);
 
   const clearItemNumber = () => {
@@ -127,32 +129,6 @@ export default function SubLevelThree(props: SubLevelThreeType) {
     return lineList;
   };
 
-  useEffect(() => {
-    setNetAction("start-eating");
-  }, []);
-
-  useEffect(() => {
-    finishEating.current = setTimeout(() => {
-      if (finishEating.current != "fin") {
-        setNetAction("finish-eating");
-      }
-    }, 7000);
-
-    goBack.current = setTimeout(() => {
-      console.log("go-back", goBack.current);
-      if (goBack.current != "fin") {
-        setNetAction("go-back");
-      }
-    }, 7400);
-
-    restartAction.current = setTimeout(() => {
-      if (restartAction.current !== "fin") {
-        setNetAction("");
-        reDoAction();
-      }
-    }, 8400);
-  }, []);
-
   const reDoAction = () => {
     startEating.current = setTimeout(() => {
       setNetAction("start-eating");
@@ -176,6 +152,31 @@ export default function SubLevelThree(props: SubLevelThreeType) {
     }, 9400);
   };
 
+  const handleGameStart = () => {
+    setIsGameBegin(true);
+    setNetAction("start-eating");
+
+    finishEating.current = setTimeout(() => {
+      if (finishEating.current != "fin") {
+        setNetAction("finish-eating");
+      }
+    }, 7000);
+
+    goBack.current = setTimeout(() => {
+      console.log("go-back", goBack.current);
+      if (goBack.current != "fin") {
+        setNetAction("go-back");
+      }
+    }, 7400);
+
+    restartAction.current = setTimeout(() => {
+      if (restartAction.current !== "fin") {
+        setNetAction("");
+        reDoAction();
+      }
+    }, 8400);
+  };
+
   return (
     <>
       <TopNavbar
@@ -185,54 +186,70 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      {voiceAudio && (
-        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
-      )}
-      <div className="game-contentWrapper">
-        {popout && (
-          <div
-            className="setting-overlay"
-            onClick={() => {
-              dispatch(navbarSlice.actions.openPopOut());
-            }}
-          ></div>
-        )}
-        <img className="background-img" src={background} />
-        <div className="underline-group d-flex">
-          {underLineLizard()}
-          <span className="ant-wrapper ant-position">
-            <img src={AntImg} />
-          </span>
-        </div>
-        <BoxContainer
-          NumberOne={firstNumber}
-          NumberTwo={secondNumber}
-          value={textValue}
-          onChange={(e: any) => {
-            setTextValue(e.target.value);
+      {!isGameBegin && (
+        <ArrowButton
+          onClick={() => {
+            // setIsGameBegin(true);
+            handleGameStart();
           }}
-          onKeyPress={(event: any) => handleEnter(event)}
-          className="top-container"
         />
+      )}
+      {/* {voiceAudio && (
+        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
+      )} */}
+      <div className={`${!isGameBegin && "screen-inactive"}`}>
+        <div className="game-contentWrapper">
+          {popout && (
+            <div
+              className="setting-overlay"
+              onClick={() => {
+                dispatch(navbarSlice.actions.openPopOut());
+              }}
+            ></div>
+          )}
+          <img className="background-img" src={background} />
+          <div className="underline-group d-flex">
+            {underLineLizard()}
+            <span className="ant-wrapper ant-position">
+              <img src={AntImg} />
+            </span>
+          </div>
+          <BoxContainer
+            NumberOne={firstNumber}
+            NumberTwo={secondNumber}
+            value={textValue}
+            onChange={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+            onKeyPress={(event: any) => handleEnter(event)}
+            className="top-container"
+          />
 
-        <div className="fish-net-wrapper">
-          <img src={fishImg} className={`fish-img ${netAction}`} />
+          <div className={`fish-net-wrapper`}>
+            <img src={fishImg} className={`fish-img ${netAction}`} />
 
-          <img src={BackNet} className={`net-img net-img-back ${netAction} `} />
-          <img src={NetImg} className={`net-img net-img-front ${netAction}`} />
+            <img
+              src={BackNet}
+              className={`net-img net-img-back ${netAction} `}
+            />
+            <img
+              src={NetImg}
+              className={`net-img net-img-front ${netAction}`}
+            />
+          </div>
         </div>
+        <BottomContainer
+          addItem={(item: any) => {
+            handleItem(item);
+          }}
+          clearHandle={() => {
+            clearItemNumber();
+          }}
+          handleChange={() => {
+            handleChangeItem();
+          }}
+        />
       </div>
-      <BottomContainer
-        addItem={(item: any) => {
-          handleItem(item);
-        }}
-        clearHandle={() => {
-          clearItemNumber();
-        }}
-        handleChange={() => {
-          handleChangeItem();
-        }}
-      />
     </>
   );
 }
