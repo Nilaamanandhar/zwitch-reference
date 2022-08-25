@@ -183,24 +183,7 @@ export default function LevelTwoSubOne(props: LevelTwoSubOneType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      <div
-        style={{
-          backgroundColor: "blue",
-          height: "60px",
-          width: "60px",
-          display: "flex",
-        }}
-      >
-        <AudioVoiceIcon
-          onClick={() => {
-            setPlayAudio(true);
-          }}
-        />
-      </div>
-      <AudioPlayer
-        autoPlay={playAudio}
-        src="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3"
-      />
+
       <div className="game-contentWrapper">
         {popout && (
           <div

@@ -32,7 +32,7 @@ export const MainPage = (props: MainPageType) => {
           <div className="welcomehome-icon">
             <div
               onClick={() => {
-                navigate("./dashboard");
+                navigate("/level");
               }}
               className="arrow-icon"
             >

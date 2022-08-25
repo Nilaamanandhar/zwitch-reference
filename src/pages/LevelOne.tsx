@@ -4,7 +4,7 @@ import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
 import { WoodBlock } from "../assets/game_blocks/blocks";
 
-function MainDash() {
+function LevelOne() {
   let navigate = useNavigate();
 
   const doSomething = (j: number, i: number) => {
@@ -84,4 +84,4 @@ function MainDash() {
   );
 }
 
-export default MainDash;
+export default LevelOne;

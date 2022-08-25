@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.modules.scss";
-import MainDash from "./pages/MainDash";
+import LevelOne from "./pages/LevelOne";
 import { Routes, Route, Link } from "react-router-dom";
 import {
   SubLevelOne,
@@ -22,6 +22,8 @@ import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
 import WinGamePage from "./pages/WinGamePage";
+import LevelDash from "./pages/LevelDashbord";
+import LevelTwo from "./pages/LevelTwo";
 
 function App() {
   let handle = useFullScreenHandle();
@@ -45,7 +47,7 @@ function App() {
               />
             }
           />
-          <Route path="/dashboard" element={<MainDash />} />
+          <Route path="/level1" element={<LevelOne />} />
           <Route
             path="/game1/level1"
             element={
@@ -53,6 +55,16 @@ function App() {
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
+              />
+            }
+          />
+          <Route
+            path="/level"
+            element={
+              <LevelDash
+              // handleFullScreen={() => {
+              //   handleFullScreen();
+              // }}
               />
             }
           />
@@ -178,6 +190,7 @@ function App() {
               />
             }
           />
+          <Route path="/level2" element={<LevelTwo />} />
           <Route
             path="/level2/sublevel1"
             element={
