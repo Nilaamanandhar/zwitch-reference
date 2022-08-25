@@ -91,7 +91,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             }}
           />
         )}
-        <div className="backdropFilter"><div className="game-content ">
+        <div className="game-content ">
           {popout && (
             <div
               className="setting-overlay"
@@ -139,7 +139,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
             handleChangeItem();
           }}
         /></div>
-      </div>
+      
       
     </>
   );
