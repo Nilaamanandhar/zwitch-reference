@@ -32,6 +32,12 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
+  useEffect(() => {
+    if (activeTimeState > 20) {
+      navigate("/failgame");
+    }
+  }, [activeTimeState]);
+
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
@@ -45,10 +51,8 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   };
 
   const handleChangeItem = () => {
-    if (activeState <= 20) {
-      if (firstNumber + secondNumber !== parseInt(textValue)) {
-        navigate("/failgame");
-      } else {
+    if (activeState < 20) {
+      if (firstNumber + secondNumber == parseInt(textValue)) {
         setActiveState(activeState + 1);
         setTextValue("");
       }

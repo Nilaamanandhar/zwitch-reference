@@ -20,6 +20,7 @@ type SubLevelFiveType = {
 };
 
 export default function SubLevelFive(props: SubLevelFiveType) {
+  const [gameChance, setGameChance] = useState<number>(0);
   const [textValue, setTextValue] = useState<string>("");
   const [activeTimeState, setActiveTimeState] = useState(1);
   const [isGameBegin, setIsGameBegin] = useState(false);
@@ -37,6 +38,11 @@ export default function SubLevelFive(props: SubLevelFiveType) {
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
+  useEffect(() => {
+    if (activeTimeState > 20) {
+      navigate("/failgame");
+    }
+  }, [activeTimeState]);
 
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
@@ -46,16 +52,24 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
   };
 
+  useEffect(() => {
+    if (gameChance == 2 || gameChance == 4) {
+      setActiveState(activeState + 1);
+    }
+    if (gameChance > 4) {
+      navigate("/failgame");
+    }
+  }, [gameChance]);
+
   const handleChangeItem = () => {
-    if (activeState <= 20) {
-      if (firstNumber + secondNumber !== parseInt(textValue)) {
-        navigate("/failgame");
+    if (activeState < 20) {
+      setTextValue("");
+      if (gameChance <= 4) {
+        firstNumber + secondNumber !== parseInt(textValue) &&
+          setGameChance(gameChance + 1);
       } else {
-        setActiveState(activeState + 1);
-        setTextValue("");
+        navigate("/wingame");
       }
-    } else {
-      navigate("/wingame");
     }
   };
 
