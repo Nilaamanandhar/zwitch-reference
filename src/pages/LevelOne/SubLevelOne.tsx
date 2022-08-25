@@ -77,7 +77,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
   }, [gameChance]);
 
   const handleChangeItem = () => {
-    if (activeState <= 20) {
+    if (activeState < 20) {
       setTextValue("");
       if (gameChance <= 4) {
         if (firstNumber + secondNumber !== parseInt(textValue)) {
