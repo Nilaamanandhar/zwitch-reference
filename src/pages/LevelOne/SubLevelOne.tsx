@@ -20,6 +20,7 @@ type SubLevelOneType = {
 export default function SubLevelOne(props: SubLevelOneType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [activeState, setActiveState] = useState(1);
+  const [gameChance, setGameChance] = useState(0);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -66,14 +67,23 @@ export default function SubLevelOne(props: SubLevelOneType) {
     console.log("items", item);
     setTextValue(textValue.concat(item.toString()));
   };
-  const handleChangeItem = () => {
-    if (firstNumber + secondNumber !== parseInt(textValue)) {
-      navigate("/failgame");
-    } else {
+  useEffect(() => {
+    if (gameChance == 2 || gameChance == 4) {
       setActiveState(activeState + 1);
-      setTextValue("");
+    }
+    if (gameChance > 4) {
+      navigate("/failgame");
+    }
+  }, [gameChance]);
+
+  const handleChangeItem = () => {
+    setTextValue("");
+    if (gameChance <= 4) {
+      firstNumber + secondNumber !== parseInt(textValue) &&
+        setGameChance(gameChance + 1);
     }
   };
+
   return (
     <>
       <TopNavbar

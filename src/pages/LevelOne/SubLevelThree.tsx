@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 import background from "../../assets/background_img/bluebackground.jpg";
+import soundfile from "../../assets/sound/antsound.mp3";
 import TopNavbar from "../../component/Navbar/navbar";
 import { navbarSlice } from "../../redux/navbar/navbar.slice";
 import BoxContainer from "../../component/Box/BoxContainer";
@@ -207,9 +208,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           }}
         />
       )}
-      {/* {voiceAudio && (
-        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
-      )} */}
+      {voiceAudio && <AudioVoice url={soundfile} />}
       <div className={`${!isGameBegin && "screen-inactive"}`}>
         <div className="game-contentWrapper">
           {popout && (

@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import PopUpModal from "../modal/modal";
 import Dropdown from "react-bootstrap/Dropdown";
+import soundfile from "../../assets/sound/antsound.mp3";
 import "../../styles/pages/test.css";
 import {
   Arrow,
@@ -130,9 +131,7 @@ function TopNavbar(props: NavProps) {
         </div>
       </PopUpModal>
 
-      {voiceAudio && (
-        <AudioVoice url="https://hanzluo.s3-us-west-1.amazonaws.com/music/wuyuwuqing.mp3" />
-      )}
+      {voiceAudio && <AudioVoice url={soundfile} />}
       {/* {voiceAudio && <AudioVoice url="/media/cc0-audio/t-rex-roar.mp3" />} */}
 
       <Navbar className="px-4 py-0 custom-navbar" bg="primary" expand="lg">
