@@ -77,10 +77,17 @@ export default function SubLevelOne(props: SubLevelOneType) {
   }, [gameChance]);
 
   const handleChangeItem = () => {
-    setTextValue("");
-    if (gameChance <= 4) {
-      firstNumber + secondNumber !== parseInt(textValue) &&
-        setGameChance(gameChance + 1);
+    if (activeState <= 20) {
+      setTextValue("");
+      if (gameChance <= 4) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setGameChance(gameChance + 1);
+        } else {
+          setActiveState(activeState + 1);
+        }
+      }
+    } else {
+      navigate("/wingame");
     }
   };
 
