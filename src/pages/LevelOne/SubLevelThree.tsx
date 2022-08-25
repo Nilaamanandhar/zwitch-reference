@@ -21,6 +21,7 @@ type SubLevelThreeType = {
 };
 
 export default function SubLevelThree(props: SubLevelThreeType) {
+  const [gameChance, setGameChance] = useState<number>(0);
   const [textValue, setTextValue] = useState<string>("");
   const [voiceAudio, setVoiceAudio] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -76,6 +77,8 @@ export default function SubLevelThree(props: SubLevelThreeType) {
 
   const handleChangeItem = () => {
     if (firstNumber + secondNumber === parseInt(textValue)) {
+      setActiveState(activeState + 1);
+      setTextValue("");
       clearAllPreviousTimeOut();
       setNetAction("turn-fish");
       setTimeout(() => {
@@ -87,25 +90,30 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         reDoAction();
       }, 1000);
     } else {
-      clearAllPreviousTimeOut();
+      if (gameChance >= 2) {
+        navigate("/failgame");
+      } else {
+        setGameChance(gameChance + 1);
+        clearAllPreviousTimeOut();
 
-      setNetAction("eat-fast");
+        setNetAction("eat-fast");
 
-      setTimeout(() => {
-        console.log("finsihg eating handle change");
-        setNetAction("finish-eating");
-      }, 500);
-      setTimeout(() => {
-        console.log("back eating handle change");
+        setTimeout(() => {
+          console.log("finsihg eating handle change");
+          setNetAction("finish-eating");
+        }, 500);
+        setTimeout(() => {
+          console.log("back eating handle change");
 
-        setNetAction("go-back");
-      }, 1400);
+          setNetAction("go-back");
+        }, 1400);
 
-      setTimeout(() => {
-        setNetAction("");
-        // changeAction(true)
-        reDoAction();
-      }, 2000);
+        setTimeout(() => {
+          setNetAction("");
+          // changeAction(true)
+          reDoAction();
+        }, 2000);
+      }
     }
   };
 
@@ -117,7 +125,12 @@ export default function SubLevelThree(props: SubLevelThreeType) {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1 whiteLine" key={i}>
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
           <div
             className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
           >
