@@ -125,35 +125,35 @@ function LevelDash(props: LevelDashboardType) {
           <img src={MonkeyImg} />
         </div>
         {/* <div className="brick-items">{multiRowWoodCollection()}</div> */}
-        <div className="brick-items" style={{ height: "85%", width: "85%" }}>
+        <div className="brick-items">
           <img
             onClick={() => {
               navigate("/level1");
             }}
+            className="speed1"
             src={speed1img}
-            style={{ height: "15%", width: "75%" }}
           />
-          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+          <div className="d-flex secondRowwrapper">
             {" "}
             <img
               onClick={() => {
                 navigate("/level2");
               }}
+              className="speed2"
               src={speed2img}
-              style={{ height: "100%", width: "12%" }}
             />
-            <img src={speed3img} style={{ height: "100%", width: "87%" }} />
+            <img src={speed3img} className="speed3" />
           </div>
-          <img src={speed4img} style={{ height: "15%", width: "75%" }} />
-          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+          <img src={speed4img} className="speed4" />
+          <div className="d-flex thirdRowwrapper">
             {" "}
-            <img src={speed5img} style={{ height: "100%", width: "20%" }} />
-            <img src={speed6img} style={{ height: "100%", width: "80%" }} />
+            <img src={speed5img} className="speed5" />
+            <img src={speed6img} className="speed6" />
           </div>
-          <div className="d-flex" style={{ height: "15%", width: "75%" }}>
+          <div className="d-flex fourthRowwrapper">
             {" "}
-            <img src={speed7img} style={{ height: "100%", width: "20%" }} />
-            <img src={speed8img} style={{ height: "100%", width: "80%" }} />
+            <img src={speed7img} className="speed7" />
+            <img src={speed8img} className="speed8" />
           </div>
           {/* <div className="row-item">{woodColection(1, 4)}</div>
           <div className="row-item">{woodColection(2, 5)}</div>

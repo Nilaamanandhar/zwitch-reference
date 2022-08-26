@@ -22,6 +22,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 85%;
+     width: 85%
 }
 
 .brick-items-level{
@@ -45,4 +47,40 @@
 .dash-image {
     height: 100vh;
     width: 100vw;
+}
+.speed1{
+    height: 15%;
+    width: 75%;
+
+}
+.secondRowwrapper{
+    height: 15%; width: 75%
+}
+.speed2{
+    height: 100%; width: 12%
+
+}
+.speed3{
+    height: 100%; width: 87%
+}
+.speed4{
+    height: 15%; width: 75%
+}
+.thirdRowwrapper{
+    height: 15%; width: 75%
+}
+.speed5{
+    height: 100%; width: 20%
+}
+.speed6{
+    height: 100%; width: 80%
+}
+.fourthRowwrapper{
+    height: 15%; width: 75%
+}
+.speed7{
+    height: 100%; width: 20%
+}
+.speed8{
+    height: 100%; width: 80%
 }
