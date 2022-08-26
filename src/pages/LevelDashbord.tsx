@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
 import { WoodBlock } from "../assets/game_blocks/blocks";
 import TopNavbar from "../component/Navbar/navbar";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import speed1img from "../assets/speed1.png";
@@ -20,6 +21,7 @@ type LevelDashboardType = {
 
 function LevelDash(props: LevelDashboardType) {
   let navigate = useNavigate();
+  let handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
   const doSomething = (j: number, i: number) => {
     if (i == 1 && j <= 3) {
@@ -73,6 +75,18 @@ function LevelDash(props: LevelDashboardType) {
     //   default:
     // }
   };
+  const handleFullScreen = () => {
+    console.log("full screen clicked");
+    handle.enter();
+    // handle.active ? handle.exit : handle.enter;
+  };
+  useEffect(() => {
+    const isFullScreenViewer = localStorage.getItem("fullscreenviewer");
+    if (isFullScreenViewer === "true") {
+      handleFullScreen();
+      localStorage.setItem("fullscreenviewer", "false");
+    }
+  }, []);
 
   const woodColection = (rowNumber: number, j: number) => {
     let woodElement = [];
@@ -98,7 +112,7 @@ function LevelDash(props: LevelDashboardType) {
   //     return multiRowWood;
   //   };
   return (
-    <>
+    <FullScreen handle={handle}>
       <TopNavbar
         user={"chris Grafi"}
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
@@ -148,7 +162,7 @@ function LevelDash(props: LevelDashboardType) {
           <div className="row-item">{woodColection(5, 5)}</div> */}
         </div>
       </div>
-    </>
+    </FullScreen>
   );
 }
 

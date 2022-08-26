@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.modules.scss";
 import LevelOne from "./pages/LevelOne";
 import { Routes, Route, Link } from "react-router-dom";
@@ -27,6 +27,10 @@ import LevelTwo from "./pages/LevelTwo";
 
 function App() {
   let handle = useFullScreenHandle();
+
+  useEffect(() => {
+    localStorage.setItem("fullscreenviewer", "true");
+  }, []);
 
   const handleFullScreen = () => {
     console.log("full screen clicked");
