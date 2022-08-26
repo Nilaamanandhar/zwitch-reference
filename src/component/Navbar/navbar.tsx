@@ -104,11 +104,9 @@ function TopNavbar(props: NavProps) {
           </div>
         </div>
         <div className="ok-setting-wrapper">
-          {" "}
           <div
             style={{
               display: "flex",
-
               alignItems: "center",
               justifyContent: "center",
             }}
