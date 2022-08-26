@@ -134,7 +134,6 @@ function LevelDash(props: LevelDashboardType) {
             src={speed1img}
           />
           <div className="d-flex secondRowwrapper">
-            {" "}
             <img
               onClick={() => {
                 navigate("/level2");
@@ -146,12 +145,10 @@ function LevelDash(props: LevelDashboardType) {
           </div>
           <img src={speed4img} className="speed4" />
           <div className="d-flex thirdRowwrapper">
-            {" "}
             <img src={speed5img} className="speed5" />
             <img src={speed6img} className="speed6" />
           </div>
           <div className="d-flex fourthRowwrapper">
-            {" "}
             <img src={speed7img} className="speed7" />
             <img src={speed8img} className="speed8" />
           </div>
