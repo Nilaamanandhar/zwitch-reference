@@ -12,10 +12,10 @@ export default function TextInput(props: textProps) {
   return (
     <Form>
       <Form.Control
+        type="number"
         className={props.customClass}
         value={props.value}
         onChange={(e) => props.onChange(e)}
-        type="text"
         onKeyPress={(e) => props.onKeyPress(e)}
       />
     </Form>
