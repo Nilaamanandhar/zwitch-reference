@@ -96,6 +96,7 @@ function TopNavbar(props: NavProps) {
               className="btn-dark btn-logout"
               onClick={() => {
                 setClickedVoice(true);
+                setVoiceAudio(!voiceAudio);
               }}
             >
               <Sound />
@@ -122,7 +123,8 @@ function TopNavbar(props: NavProps) {
               disabled={clickedVoice ? false : true}
               onClick={() => {
                 console.log("clicked");
-                setVoiceAudio(true);
+                setSoundSetting(false);
+                setClickedVoice(false);
               }}
             >
               OK
