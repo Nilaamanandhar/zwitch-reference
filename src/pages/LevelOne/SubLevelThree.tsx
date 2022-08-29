@@ -231,16 +231,6 @@ export default function SubLevelThree(props: SubLevelThreeType) {
               <img src={AntImg} />
             </span>
           </div>
-          <BoxContainer
-            NumberOne={firstNumber}
-            NumberTwo={secondNumber}
-            value={textValue}
-            onChange={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-            onKeyPress={(event: any) => handleEnter(event)}
-            className="top-container"
-          />
 
           <div className={`fish-net-wrapper`}>
             <img src={fishImg} className={`fish-img ${netAction}`} />
@@ -254,6 +244,16 @@ export default function SubLevelThree(props: SubLevelThreeType) {
               className={`net-img net-img-front ${netAction}`}
             />
           </div>
+          <BoxContainer
+            NumberOne={firstNumber}
+            NumberTwo={secondNumber}
+            value={textValue}
+            onChange={(e: any) => {
+              setTextValue(e.target.value);
+            }}
+            onKeyPress={(event: any) => handleEnter(event)}
+            className="top-container"
+          />
         </div>
         <BottomContainer
           addItem={(item: any) => {
