@@ -25,6 +25,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
+  const [isError, setIsError] = useState(false);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
@@ -78,11 +79,13 @@ export default function SubLevelOne(props: SubLevelOneType) {
 
   const handleChangeItem = () => {
     if (activeState < 20) {
-      setTextValue("");
       if (gameChance <= 4) {
         if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
           setGameChance(gameChance + 1);
         } else {
+          setIsError(false);
+          setTextValue("");
           setActiveState(activeState + 1);
         }
       }
@@ -108,27 +111,29 @@ export default function SubLevelOne(props: SubLevelOneType) {
             }}
           />
         )}
-        <div className="backdropFilter"><div className="game-content ">
-          {popout && (
-            <div
-              className="setting-overlay"
-              onClick={() => {
-                dispatch(navbarSlice.actions.openPopOut());
+        <div className="backdropFilter">
+          <div className="game-content ">
+            {popout && (
+              <div
+                className="setting-overlay"
+                onClick={() => {
+                  dispatch(navbarSlice.actions.openPopOut());
+                }}
+              ></div>
+            )}
+            <img className="background-leaf" src={leaf} />
+            <div className="underline-group d-flex">{underLineLizard()}</div>
+            <BoxContainer
+              NumberOne={firstNumber}
+              NumberTwo={secondNumber}
+              value={textValue}
+              onChange={(e: any) => {
+                setTextValue(e.target.value);
               }}
-            ></div>
-          )}
-          <img className="background-leaf" src={leaf} />
-          <div className="underline-group d-flex">{underLineLizard()}</div>
-          <BoxContainer
-            NumberOne={firstNumber}
-            NumberTwo={secondNumber}
-            value={textValue}
-            onChange={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-            onKeyPress={(event: any) => handleEnter(event)}
-          />
-          {/* <div className="box-container">
+              error={isError}
+              onKeyPress={(event: any) => handleEnter(event)}
+            />
+            {/* <div className="box-container">
             <div className="fs-3">{`${firstNumber} + ${secondNumber} = `}</div>
             <TextInput
               value={textValue}
@@ -138,26 +143,26 @@ export default function SubLevelOne(props: SubLevelOneType) {
               customClass="default-textbox"
             />
           </div> */}
-          <div className="leaf-sublevel4">
-        <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-        <span className="ant-wrapper-big test">
-          <img src={AntImg} />
-        </span>
-      </div>
+            <div className="leaf-sublevel4">
+              <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+              <span className="ant-wrapper-big test">
+                <img src={AntImg} />
+              </span>
+            </div>
+          </div>
+          <BottomContainer
+            addItem={(item: any) => {
+              handleItem(item);
+            }}
+            clearHandle={() => {
+              clearItemNumber();
+            }}
+            handleChange={() => {
+              handleChangeItem();
+            }}
+          />
         </div>
-        <BottomContainer
-          addItem={(item: any) => {
-            handleItem(item);
-          }}
-          clearHandle={() => {
-            clearItemNumber();
-          }}
-          handleChange={() => {
-            handleChangeItem();
-          }}
-        /></div>
       </div>
-      
     </>
   );
 }

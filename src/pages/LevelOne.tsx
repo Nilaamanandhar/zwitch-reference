@@ -6,12 +6,14 @@ import { WoodBlock } from "../assets/game_blocks/blocks";
 import TopNavbar from "../component/Navbar/navbar";
 import { navbarSlice } from "../redux/navbar/navbar.slice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import background from "../assets/background_img/background.jpg";
 import level1img from "../assets/level1.png";
 import level2img from "../assets/level2.png";
 import level3img from "../assets/level3.png";
 import level4img from "../assets/level4.png";
 import level5img from "../assets/level5.png";
 import level6img from "../assets/level6.png";
+import speed1submenu from "../assets/speed1submenu.png";
 type LevelOneType = {
   handleFullScreen: any;
 };
@@ -95,7 +97,8 @@ function LevelOne(props: LevelOneType) {
         handleFullScreen={() => props.handleFullScreen()}
       />{" "}
       <div className="outer-part">
-        <img src={OuterImg} className="dash-image"></img>
+        <img className="background-img" src={background} />
+        {/* <img src={OuterImg} className="dash-image"></img> */}
         <div className="monkey-svg">
           <img src={MonkeyImg} />
         </div>
@@ -164,6 +167,9 @@ function LevelOne(props: LevelOneType) {
             style={{ height: "100%", width: "10%" }}
           />
         </div>
+      </div>
+      <div className="rightSubmenu">
+        <img src={speed1submenu} className="subMenuImage" />
       </div>
     </>
   );

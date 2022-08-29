@@ -30,6 +30,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("fullscreenviewer", "true");
+    localStorage.setItem("voiceSettingModal", "true");
   }, []);
 
   const handleFullScreen = () => {

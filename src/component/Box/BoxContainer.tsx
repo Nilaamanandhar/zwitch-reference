@@ -8,8 +8,10 @@ type SubLevelOneType = {
   onKeyPress?: any;
   onChange: Function;
   className?: string;
+  error?: boolean;
 };
 export default function BoxContainer(props: SubLevelOneType) {
+  console.log("error", props.error);
   return (
     <div className={`box-container ${props.className && `${props.className}`}`}>
       {props.NumberOne && props.NumberTwo ? (
@@ -28,7 +30,7 @@ export default function BoxContainer(props: SubLevelOneType) {
         // onChange={(e: any) => {
         //   console.log("hello");
         // }}
-        customClass="default-textbox"
+        customClass={`${props.error ? "error-InputClass" : "default-textbox"}`}
       />
     </div>
   );

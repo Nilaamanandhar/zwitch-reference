@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import OuterImg from "../assets/background_img/outer.png";
 import MonkeyImg from "../assets/background_img/monkey.png";
+import background from "../assets/background_img/background.jpg";
 import { WoodBlock } from "../assets/game_blocks/blocks";
 import TopNavbar from "../component/Navbar/navbar";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -84,7 +85,7 @@ function LevelDash(props: LevelDashboardType) {
     const isFullScreenViewer = localStorage.getItem("fullscreenviewer");
     if (isFullScreenViewer === "true") {
       handleFullScreen();
-      localStorage.setItem("fullscreenviewer", "false");
+      localStorage.removeItem("fullscreenviewer");
     }
   }, []);
 
@@ -120,7 +121,8 @@ function LevelDash(props: LevelDashboardType) {
         handleFullScreen={() => props.handleFullScreen()}
       />
       <div className="outer-part">
-        <img src={OuterImg} className="dash-image"></img>
+        <img className="background-img" src={background} />
+        {/* <img src={OuterImg} className="dash-image"></img> */}
         <div className="monkey-svg">
           <img src={MonkeyImg} />
         </div>

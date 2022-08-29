@@ -23,6 +23,7 @@ type SubLevelThreeType = {
 
 export default function SubLevelThree(props: SubLevelThreeType) {
   const [gameChance, setGameChance] = useState<number>(0);
+  const [openPopOut, setOpenPopup] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [voiceAudio, setVoiceAudio] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -47,7 +48,11 @@ export default function SubLevelThree(props: SubLevelThreeType) {
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
   useEffect(() => {
-    // setVoiceAudio(true);
+    const isVoiceSettingModal = localStorage.getItem("voiceSettingModal");
+    if (isVoiceSettingModal === "true") {
+      setOpenPopup(true);
+      // localStorage.setItem("voiceSettingModal", false);
+    }
   }, []);
 
   const clearItemNumber = () => {
