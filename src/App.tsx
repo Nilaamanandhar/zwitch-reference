@@ -35,8 +35,7 @@ function App() {
 
   const handleFullScreen = () => {
     console.log("full screen clicked");
-    handle.enter();
-    // handle.active ? handle.exit : handle.enter;
+    handle.active ? handle.exit() : handle.enter();
   };
   return (
     <div className="App">
