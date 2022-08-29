@@ -34,8 +34,8 @@ function LevelTwo(props: LevelTwoType) {
         </div>
         <div className="brick-items">
           <div className="row branch-row">
-            <img className="branch-one" src={level1} />
-            <img className="branch-two" src={level2} />
+          <div className="d-flex"><img className="branch-one" src={level1} />
+            <img className="branch-two" src={level2} /></div>
             <img className="branch-three" src={level3} />
             {/* <div className="col" onClick={() => navigate("/level2/sublevel1")}>
               <span className="wood">
