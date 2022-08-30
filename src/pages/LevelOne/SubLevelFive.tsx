@@ -78,14 +78,16 @@ export default function SubLevelFive(props: SubLevelFiveType) {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      if (activeTimeState <= 20) {
-        setActiveTimeState(activeTimeState + 1);
-      } else {
-        // navigate("/failgame");
-      }
-    }, 6000);
-  }, [activeTimeState]);
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState <= 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 6000);
+    }
+  }, [activeTimeState, isGameBegin]);
 
   const underLineLizard = () => {
     let lineList = [];

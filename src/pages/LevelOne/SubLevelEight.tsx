@@ -24,6 +24,8 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [activeState, setActiveState] = useState(1);
+  const [activeTimeState, setActiveTimeState] = useState(1);
+
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
 
@@ -36,28 +38,38 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
       setTextValue(e.target.value);
-      // handleChangeItem();
+      handleChangeItem();
       e.preventDefault();
     }
   };
 
-  // const handleChangeItem = () => {
-  //   firstNumber + secondNumber !== parseInt(textValue)
-  //     ? navigate("/failgame")
-  //     : navigate("/game1");
-  // };
-
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
-
+  const handleChangeItem = () => {
+    if (activeState <= 20) {
+      if (firstNumber + secondNumber == parseInt(textValue)) {
+        setActiveState(activeState + 1);
+        setTextValue("");
+      }
+    } else {
+      navigate("/wingame");
+    }
+  };
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
       lineList.push(
-        <div className="underline mx-1 whiteLine" key={i}>
+        <div
+          className={`${
+            i < activeTimeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
           <div
-            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+            className={`ant-wrapper ${
+              activeTimeState == i ? "d-block" : "d-none"
+            }`}
           >
             <img src={AntImg} />
           </div>
@@ -68,14 +80,36 @@ export default function SubLevelEight(props: SubLevelEightType) {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      if (activeState <= 20) {
-        setActiveState(activeState + 1);
-      } else {
-        navigate("/failgame");
-      }
-    }, 5000);
-  }, [activeState]);
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState <= 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 5000);
+    }
+  }, [activeTimeState, isGameBegin]);
+  const underLineAnt = () => {
+    let lineList = [];
+    for (let i = 1; i < 21; i++) {
+      lineList.push(
+        <div
+          className={`${
+            i < activeState ? "activeLine" : "whiteLine"
+          } underline mx-1`}
+          key={i}
+        >
+          <div
+            className={`ant-wrapper ${activeState == i ? "d-block" : "d-none"}`}
+          >
+            <img src={AntImg} />
+          </div>
+        </div>
+      );
+    }
+    return lineList;
+  };
 
   return (
     <>
@@ -127,12 +161,12 @@ export default function SubLevelEight(props: SubLevelEightType) {
             clearItemNumber();
           }}
           handleChange={() => {
-            // handleChangeItem();
+            handleChangeItem();
           }}
         />
         <div className="bottom-leaf-div">
           <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-          <div className="underline-group d-flex">{underLineLizard()}</div>
+          <div className="underline-group d-flex">{underLineAnt()}</div>
         </div>
       </div>
     </>

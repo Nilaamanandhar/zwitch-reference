@@ -33,14 +33,16 @@ export default function SubLevelEleven(props: SubLevelElevenType) {
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (activeTimeState <= 20) {
-        setActiveTimeState(activeTimeState + 1);
-      } else {
-        navigate("/failgame");
-      }
-    }, 10000);
-  }, [activeTimeState]);
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState < 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 10000);
+    }
+  }, [activeTimeState, isGameBegin]);
 
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
