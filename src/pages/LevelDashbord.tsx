@@ -85,7 +85,7 @@ function LevelDash(props: LevelDashboardType) {
     const isFullScreenViewer = localStorage.getItem("fullscreenviewer");
     if (isFullScreenViewer === "true") {
       handleFullScreen();
-      localStorage.removeItem("fullscreenviewer");
+      localStorage.setItem("fullscreenviewer", "false");
     }
   }, []);
 
