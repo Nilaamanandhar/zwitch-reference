@@ -109,14 +109,16 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      if (activeTimeState <= 20) {
-        setActiveTimeState(activeTimeState + 1);
-      } else {
-        navigate("/failgame");
-      }
-    }, 10000);
-  }, [activeTimeState]);
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState <= 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 10000);
+    }
+  }, [activeTimeState, isGameBegin]);
   return (
     <>
       <TopNavbar
@@ -127,7 +129,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         handleFullScreen={() => props.handleFullScreen()}
       />{" "}
       {!isGameBegin && (
-       <ArrowButton
+        <ArrowButton
           onClick={() => {
             setIsGameBegin(true);
           }}
