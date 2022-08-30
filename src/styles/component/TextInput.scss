@@ -20,7 +20,8 @@ input[type=number]::-webkit-outer-spin-button
 
 
 .error-InputClass{
-  border:1px solid red !important;
+  border:1px dashed red !important;
+
 }
 .focus-InputClass{
   border:1px solid blue !important;
