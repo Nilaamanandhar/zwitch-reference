@@ -20,6 +20,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
+  const [isError, setIsError] = useState(false);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -47,10 +48,13 @@ export default function SubLevelEight(props: SubLevelEightType) {
     setTextValue(textValue.concat(item.toString()));
   };
   const handleChangeItem = () => {
-    if (activeState <= 20) {
+    if (activeState < 20) {
       if (firstNumber + secondNumber == parseInt(textValue)) {
         setActiveState(activeState + 1);
         setTextValue("");
+        setIsError(false);
+      } else {
+        setIsError(true);
       }
     } else {
       navigate("/wingame");
@@ -147,6 +151,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

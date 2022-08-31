@@ -18,6 +18,7 @@ type SubLevelFourType = {
 
 export default function SubLevelFour(props: SubLevelFourType) {
   const [textValue, setTextValue] = useState<string>("");
+  const [isError, setIsError] = useState(false);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
@@ -53,10 +54,19 @@ export default function SubLevelFour(props: SubLevelFourType) {
   }, [gameChance]);
 
   const handleChangeItem = () => {
-    setTextValue("");
-    if (gameChance <= 4) {
-      firstNumber + secondNumber !== parseInt(textValue) &&
-        setGameChance(gameChance + 1);
+    if (activeState < 20) {
+      if (gameChance <= 4) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
+          setGameChance(gameChance + 1);
+        } else {
+          setIsError(false);
+          setTextValue("");
+          setActiveState(activeState + 1);
+        }
+      }
+    } else {
+      navigate("/wingame");
     }
   };
 
@@ -126,6 +136,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

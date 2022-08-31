@@ -28,6 +28,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const [activeState, setActiveState] = useState(1);
   const [activeTimeState, setActiveTimeState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
+  const [isError, setIsError] = useState(false);
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
@@ -55,6 +56,9 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
       if (firstNumber + secondNumber == parseInt(textValue)) {
         setActiveState(activeState + 1);
         setTextValue("");
+        setIsError(false);
+      } else {
+        setIsError(true);
       }
     } else {
       navigate("/wingame");
@@ -155,6 +159,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

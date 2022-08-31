@@ -22,6 +22,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const [gameChance, setGameChance] = useState<number>(0);
+  const [isError, setIsError] = useState(false);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -53,10 +54,19 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
   };
 
   const handleChangeItem = () => {
-    setTextValue("");
-    if (gameChance <= 4) {
-      firstNumber + secondNumber !== parseInt(textValue) &&
-        setGameChance(gameChance + 1);
+    if (activeState < 20) {
+      if (gameChance <= 4) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
+          setGameChance(gameChance + 1);
+        } else {
+          setIsError(false);
+          setTextValue("");
+          setActiveState(activeState + 1);
+        }
+      }
+    } else {
+      navigate("/wingame");
     }
   };
 
@@ -127,6 +137,7 @@ export default function SubLevelSeven(props: SubLevelSevenType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

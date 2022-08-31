@@ -23,6 +23,7 @@ type SubLevelThreeType = {
 
 export default function SubLevelThree(props: SubLevelThreeType) {
   const [gameChance, setGameChance] = useState<number>(0);
+  const [isError, setIsError] = useState(false);
   const [openPopOut, setOpenPopup] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [voiceAudio, setVoiceAudio] = useState(false);
@@ -95,7 +96,9 @@ export default function SubLevelThree(props: SubLevelThreeType) {
         setNetAction("");
         reDoAction();
       }, 1000);
+      setIsError(false);
     } else {
+      setIsError(true);
       if (gameChance >= 2) {
         navigate("/failgame");
       } else {
@@ -248,6 +251,7 @@ export default function SubLevelThree(props: SubLevelThreeType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

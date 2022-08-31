@@ -22,6 +22,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
   const [activeState, setActiveState] = useState(1);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
+  const [isError, setIsError] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
   const [gameChance, setGameChance] = useState<number>(0);
@@ -79,13 +80,21 @@ export default function SubLevelTen(props: SubLevelTenType) {
   };
 
   const handleChangeItem = () => {
-    setTextValue("");
-    if (gameChance <= 4) {
-      firstNumber + secondNumber !== parseInt(textValue) &&
-        setGameChance(gameChance + 1);
+    if (activeState < 20) {
+      if (gameChance <= 4) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
+          setGameChance(gameChance + 1);
+        } else {
+          setIsError(false);
+          setTextValue("");
+          setActiveState(activeState + 1);
+        }
+      }
+    } else {
+      navigate("/wingame");
     }
   };
-
   return (
     <>
       <TopNavbar
@@ -126,6 +135,7 @@ export default function SubLevelTen(props: SubLevelTenType) {
           <BoxContainer
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
+            error={isError}
             value={textValue}
             onChange={(e: any) => {
               setTextValue(e.target.value);

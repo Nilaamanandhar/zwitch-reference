@@ -21,6 +21,7 @@ type SubLevelFiveType = {
 
 export default function SubLevelFive(props: SubLevelFiveType) {
   const [gameChance, setGameChance] = useState<number>(0);
+  const [isError, setIsError] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [activeTimeState, setActiveTimeState] = useState(1);
   const [isGameBegin, setIsGameBegin] = useState(false);
@@ -52,26 +53,40 @@ export default function SubLevelFive(props: SubLevelFiveType) {
     }
   };
 
-  useEffect(() => {
-    if (gameChance == 2 || gameChance == 4) {
-      setActiveState(activeState + 1);
-    }
-    if (gameChance > 4) {
-      navigate("/failgame");
-    }
-  }, [gameChance]);
-
   const handleChangeItem = () => {
     if (activeState < 20) {
-      setTextValue("");
-      if (gameChance <= 4) {
-        firstNumber + secondNumber !== parseInt(textValue) &&
-          setGameChance(gameChance + 1);
+      if (firstNumber + secondNumber == parseInt(textValue)) {
+        setActiveState(activeState + 1);
+        setTextValue("");
+        setIsError(false);
       } else {
-        navigate("/wingame");
+        setIsError(true);
       }
+    } else {
+      navigate("/wingame");
     }
   };
+
+  // useEffect(() => {
+  //   if (gameChance == 2 || gameChance == 4) {
+  //     setActiveState(activeState + 1);
+  //   }
+  //   if (gameChance > 4) {
+  //     navigate("/failgame");
+  //   }
+  // }, [gameChance]);
+
+  // const handleChangeItem = () => {
+  //   if (activeState < 20) {
+  //     setTextValue("");
+  //     if (gameChance <= 4) {
+  //       firstNumber + secondNumber !== parseInt(textValue) &&
+  //         setGameChance(gameChance + 1);
+  //     } else {
+  //       navigate("/wingame");
+  //     }
+  //   }
+  // };
 
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
@@ -171,6 +186,7 @@ export default function SubLevelFive(props: SubLevelFiveType) {
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
             value={textValue}
+            error={isError}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}
