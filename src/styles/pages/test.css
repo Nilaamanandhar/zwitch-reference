@@ -24,6 +24,7 @@
 
 .menuIcon{
   transition: all .2s ease-in-out !important;
+  color: azure;
 }
 
 .menuIcon:hover{

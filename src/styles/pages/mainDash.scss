@@ -11,7 +11,10 @@
         height: 35vh;
     }
 }
-
+.right-nav{
+    display: flex;
+    flex-direction: row;
+}
 .brick-items-level > img{
     cursor: pointer;
 }
@@ -109,3 +112,10 @@
     cursor: pointer;
 
 }
+
+.navbar-nav {
+  
+    .dropdown-menu {
+      position: absolute !important;
+    }
+  }
