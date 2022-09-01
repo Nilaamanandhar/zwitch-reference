@@ -10,8 +10,15 @@
     width: 205px;
     bottom: -30px;
     left: 17px;
+    cursor: pointer;
+
 }
 
 .branch-row{
     position: relative;
+
+}
+
+.branch-row > div{
+    cursor: pointer;
 }

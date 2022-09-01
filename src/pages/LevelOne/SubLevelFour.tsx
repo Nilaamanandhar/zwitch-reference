@@ -132,94 +132,100 @@ export default function SubLevelFour(props: SubLevelFourType) {
       <TopNavbar
         leftContent="back"
         navigation={() => navigate(-1)}
-        user="chris Grafi"
+        user="Chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
-      {!isGameBegin && (
-        <ArrowButton
-          onClick={() => {
-            setIsGameBegin(true);
-          }}
-        />
-      )}
       <div className={`${!isGameBegin && "screen-inactive"}`}>
-        <div className="game-contentWrapper">
-          {popout && (
-            <div
-              className="setting-overlay"
-              onClick={() => {
-                dispatch(navbarSlice.actions.openPopOut());
-              }}
-            ></div>
-          )}
-          <img className="background-img" src={background} />
-          <div className="underline-group d-flex">
-            {underLineLizard()}
-            <div
-              className={`ant-one-wrapper ${
-                gameChance >= 1 ? "d-block" : "d-none"
-              }`}
-            >
-              <img src={AntImg} />
-            </div>
-            <div
-              className={`ant-one-wrapper ${
-                gameChance >= 2 ? "d-block" : "d-none"
-              }`}
-            >
-              <img src={AntImg} />
-            </div>
-            {/* <span className="ant-wrapper ant-position">
+        {!isGameBegin && (
+          <ArrowButton
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+          />
+        )}
+        <div className="backdropFilter">
+          <div className="game-content">
+            {popout && (
+              <div
+                className="setting-overlay"
+                onClick={() => {
+                  dispatch(navbarSlice.actions.openPopOut());
+                }}
+              ></div>
+            )}
+            <img className="background-img" src={background} />
+            <div className="underline-group d-flex">
+              {underLineLizard()}
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 1 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 2 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+              {/* <span className="ant-wrapper ant-position">
               <img src={AntImg} />
             </span>
 
             <span className="ant-wrapper ant-position2">
               <img src={AntImg} />
             </span> */}
-          </div>
-          {helperCard && (
-            <img
-              style={{
-                position: "absolute",
-                bottom: "20%",
-                left: "50%",
-                right: "50%",
-                zIndex: "1",
-              }}
-              src={helper}
-              width="250px"
-              height="100px"
-            />
-          )}
-          <BoxContainer
-            NumberOne={firstNumber}
-            NumberTwo={secondNumber}
-            value={textValue}
-            error={isError}
-            onChange={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-            onKeyPress={(event: any) => handleEnter(event)}
-          />
-        </div>
+            </div>
 
-        <BottomContainer
-          addItem={(item: any) => {
-            handleItem(item);
-          }}
-          clearHandle={() => {
-            clearItemNumber();
-          }}
-          handleChange={() => {
-            handleChangeItem();
-          }}
-        />
-        <div className="leaf-sublevel4">
-          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-          <span className="ant-wrapper-big test">
-            <img src={AntImg} />
-          </span>
+            <BoxContainer
+              NumberOne={firstNumber}
+              NumberTwo={secondNumber}
+              value={textValue}
+              error={isError}
+              onChange={(e: any) => {
+                setTextValue(e.target.value);
+              }}
+              onKeyPress={(event: any) => handleEnter(event)}
+            />
+            <div className="leaf-sublevel4">
+              <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+              <span className="ant-wrapper-big test">
+                <img src={AntImg} />
+              </span>
+            </div>
+          </div>
+          <div
+            style={{
+              margin: "-275px 0px 0px 0px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {helperCard && (
+              <img
+                style={{
+                  zIndex: "100",
+                }}
+                src={helper}
+                width="350px"
+                height="125px"
+              />
+            )}
+          </div>
+          <BottomContainer
+            addItem={(item: any) => {
+              handleItem(item);
+            }}
+            clearHandle={() => {
+              clearItemNumber();
+            }}
+            handleChange={() => {
+              handleChangeItem();
+            }}
+          />
         </div>
       </div>
     </>

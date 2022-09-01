@@ -149,12 +149,10 @@ function TopNavbar(props: NavProps) {
             <b>{props.leftContent}</b>
           )}
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
           <Navbar.Text className="mx-auto">
             <SemsomLogo></SemsomLogo>
           </Navbar.Text>
-          <Nav className="">
+          <div className="right-nav">
             <Navbar.Text className="align-items-center text-secondary d-flex align-items-center fs-5">
               {props.user}
             </Navbar.Text>
@@ -197,8 +195,7 @@ function TopNavbar(props: NavProps) {
             >
               <Logout></Logout>
             </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+          </div>
       </Navbar>
     </>
   );
