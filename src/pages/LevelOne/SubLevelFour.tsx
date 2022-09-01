@@ -137,91 +137,95 @@ export default function SubLevelFour(props: SubLevelFourType) {
         handleFullScreen={() => props.handleFullScreen()}
       />
       <div className={`${!isGameBegin && "screen-inactive"}`}>
-      {!isGameBegin && (
-        <ArrowButton
-          onClick={() => {
-            setIsGameBegin(true);
-          }}
-        />
-      )}
-      <div className="backdropFilter">
-        <div className="game-content">
-          {popout && (
-            <div
-              className="setting-overlay"
-              onClick={() => {
-                dispatch(navbarSlice.actions.openPopOut());
-              }}
-            ></div>
-          )}
-          <img className="background-img" src={background} />
-          <div className="underline-group d-flex">
-            {underLineLizard()}
-            <div
-              className={`ant-one-wrapper ${
-                gameChance >= 1 ? "d-block" : "d-none"
-              }`}
-            >
-              <img src={AntImg} />
-            </div>
-            <div
-              className={`ant-one-wrapper ${
-                gameChance >= 2 ? "d-block" : "d-none"
-              }`}
-            >
-              <img src={AntImg} />
-            </div>
-            {/* <span className="ant-wrapper ant-position">
+        {!isGameBegin && (
+          <ArrowButton
+            onClick={() => {
+              setIsGameBegin(true);
+            }}
+          />
+        )}
+        <div className="backdropFilter">
+          <div className="game-content">
+            {popout && (
+              <div
+                className="setting-overlay"
+                onClick={() => {
+                  dispatch(navbarSlice.actions.openPopOut());
+                }}
+              ></div>
+            )}
+            <img className="background-img" src={background} />
+            <div className="underline-group d-flex">
+              {underLineLizard()}
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 1 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 2 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+              {/* <span className="ant-wrapper ant-position">
               <img src={AntImg} />
             </span>
 
             <span className="ant-wrapper ant-position2">
               <img src={AntImg} />
             </span> */}
-          </div>
-          
-          <BoxContainer
-            NumberOne={firstNumber}
-            NumberTwo={secondNumber}
-            value={textValue}
-            error={isError}
-            onChange={(e: any) => {
-              setTextValue(e.target.value);
-            }}
-            onKeyPress={(event: any) => handleEnter(event)}
-          />
-          <div className="leaf-sublevel4">
-          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-          <span className="ant-wrapper-big test">
-            <img src={AntImg} />
-          </span>
-        </div>
-        </div>
-        <div style={{
-                margin: "-300px 0px 0px 0px",
-                display:"flex",
-                justifyContent:"center",
-              }}>{helperCard && (
-            <img
-              style={{
-                zIndex:"100",
+            </div>
+
+            <BoxContainer
+              NumberOne={firstNumber}
+              NumberTwo={secondNumber}
+              value={textValue}
+              error={isError}
+              onChange={(e: any) => {
+                setTextValue(e.target.value);
               }}
-              src={helper}
-              width="250px"
-              height="100px"
+              onKeyPress={(event: any) => handleEnter(event)}
             />
-          )}</div>
-        <BottomContainer
-          addItem={(item: any) => {
-            handleItem(item);
-          }}
-          clearHandle={() => {
-            clearItemNumber();
-          }}
-          handleChange={() => {
-            handleChangeItem();
-          }}
-        />
+            <div className="leaf-sublevel4">
+              <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+              <span className="ant-wrapper-big test">
+                <img src={AntImg} />
+              </span>
+            </div>
+          </div>
+          <div
+            style={{
+              margin: "-275px 0px 0px 0px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {helperCard && (
+              <img
+                style={{
+                  zIndex: "100",
+                }}
+                src={helper}
+                width="350px"
+                height="125px"
+              />
+            )}
+          </div>
+          <BottomContainer
+            addItem={(item: any) => {
+              handleItem(item);
+            }}
+            clearHandle={() => {
+              clearItemNumber();
+            }}
+            handleChange={() => {
+              handleChangeItem();
+            }}
+          />
         </div>
       </div>
     </>

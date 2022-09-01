@@ -197,22 +197,23 @@ export default function SubLevelOne(props: SubLevelOneType) {
               </span>
             </div>
           </div>
-          <div style={{
-                margin: "-300px 0px 0px 0px",
-                display:"flex",
-                justifyContent:"center",
-              }}>
-          {helperCard && (
-            <img
-              style={{
-                zIndex:"100",
-                
-              }}
-              src={helper}
-              width="250px"
-              height="100px"
-            />
-          )}
+          <div
+            style={{
+              margin: "-275px 0px 0px 0px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {helperCard && (
+              <img
+                style={{
+                  zIndex: "100",
+                }}
+                src={helper}
+                width="350px"
+                height="125px"
+              />
+            )}
           </div>
 
           <BottomContainer
