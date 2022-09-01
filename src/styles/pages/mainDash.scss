@@ -12,6 +12,9 @@
     }
 }
 
+.brick-items-level > img{
+    cursor: pointer;
+}
 .brick-items {
     position: absolute;
     top: 50%;
@@ -51,6 +54,7 @@
     min-height: 15px;
     height: auto !important;
     width: 75%;
+    cursor: pointer;
 
 }
 .secondRowwrapper{
@@ -58,36 +62,50 @@
 }
 .speed2{
     min-height: 15px;
-    height: auto !important; width: 12%
+    height: auto !important; width: 12%;
+    cursor: pointer;
+
 
 }
 .speed3{
     min-height: 15px;
-    height: auto !important; width: 87%
+    height: auto !important; width: 87%;
+    cursor: pointer;
+
 }
 .speed4{
     min-height: 15px;
-    height: auto !important; width: 75%
+    height: auto !important; width: 75%;
+    cursor: pointer;
+
 }
 .thirdRowwrapper{
     width: 75%
 }
 .speed5{
     min-height: 15px;
-    height: auto !important; width: 20%
+    height: auto !important; width: 20%;
+    cursor: pointer;
+
 }
 .speed6{
     min-height: 15px;
-    height: auto !important; width: 80%
+    height: auto !important; width: 80%;
+    cursor: pointer;
+
 }
 .fourthRowwrapper{
      width: 75%
 }
 .speed7{
     min-height: 15px;
-    height: auto !important; width: 20%
+    height: auto !important; width: 20%;
+    cursor: pointer;
+
 }
 .speed8{
     min-height: 15px;
-    height: auto !important; width: 80%
+    height: auto !important; width: 80%;
+    cursor: pointer;
+
 }
