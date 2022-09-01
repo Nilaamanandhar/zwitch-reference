@@ -120,7 +120,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         } else {
           navigate("/failgame");
         }
-      }, 10000);
+      }, 6000);
     }
   }, [activeTimeState, isGameBegin]);
   return (

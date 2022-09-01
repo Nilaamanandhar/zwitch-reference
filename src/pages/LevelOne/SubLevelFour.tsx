@@ -10,6 +10,7 @@ import BoxContainer from "../../component/Box/BoxContainer";
 import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 import OuterLeaf from "../../assets/background_img/outerLeaf.png";
+import helper from "../../assets/helper.png";
 type IOpenState = boolean;
 
 type SubLevelFourType = {
@@ -21,8 +22,9 @@ export default function SubLevelFour(props: SubLevelFourType) {
   const [isError, setIsError] = useState(false);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
+  const [helperCard, setHelperCard] = useState(false);
   const [secondNumber, setSecondNumber] = useState<number>(6);
-  const [gameChance, setGameChance] = useState<number>(0);
+  const [gameChance, setGameChance] = useState(2);
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -31,7 +33,15 @@ export default function SubLevelFour(props: SubLevelFourType) {
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
-
+  useEffect(() => {
+    if (textValue) {
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        setIsError(true);
+      } else {
+        setIsError(false);
+      }
+    }
+  }, [textValue]);
   const clearItemNumber = () => {
     setTextValue(textValue.substring(0, textValue.length - 1));
   };
@@ -44,26 +54,48 @@ export default function SubLevelFour(props: SubLevelFourType) {
     }
   };
 
-  useEffect(() => {
-    if (gameChance == 2 || gameChance == 4) {
-      setActiveState(activeState + 1);
-    }
-    if (gameChance > 4) {
-      navigate("/failgame");
-    }
-  }, [gameChance]);
+  // useEffect(() => {
+  //   if (gameChance == 2 || gameChance == 4) {
+  //     setActiveState(activeState + 1);
+  //   }
+  //   if (gameChance > 4) {
+  //     navigate("/failgame");
+  //   }
+  // }, [gameChance]);
 
   const handleChangeItem = () => {
     if (activeState < 20) {
-      if (gameChance <= 4) {
+      if (gameChance >= 0 && !helperCard) {
         if (firstNumber + secondNumber !== parseInt(textValue)) {
           setIsError(true);
-          setGameChance(gameChance + 1);
+
+          if (gameChance > 0) {
+            setHelperCard(true);
+            setGameChance(gameChance - 1);
+          } else {
+            navigate("/failgame");
+          }
+
+          // showCorrectAnswer()
         } else {
-          setIsError(false);
           setTextValue("");
           setActiveState(activeState + 1);
         }
+      } else if (gameChance >= 0 && helperCard) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
+          setHelperCard(false);
+
+          setTextValue((firstNumber + secondNumber).toString());
+          // showCorrectAnswer()
+        } else {
+          setHelperCard(false);
+          setTextValue("");
+          setActiveState(activeState + 1);
+        }
+      } else {
+        // console.log("finished");
+        navigate("/failgame");
       }
     } else {
       navigate("/wingame");
@@ -124,14 +156,42 @@ export default function SubLevelFour(props: SubLevelFourType) {
           <img className="background-img" src={background} />
           <div className="underline-group d-flex">
             {underLineLizard()}
-            <span className="ant-wrapper ant-position">
+            <div
+              className={`ant-one-wrapper ${
+                gameChance >= 1 ? "d-block" : "d-none"
+              }`}
+            >
+              <img src={AntImg} />
+            </div>
+            <div
+              className={`ant-one-wrapper ${
+                gameChance >= 2 ? "d-block" : "d-none"
+              }`}
+            >
+              <img src={AntImg} />
+            </div>
+            {/* <span className="ant-wrapper ant-position">
               <img src={AntImg} />
             </span>
 
             <span className="ant-wrapper ant-position2">
               <img src={AntImg} />
-            </span>
+            </span> */}
           </div>
+          {helperCard && (
+            <img
+              style={{
+                position: "absolute",
+                bottom: "20%",
+                left: "50%",
+                right: "50%",
+                zIndex: "1",
+              }}
+              src={helper}
+              width="250px"
+              height="100px"
+            />
+          )}
           <BoxContainer
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
@@ -143,6 +203,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
             onKeyPress={(event: any) => handleEnter(event)}
           />
         </div>
+
         <BottomContainer
           addItem={(item: any) => {
             handleItem(item);

@@ -22,7 +22,7 @@ type SubLevelThreeType = {
 };
 
 export default function SubLevelThree(props: SubLevelThreeType) {
-  const [gameChance, setGameChance] = useState<number>(0);
+  const [gameChance, setGameChance] = useState<number>(1);
   const [isError, setIsError] = useState(false);
   const [openPopOut, setOpenPopup] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
@@ -99,10 +99,10 @@ export default function SubLevelThree(props: SubLevelThreeType) {
       setIsError(false);
     } else {
       setIsError(true);
-      if (gameChance >= 2) {
+      if (gameChance == 0) {
         navigate("/failgame");
       } else {
-        setGameChance(gameChance + 1);
+        setGameChance(gameChance - 1);
         clearAllPreviousTimeOut();
 
         setNetAction("eat-fast");
@@ -230,7 +230,12 @@ export default function SubLevelThree(props: SubLevelThreeType) {
           <img className="background-img" src={background} />
           <div className="underline-group d-flex">
             {underLineLizard()}
-            <span className="ant-wrapper ant-position">
+
+            <span
+              className={`ant-wrapper ant-position ${
+                gameChance <= 0 ? "d-none" : "d-block"
+              }`}
+            >
               <img src={AntImg} />
             </span>
           </div>

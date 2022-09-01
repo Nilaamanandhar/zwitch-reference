@@ -5,7 +5,20 @@
    }
 
 .ant-position{
-right: -8%;
+   right: -8%;
+}
+
+.ant-one-wrapper {
+    height: 7vw;
+    min-height: 52px;
+    width: 3.5vw;
+    min-width: 26px;
+    transform: translateY(-4vw);
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .top-container {

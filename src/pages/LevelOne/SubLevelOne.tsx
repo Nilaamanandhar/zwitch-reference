@@ -11,6 +11,7 @@ import BottomContainer from "../../component/BottomContainer/BottomContainer";
 import AntImg from "../../assets/ants_img/redAnt.png";
 import OuterLeaf from "../../assets/background_img/outerLeaf.png";
 import ArrowButton from "../../component/ArrowButton/ArrowButton";
+import helper from "../../assets/helper.png";
 type IOpenState = boolean;
 
 type SubLevelOneType = {
@@ -20,7 +21,8 @@ type SubLevelOneType = {
 export default function SubLevelOne(props: SubLevelOneType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [activeState, setActiveState] = useState(1);
-  const [gameChance, setGameChance] = useState(0);
+  const [helperCard, setHelperCard] = useState(false);
+  const [gameChance, setGameChance] = useState(2);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -32,6 +34,16 @@ export default function SubLevelOne(props: SubLevelOneType) {
   const navigate = useNavigate();
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
+
+  useEffect(() => {
+    if (textValue) {
+      if (firstNumber + secondNumber !== parseInt(textValue)) {
+        setIsError(true);
+      } else {
+        setIsError(false);
+      }
+    }
+  }, [textValue]);
 
   const underLineLizard = () => {
     let lineList = [];
@@ -68,26 +80,40 @@ export default function SubLevelOne(props: SubLevelOneType) {
     console.log("items", item);
     setTextValue(textValue.concat(item.toString()));
   };
-  useEffect(() => {
-    if (gameChance == 2 || gameChance == 4) {
-      setActiveState(activeState + 1);
-    }
-    if (gameChance > 4) {
-      navigate("/failgame");
-    }
-  }, [gameChance]);
 
   const handleChangeItem = () => {
     if (activeState < 20) {
-      if (gameChance <= 4) {
+      if (gameChance >= 0 && !helperCard) {
         if (firstNumber + secondNumber !== parseInt(textValue)) {
           setIsError(true);
-          setGameChance(gameChance + 1);
+
+          if (gameChance > 0) {
+            setHelperCard(true);
+            setGameChance(gameChance - 1);
+          } else {
+            navigate("/failgame");
+          }
+
+          // showCorrectAnswer()
         } else {
-          setIsError(false);
           setTextValue("");
           setActiveState(activeState + 1);
         }
+      } else if (gameChance >= 0 && helperCard) {
+        if (firstNumber + secondNumber !== parseInt(textValue)) {
+          setIsError(true);
+          setHelperCard(false);
+
+          setTextValue((firstNumber + secondNumber).toString());
+          // showCorrectAnswer()
+        } else {
+          setHelperCard(false);
+          setTextValue("");
+          setActiveState(activeState + 1);
+        }
+      } else {
+        // console.log("finished");
+        navigate("/failgame");
       }
     } else {
       navigate("/wingame");
@@ -122,7 +148,27 @@ export default function SubLevelOne(props: SubLevelOneType) {
               ></div>
             )}
             <img className="background-leaf" src={leaf} />
-            <div className="underline-group d-flex">{underLineLizard()}</div>
+            <div className="underline-group d-flex">
+              {underLineLizard()}
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 1 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+              <div
+                className={`ant-one-wrapper ${
+                  gameChance >= 2 ? "d-block" : "d-none"
+                }`}
+              >
+                <img src={AntImg} />
+              </div>
+
+              {/* <span className="ant-wrapper">
+                <img src={AntImg} />
+              </span> */}
+            </div>
             <BoxContainer
               NumberOne={firstNumber}
               NumberTwo={secondNumber}
@@ -143,6 +189,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
               customClass="default-textbox"
             />
           </div> */}
+
             <div className="leaf-sublevel4">
               <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
               <span className="ant-wrapper-big test">
@@ -150,6 +197,20 @@ export default function SubLevelOne(props: SubLevelOneType) {
               </span>
             </div>
           </div>
+          {helperCard && (
+            <img
+              style={{
+                position: "absolute",
+                bottom: "18%",
+                left: "50%",
+                right: "50%",
+              }}
+              src={helper}
+              width="250px"
+              height="100px"
+            />
+          )}
+
           <BottomContainer
             addItem={(item: any) => {
               handleItem(item);
