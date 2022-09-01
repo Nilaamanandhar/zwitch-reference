@@ -132,10 +132,11 @@ export default function SubLevelFour(props: SubLevelFourType) {
       <TopNavbar
         leftContent="back"
         navigation={() => navigate(-1)}
-        user="chris Grafi"
+        user="Chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
+      <div className={`${!isGameBegin && "screen-inactive"}`}>
       {!isGameBegin && (
         <ArrowButton
           onClick={() => {
@@ -143,8 +144,8 @@ export default function SubLevelFour(props: SubLevelFourType) {
           }}
         />
       )}
-      <div className={`${!isGameBegin && "screen-inactive"}`}>
-        <div className="game-contentWrapper">
+      <div className="backdropFilter">
+        <div className="game-content">
           {popout && (
             <div
               className="setting-overlay"
@@ -178,20 +179,7 @@ export default function SubLevelFour(props: SubLevelFourType) {
               <img src={AntImg} />
             </span> */}
           </div>
-          {helperCard && (
-            <img
-              style={{
-                position: "absolute",
-                bottom: "20%",
-                left: "50%",
-                right: "50%",
-                zIndex: "1",
-              }}
-              src={helper}
-              width="250px"
-              height="100px"
-            />
-          )}
+          
           <BoxContainer
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
@@ -202,8 +190,27 @@ export default function SubLevelFour(props: SubLevelFourType) {
             }}
             onKeyPress={(event: any) => handleEnter(event)}
           />
+          <div className="leaf-sublevel4">
+          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
+          <span className="ant-wrapper-big test">
+            <img src={AntImg} />
+          </span>
         </div>
-
+        </div>
+        <div style={{
+                margin: "-300px 0px 0px 0px",
+                display:"flex",
+                justifyContent:"center",
+              }}>{helperCard && (
+            <img
+              style={{
+                zIndex:"100",
+              }}
+              src={helper}
+              width="250px"
+              height="100px"
+            />
+          )}</div>
         <BottomContainer
           addItem={(item: any) => {
             handleItem(item);
@@ -215,11 +222,6 @@ export default function SubLevelFour(props: SubLevelFourType) {
             handleChangeItem();
           }}
         />
-        <div className="leaf-sublevel4">
-          <img className="leaf-sublevel22 img-fluid" src={OuterLeaf} />
-          <span className="ant-wrapper-big test">
-            <img src={AntImg} />
-          </span>
         </div>
       </div>
     </>

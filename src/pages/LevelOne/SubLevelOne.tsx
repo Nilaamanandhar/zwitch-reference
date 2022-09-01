@@ -125,7 +125,7 @@ export default function SubLevelOne(props: SubLevelOneType) {
       <TopNavbar
         leftContent="back"
         navigation={() => navigate(-1)}
-        user="chris Grafi"
+        user="Chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />
@@ -197,19 +197,23 @@ export default function SubLevelOne(props: SubLevelOneType) {
               </span>
             </div>
           </div>
+          <div style={{
+                margin: "-300px 0px 0px 0px",
+                display:"flex",
+                justifyContent:"center",
+              }}>
           {helperCard && (
             <img
               style={{
-                position: "absolute",
-                bottom: "18%",
-                left: "50%",
-                right: "50%",
+                zIndex:"100",
+                
               }}
               src={helper}
               width="250px"
               height="100px"
             />
           )}
+          </div>
 
           <BottomContainer
             addItem={(item: any) => {
