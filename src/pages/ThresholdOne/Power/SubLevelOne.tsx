@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import leaf from "../../assets/background_img/leaf.png";
-import TopNavbar from "../../component/Navbar/navbar";
-import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import BoxContainer from "../../component/Box/BoxContainer";
-import BottomContainer from "../../component/BottomContainer/BottomContainer";
-import AntImg from "../../assets/ants_img/redAnt.png";
-import OuterLeaf from "../../assets/background_img/outerLeaf.png";
-import ArrowButton from "../../component/ArrowButton/ArrowButton";
-import helper from "../../assets/helper.png";
+import leaf from "../../../assets/background_img/leaf.png";
+import TopNavbar from "../../../component/Navbar/navbar";
+import { navbarSlice } from "../../../redux/navbar/navbar.slice";
+import BoxContainer from "../../../component/Box/BoxContainer";
+import BottomContainer from "../../../component/BottomContainer/BottomContainer";
+import AntImg from "../../../assets/ants_img/redAnt.png";
+import OuterLeaf from "../../../assets/background_img/outerLeaf.png";
+import ArrowButton from "../../../component/ArrowButton/ArrowButton";
+import helper from "../../../assets/helper.png";
 type IOpenState = boolean;
 
 type SubLevelOneType = {

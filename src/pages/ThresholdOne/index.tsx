@@ -1,9 +1,9 @@
-export { default as SubLevelOne } from "./SubLevelOne";
-export { default as SubLevelTwo } from "./SubLevelTwo";
-export { default as SubLevelThree } from "./SubLevelThree";
-export { default as SubLevelFour } from "./SubLevelFour";
-export { default as SubLevelFive } from "./SubLevelFive";
-export { default as SubLevelSix } from "./SubLevelSix";
+export { default as SubLevelOne } from "./Power/SubLevelOne";
+export { default as SubLevelTwo } from "./SpeedOne/SubLevelTwo";
+export { default as SubLevelThree } from "./SpeedTwo/SubLevelThree";
+export { default as SubLevelFour } from "./Power/SubLevelFour";
+export { default as SubLevelFive } from "./SpeedOne/SubLevelFive";
+export { default as SubLevelSix } from "./SpeedTwo/SubLevelSix";
 export { default as SubLevelSeven } from "./SubLevelSeven";
 export { default as SubLevelEight } from "./SubLevelEight";
 export { default as SubLevelNine } from "./SubLevelNine";

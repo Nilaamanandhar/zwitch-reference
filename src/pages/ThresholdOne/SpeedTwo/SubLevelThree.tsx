@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import background from "../../assets/background_img/bluebackground.jpg";
-import soundfile from "../../assets/sound/antsound.mp3";
-import TopNavbar from "../../component/Navbar/navbar";
-import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import BoxContainer from "../../component/Box/BoxContainer";
-import BottomContainer from "../../component/BottomContainer/BottomContainer";
-import AntImg from "../../assets/ants_img/redAnt.png";
-import NetImg from "../../assets/net/net.png";
-import BackNet from "../../assets/net/backnet.png";
-import fishImg from "../../assets/fish.png";
-import AudioVoice from "../../component/AudioVoice/AudioVoice";
-import ArrowButton from "../../component/ArrowButton/ArrowButton";
+import background from "../../../assets/background_img/bluebackground.jpg";
+import soundfile from "../../../assets/sound/antsound.mp3";
+import TopNavbar from "../../../component/Navbar/navbar";
+import { navbarSlice } from "../../../redux/navbar/navbar.slice";
+import BoxContainer from "../../../component/Box/BoxContainer";
+import BottomContainer from "../../../component/BottomContainer/BottomContainer";
+import AntImg from "../../../assets/ants_img/redAnt.png";
+import NetImg from "../../../assets/net/net.png";
+import BackNet from "../../../assets/net/backnet.png";
+import fishImg from "../../../assets/fish.png";
+import AudioVoice from "../../../component/AudioVoice/AudioVoice";
+import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 
 type IOpenState = boolean;
 

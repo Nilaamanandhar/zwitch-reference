@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useNavigate } from "react-router-dom";
 
-import sublevel2 from "../../assets/background_img/sublevel2.jpg";
-import TopNavbar from "../../component/Navbar/navbar";
-import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import BoxContainer from "../../component/Box/BoxContainer";
-import BottomContainer from "../../component/BottomContainer/BottomContainer";
-import AntImg from "../../assets/ants_img/redAnt.png";
-import blackAnt from "../../assets/ants_img/backgroundAnt.png";
-import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
-import ArrowButton from "../../component/ArrowButton/ArrowButton";
+import background from "../../../assets/background_img/sublevel2.jpg";
+import TopNavbar from "../../../component/Navbar/navbar";
+import { navbarSlice } from "../../../redux/navbar/navbar.slice";
+import BoxContainer from "../../../component/Box/BoxContainer";
+import BottomContainer from "../../../component/BottomContainer/BottomContainer";
+import AntImg from "../../../assets/ants_img/redAnt.png";
+import sublevel2 from "../../../assets/background_img/sublevel2.jpg";
+import blackAnt from "../../../assets/ants_img/backgroundAnt.png";
+import OuterLeaf from "../../../assets/background_img/leaf_Sublevel2.png";
+import ArrowButton from "../../../component/ArrowButton/ArrowButton";
+
 type IOpenState = boolean;
 
-type SubLevelTwoType = {
+type SubLevelFiveType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelTwo(props: SubLevelTwoType) {
+export default function SubLevelFive(props: SubLevelFiveType) {
+  const [gameChance, setGameChance] = useState<number>(0);
+  const [isError, setIsError] = useState(false);
   const [textValue, setTextValue] = useState<string>("");
+  const [activeTimeState, setActiveTimeState] = useState(1);
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
   const [secondNumber, setSecondNumber] = useState<number>(6);
@@ -26,22 +31,19 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [activeState, setActiveState] = useState(1);
-  const [activeTimeState, setActiveTimeState] = useState(1);
   const [antPosition, setAntPosition] = useState(1);
-  const [isError, setIsError] = useState(false);
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
+  const clearItemNumber = () => {
+    setTextValue(textValue.substring(0, textValue.length - 1));
+  };
   useEffect(() => {
     if (activeTimeState > 20) {
       navigate("/failgame");
     }
   }, [activeTimeState]);
-
-  const clearItemNumber = () => {
-    setTextValue(textValue.substring(0, textValue.length - 1));
-  };
 
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
@@ -65,9 +67,42 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     }
   };
 
+  // useEffect(() => {
+  //   if (gameChance == 2 || gameChance == 4) {
+  //     setActiveState(activeState + 1);
+  //   }
+  //   if (gameChance > 4) {
+  //     navigate("/failgame");
+  //   }
+  // }, [gameChance]);
+
+  // const handleChangeItem = () => {
+  //   if (activeState < 20) {
+  //     setTextValue("");
+  //     if (gameChance <= 4) {
+  //       firstNumber + secondNumber !== parseInt(textValue) &&
+  //         setGameChance(gameChance + 1);
+  //     } else {
+  //       navigate("/wingame");
+  //     }
+  //   }
+  // };
+
   const handleItem = (item: any) => {
     setTextValue(textValue.concat(item.toString()));
   };
+
+  useEffect(() => {
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState <= 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 6000);
+    }
+  }, [activeTimeState, isGameBegin]);
 
   const underLineLizard = () => {
     let lineList = [];
@@ -91,6 +126,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     }
     return lineList;
   };
+
   const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -112,17 +148,6 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
     return lineList;
   };
 
-  useEffect(() => {
-    if (isGameBegin) {
-      setTimeout(() => {
-        if (activeTimeState <= 20) {
-          setActiveTimeState(activeTimeState + 1);
-        } else {
-          navigate("/failgame");
-        }
-      }, 6000);
-    }
-  }, [activeTimeState, isGameBegin]);
   return (
     <>
       <TopNavbar
@@ -131,7 +156,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         user="chris Grafi"
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
-      />{" "}
+      />
       {!isGameBegin && (
         <ArrowButton
           onClick={() => {
@@ -140,7 +165,7 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
         />
       )}
       <div className={`${!isGameBegin && "screen-inactive"}`}>
-        <div className="game-content">
+        <div className="game-contentWrapper">
           {popout && (
             <div
               className="setting-overlay"
@@ -149,12 +174,14 @@ export default function SubLevelTwo(props: SubLevelTwoType) {
               }}
             ></div>
           )}
+          <img className="background-img" src={background} />
           <img className="background-sublevel2" src={sublevel2} />
 
           <div className="top-leaf-two">
             <img className="leaf-sublevel21 img-fluid" src={OuterLeaf} />
             <div className="underline-group d-flex">{underLineLizard()}</div>
           </div>
+
           <BoxContainer
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
