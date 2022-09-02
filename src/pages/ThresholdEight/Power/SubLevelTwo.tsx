@@ -13,11 +13,11 @@ import OuterLeaf from "../../../assets/background_img/outerLeaf.png";
 import helper from "../../../assets/helper.png";
 type IOpenState = boolean;
 
-type SubLevelFourType = {
+type PowerTwoExerciseType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelFour(props: SubLevelFourType) {
+export default function PowerTwoExercise(props: PowerTwoExerciseType) {
   const [textValue, setTextValue] = useState<string>("");
   const [isError, setIsError] = useState(false);
   const [isGameBegin, setIsGameBegin] = useState(false);

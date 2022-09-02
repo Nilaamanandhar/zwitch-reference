@@ -17,11 +17,11 @@ import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 
 type IOpenState = boolean;
 
-type SubLevelThreeType = {
+type SpeedTwoExerciseOneType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelThree(props: SubLevelThreeType) {
+export default function SpeedTwoExerciseOne(props: SpeedTwoExerciseOneType) {
   const [gameChance, setGameChance] = useState<number>(1);
   const [isError, setIsError] = useState(false);
   const [openPopOut, setOpenPopup] = useState(false);

@@ -11,11 +11,13 @@ import AntImg from "../../../assets/ants_img/redAnt.png";
 import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
-type SubLevelEightType = {
+type SpeedOneExerciseThreeType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelEight(props: SubLevelEightType) {
+export default function SpeedOneExerciseThree(
+  props: SpeedOneExerciseThreeType
+) {
   const [textValue, setTextValue] = useState<string>("");
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);

@@ -24,40 +24,40 @@ function LevelOne(props: LevelOneType) {
   const doSomething = (j: number, i: number) => {
     switch ((j + 1) * 3 + (i + 1) - 3) {
       case 1:
-        navigate("/game1/level1");
+        navigate("/power/sublevel1");
         break;
       case 2:
-        navigate("/game1/level2");
+        navigate("/speed1/sublevel2");
         break;
       case 3:
-        navigate("/game1/level3");
+        navigate("b8/speed2/sublevel3");
         break;
       case 4:
-        navigate("/game1/level4");
+        navigate("/power/sublevel4");
         break;
       case 5:
-        navigate("/game1/level5");
+        navigate("/speed1/sublevel5");
         break;
       case 6:
-        navigate("/game1/level6");
+        navigate("b8/speed2/sublevel6");
         break;
       case 7:
-        navigate("/game1/level7");
+        navigate("/power/sublevel7");
         break;
       case 8:
-        navigate("/game1/level8");
+        navigate("/speed1/sublevel8");
         break;
       case 9:
-        navigate("/game1/level9");
+        navigate("b8/speed2/sublevel9");
         break;
       case 10:
-        navigate("/game1/level10");
+        navigate("/power/sublevel10");
         break;
       case 11:
-        navigate("/game1/level11");
+        navigate("/speed1/sublevel11");
         break;
       case 12:
-        navigate("/game1/level12");
+        navigate("b8/speed2/sublevel12");
         break;
 
       default:
@@ -105,64 +105,64 @@ function LevelOne(props: LevelOneType) {
         <div className="brick-items-level">
           {/* {multiRowWoodCollection()} */}
           <img
-            onClick={() => navigate("/game1/level1")}
+            onClick={() => navigate("/b8/power/sublevel1")}
             src={level1img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
             onClick={() => {
-              navigate("/game1/level2");
+              navigate("/b8/speed1/sublevel1");
             }}
             src={level2img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level3")}
+            onClick={() => navigate("/b8/speed2/sublevel1")}
             src={level3img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level4")}
+            onClick={() => navigate("/b8/power/sublevel2")}
             src={level4img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level5")}
+            onClick={() => navigate("/b8/speed1/sublevel2")}
             src={level5img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level6")}
+            onClick={() => navigate("/b8/speed2/sublevel2")}
             src={level6img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level7")}
+            onClick={() => navigate("/b8/power/sublevel3")}
             src={level1img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level8")}
+            onClick={() => navigate("/b8/speed1/sublevel3")}
             src={level2img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level9")}
+            onClick={() => navigate("/b8/speed2/sublevel3")}
             src={level3img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level10")}
+            onClick={() => navigate("/b8/power/sublevel4")}
             src={level4img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level11")}
+            onClick={() => navigate("/b8/speed1/sublevel4")}
             src={level5img}
             style={{ height: "100%", width: "10%" }}
           />
           <img
-            onClick={() => navigate("/game1/level12")}
+            onClick={() => navigate("/b8/speed2/sublevel4")}
             src={level6img}
             style={{ height: "100%", width: "10%" }}
           />

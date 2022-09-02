@@ -16,11 +16,11 @@ import fishImg from "../../../assets/fish.png";
 
 type IOpenState = boolean;
 
-type SubLevelSixType = {
+type SpeedTwoExerciseTwoType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelSix(props: SubLevelSixType) {
+export default function SpeedTwoExerciseTwo(props: SpeedTwoExerciseTwoType) {
   const [textValue, setTextValue] = useState<string>("");
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [gameChance, setGameChance] = useState<number>(1);

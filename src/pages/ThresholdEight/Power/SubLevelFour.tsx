@@ -13,11 +13,11 @@ import OuterLeaf from "../../../assets/background_img/outerLeaf.png";
 import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
-type SubLevelTenType = {
+type PowerFourExerciseType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelTen(props: SubLevelTenType) {
+export default function PowerFourExercise(props: PowerFourExerciseType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [activeState, setActiveState] = useState(1);
   const [isGameBegin, setIsGameBegin] = useState(false);

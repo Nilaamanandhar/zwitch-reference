@@ -14,11 +14,11 @@ import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 import helper from "../../../assets/helper.png";
 type IOpenState = boolean;
 
-type SubLevelOneType = {
+type PowerOneExerciseType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelOne(props: SubLevelOneType) {
+export default function PowerOneExercise(props: PowerOneExerciseType) {
   const [openPopup, setOpenPopup] = useState<IOpenState>(false);
   const [activeState, setActiveState] = useState(1);
   const [helperCard, setHelperCard] = useState(false);

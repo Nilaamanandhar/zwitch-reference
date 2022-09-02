@@ -15,11 +15,11 @@ import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 
 type IOpenState = boolean;
 
-type SubLevelFiveType = {
+type SpeedOneExerciseTwoType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelFive(props: SubLevelFiveType) {
+export default function SpeedOneExerciseTwo(props: SpeedOneExerciseTwoType) {
   const [gameChance, setGameChance] = useState<number>(0);
   const [isError, setIsError] = useState(false);
   const [textValue, setTextValue] = useState<string>("");

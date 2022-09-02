@@ -12,11 +12,11 @@ import AntImg from "../../../assets/ants_img/redAnt.png";
 import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
-type SubLevelSevenType = {
+type PowerThreeExerciseType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelSeven(props: SubLevelSevenType) {
+export default function PowerThreeExercise(props: PowerThreeExerciseType) {
   const [textValue, setTextValue] = useState<string>("");
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);

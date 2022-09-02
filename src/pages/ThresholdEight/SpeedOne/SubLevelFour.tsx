@@ -13,11 +13,11 @@ import OuterLeaf from "../../../assets/background_img/leaf_Sublevel2.png";
 import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
-type SubLevelElevenType = {
+type SpeedOneExerciseFourType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelEleven(props: SubLevelElevenType) {
+export default function SpeedOneExerciseFour(props: SpeedOneExerciseFourType) {
   const [textValue, setTextValue] = useState<string>("");
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);

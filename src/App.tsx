@@ -3,18 +3,18 @@ import "./style.modules.scss";
 import LevelOne from "./pages/LevelOne";
 import { Routes, Route, Link } from "react-router-dom";
 import {
-  SubLevelOne,
-  SubLevelTwo,
-  SubLevelThree,
-  SubLevelFour,
-  SubLevelFive,
-  SubLevelSix,
-  SubLevelSeven,
-  SubLevelEight,
-  SubLevelNine,
-  SubLevelTen,
-  SubLevelEleven,
-  SubLevelTwelve,
+  PowerOneExercise,
+  PowerTwoExercise,
+  PowerThreeExercise,
+  PowerFourExercise,
+  SpeedOneExerciseOne,
+  SpeedOneExerciseTwo,
+  SpeedOneExerciseThree,
+  SpeedOneExerciseFour,
+  SpeedTwoExerciseOne,
+  SpeedTwoExerciseTwo,
+  SpeedTwoExerciseThree,
+  SpeedTwoExerciseFour,
   SubLevel1test,
 } from "./pages/ThresholdEight/index";
 import LevelTwoSubOne from "./pages/ThresholdSeven/SubLevelOne";
@@ -62,15 +62,46 @@ function App() {
             }
           />
           <Route
-            path="/game1/level1"
+            path="/b8/power/sublevel1"
             element={
-              <SubLevelOne
+              <PowerOneExercise
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
               />
             }
           />
+          <Route
+            path="/b8/power/sublevel2"
+            element={
+              <PowerTwoExercise
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/b8/power/sublevel3"
+            element={
+              <PowerThreeExercise
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+          <Route
+            path="/b8/power/sublevel4"
+            element={
+              <PowerFourExercise
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+
           <Route
             path="/level"
             element={
@@ -92,9 +123,9 @@ function App() {
             }
           />
           <Route
-            path="/game1/level2"
+            path="/b8/speed1/sublevel1"
             element={
-              <SubLevelTwo
+              <SpeedOneExerciseOne
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
@@ -102,9 +133,9 @@ function App() {
             }
           />
           <Route
-            path="/game1/level3"
+            path="/b8/speed1/sublevel2"
             element={
-              <SubLevelThree
+              <SpeedOneExerciseTwo
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
@@ -112,9 +143,20 @@ function App() {
             }
           />
           <Route
-            path="/game1/level4"
+            path="/b8/speed1/sublevel3"
             element={
-              <SubLevelFour
+              <SpeedOneExerciseThree
+                handleFullScreen={() => {
+                  handleFullScreen();
+                }}
+              />
+            }
+          />
+
+          <Route
+            path="/b8/speed1/sublevel4"
+            element={
+              <SpeedOneExerciseFour
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
@@ -122,67 +164,36 @@ function App() {
             }
           />
           <Route
-            path="/game1/level5"
+            path="/b8/speed2/sublevel1"
             element={
-              <SubLevelFive
+              <SpeedTwoExerciseOne
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
               />
             }
           />
+
           <Route
-            path="/game1/level6"
+            path="/b8/speed2/sublevel2"
             element={
-              <SubLevelSix
+              <SpeedTwoExerciseTwo
                 handleFullScreen={() => {
                   handleFullScreen();
                 }}
               />
             }
           />
+
           <Route
-            path="/game1/level7"
-            element={
-              <SubLevelSeven
-                handleFullScreen={() => {
-                  handleFullScreen();
-                }}
-              />
-            }
+            path="/b8/speed2/sublevel3"
+            element={<SpeedTwoExerciseThree />}
           />
+
           <Route
-            path="/game1/level8"
-            element={
-              <SubLevelEight
-                handleFullScreen={() => {
-                  handleFullScreen();
-                }}
-              />
-            }
+            path="/b8/speed2/sublevel4"
+            element={<SpeedTwoExerciseFour />}
           />
-          <Route path="/game1/level9" element={<SubLevelNine />} />
-          <Route
-            path="/game1/level10"
-            element={
-              <SubLevelTen
-                handleFullScreen={() => {
-                  handleFullScreen();
-                }}
-              />
-            }
-          />
-          <Route
-            path="/game1/level11"
-            element={
-              <SubLevelEleven
-                handleFullScreen={() => {
-                  handleFullScreen();
-                }}
-              />
-            }
-          />
-          <Route path="/game1/level2" element={<SubLevelTwelve />} />
           <Route
             path="/failgame"
             element={
