@@ -20,6 +20,7 @@ type LevelOneType = {
 function LevelOne(props: LevelOneType) {
   let navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
   const doSomething = (j: number, i: number) => {
     switch ((j + 1) * 3 + (i + 1) - 3) {
@@ -96,6 +97,14 @@ function LevelOne(props: LevelOneType) {
         showPopOut={() => dispatch(navbarSlice.actions.openPopOut())}
         handleFullScreen={() => props.handleFullScreen()}
       />{" "}
+      {popout && (
+        <div
+          className="setting-overlay"
+          onClick={() => {
+            dispatch(navbarSlice.actions.openPopOut());
+          }}
+        ></div>
+      )}
       <div className="outer-part">
         <img className="background-img" src={background} />
         {/* <img src={OuterImg} className="dash-image"></img> */}
