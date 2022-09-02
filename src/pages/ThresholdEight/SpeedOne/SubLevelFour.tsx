@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useNavigate } from "react-router-dom";
-import sublevel2 from "../../assets/background_img/sublevel2.jpg";
-import TopNavbar from "../../component/Navbar/navbar";
-import { navbarSlice } from "../../redux/navbar/navbar.slice";
-import BoxContainer from "../../component/Box/BoxContainer";
-import BottomContainer from "../../component/BottomContainer/BottomContainer";
-import OuterLeaf from "../../assets/background_img/leaf_Sublevel2.png";
-import AntImg from "../../assets/ants_img/redAnt.png";
-import ArrowButton from "../../component/ArrowButton/ArrowButton";
+
+import sublevel2 from "../../../assets/background_img/sublevel2.jpg";
+import TopNavbar from "../../../component/Navbar/navbar";
+import { navbarSlice } from "../../../redux/navbar/navbar.slice";
+import BoxContainer from "../../../component/Box/BoxContainer";
+import BottomContainer from "../../../component/BottomContainer/BottomContainer";
+import AntImg from "../../../assets/ants_img/redAnt.png";
+import blackAnt from "../../../assets/ants_img/backgroundAnt.png";
+import OuterLeaf from "../../../assets/background_img/leaf_Sublevel2.png";
+import ArrowButton from "../../../component/ArrowButton/ArrowButton";
 type IOpenState = boolean;
 
-type SubLevelEightType = {
+type SubLevelElevenType = {
   handleFullScreen: any;
 };
 
-export default function SubLevelEight(props: SubLevelEightType) {
+export default function SubLevelEleven(props: SubLevelElevenType) {
   const [textValue, setTextValue] = useState<string>("");
   const [isGameBegin, setIsGameBegin] = useState(false);
   const [firstNumber, setFirstNumber] = useState<number>(12);
@@ -26,15 +28,22 @@ export default function SubLevelEight(props: SubLevelEightType) {
   const navigate = useNavigate();
   const [activeState, setActiveState] = useState(1);
   const [activeTimeState, setActiveTimeState] = useState(1);
-
   const [antPosition, setAntPosition] = useState(1);
   const [antCount, setAntCount] = useState(0);
 
   const popout = useAppSelector((state: any) => state.navbar.openDropDown);
 
-  const clearItemNumber = () => {
-    setTextValue(textValue.substring(0, textValue.length - 1));
-  };
+  useEffect(() => {
+    if (isGameBegin) {
+      setTimeout(() => {
+        if (activeTimeState < 20) {
+          setActiveTimeState(activeTimeState + 1);
+        } else {
+          navigate("/failgame");
+        }
+      }, 10000);
+    }
+  }, [activeTimeState, isGameBegin]);
 
   const handleEnter = (e: any) => {
     if (e.charCode === 13) {
@@ -44,8 +53,8 @@ export default function SubLevelEight(props: SubLevelEightType) {
     }
   };
 
-  const handleItem = (item: any) => {
-    setTextValue(textValue.concat(item.toString()));
+  const clearItemNumber = () => {
+    setTextValue(textValue.substring(0, textValue.length - 1));
   };
   const handleChangeItem = () => {
     if (activeState < 20) {
@@ -60,6 +69,11 @@ export default function SubLevelEight(props: SubLevelEightType) {
       navigate("/wingame");
     }
   };
+
+  const handleItem = (item: any) => {
+    setTextValue(textValue.concat(item.toString()));
+  };
+
   const underLineLizard = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -75,7 +89,7 @@ export default function SubLevelEight(props: SubLevelEightType) {
               activeTimeState == i ? "d-block" : "d-none"
             }`}
           >
-            <img src={AntImg} />
+            <img src={blackAnt} />
           </div>
         </div>
       );
@@ -83,17 +97,6 @@ export default function SubLevelEight(props: SubLevelEightType) {
     return lineList;
   };
 
-  useEffect(() => {
-    if (isGameBegin) {
-      setTimeout(() => {
-        if (activeTimeState <= 20) {
-          setActiveTimeState(activeTimeState + 1);
-        } else {
-          navigate("/failgame");
-        }
-      }, 5000);
-    }
-  }, [activeTimeState, isGameBegin]);
   const underLineAnt = () => {
     let lineList = [];
     for (let i = 1; i < 21; i++) {
@@ -150,8 +153,8 @@ export default function SubLevelEight(props: SubLevelEightType) {
           <BoxContainer
             NumberOne={firstNumber}
             NumberTwo={secondNumber}
-            value={textValue}
             error={isError}
+            value={textValue}
             onChange={(e: any) => {
               setTextValue(e.target.value);
             }}

@@ -16,13 +16,13 @@ import {
   SubLevelEleven,
   SubLevelTwelve,
   SubLevel1test,
-} from "./pages/ThresholdOne/index";
-import LevelTwoSubOne from "./pages/ThresholdTwo/SubLevelOne";
+} from "./pages/ThresholdEight/index";
+import LevelTwoSubOne from "./pages/ThresholdSeven/SubLevelOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";
 import WinGamePage from "./pages/WinGamePage";
-import LevelDash from "./pages/LevelDashbord";
+import LevelDash from "./pages/MainMenu";
 import LevelTwo from "./pages/LevelTwo";
 
 function App() {
