@@ -16,8 +16,8 @@ import {
   SubLevelEleven,
   SubLevelTwelve,
   SubLevel1test,
-} from "./pages/LevelOne/index";
-import LevelTwoSubOne from "./pages/LevelTwo/SubLevelOne";
+} from "./pages/ThresholdOne/index";
+import LevelTwoSubOne from "./pages/ThresholdTwo/SubLevelOne";
 import { MainPage } from "./pages/LandingPage";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import FailGame from "./pages/FailGame";

@@ -24,6 +24,7 @@ function LevelDash(props: LevelDashboardType) {
   let navigate = useNavigate();
   let handle = useFullScreenHandle();
   const dispatch = useAppDispatch();
+  const popout = useAppSelector((state: any) => state.navbar.openDropDown);
   const doSomething = (j: number, i: number) => {
     if (i == 1 && j <= 3) {
       navigate("/level1");
@@ -120,6 +121,14 @@ function LevelDash(props: LevelDashboardType) {
         leftContent={"Jaargroep"}
         handleFullScreen={() => props.handleFullScreen()}
       />
+      {popout && (
+        <div
+          className="setting-overlay"
+          onClick={() => {
+            dispatch(navbarSlice.actions.openPopOut());
+          }}
+        ></div>
+      )}
       <div className="outer-part">
         <img className="background-img" src={background} />
         {/* <img src={OuterImg} className="dash-image"></img> */}
